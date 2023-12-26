@@ -3,6 +3,8 @@
 // Initial model that will show if the user has no servers (new users)
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -13,6 +15,9 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "../ui/input";
 
 export const InitialModal = () => {
+
+    const router = useRouter();
+
     // Removing hydration errors
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => {
@@ -42,9 +47,16 @@ export const InitialModal = () => {
     // isLoading to prevent inputs while loading
     const isLoading = form.formState.isSubmitting;
 
-    // Logging values on console
+    // Posting data to prisma
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
-        console.log(values);
+        try {
+            await axios.post("/api/servers", values);
+            form.reset();
+            router.refresh();
+            window.location.reload();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     if(!isMounted){

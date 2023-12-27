@@ -1,7 +1,7 @@
 const ServerPage = () => {
     return ( 
         <div>
-            Team select area
+            Chat Area
         </div>
      );
 }

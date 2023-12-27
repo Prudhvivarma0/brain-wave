@@ -1,7 +1,10 @@
 // This is root file
 
 import { InitialModal } from "@/components/modals/initial-modal";
+import { NavigationItem } from "@/components/navigation/navigation-item";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { initailProfile } from "@/lib/initial-profile";
 import { redirect } from "next/navigation";
@@ -20,6 +23,19 @@ const SetupPage = async () => {
             }
         }
     });
+    const currprofile = await currentProfile();
+    if (!currprofile) {
+        return redirect("/")
+    }
+    const servers = await db.server.findMany({
+        where: {
+            members: {
+                some: {
+                    profileId: profile.id
+                }
+            }
+        }
+    });
 
     // if server/s exist, return home page
     if (server) {
@@ -30,7 +46,21 @@ const SetupPage = async () => {
                 <NavigationSidebar/>
             </div>
             <main className="md:pl-[120px] h-full">
-                Server Area
+                <div className="text-4xl">
+                    Servers
+                </div>
+                
+                <ScrollArea className="flex-1 w-full">
+                    {servers.map((server) => (
+                        <div key={server.id} className="mb-4">
+                            <NavigationItem
+                                id={server.id}
+                                name={server.name}
+                                imageUrl={server.imageUrl}
+                            />
+                        </div>
+                    ))}
+                </ScrollArea>
             </main>
         </div>
         )

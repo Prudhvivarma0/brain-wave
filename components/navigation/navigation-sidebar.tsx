@@ -4,6 +4,7 @@ import { UserButton } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
 import { Button } from "../ui/button";
+import { Separator } from "../ui/separator";
 import { NavigationAction } from "./navigation-action";
 
 export const NavigationSidebar = async () => {
@@ -24,19 +25,22 @@ export const NavigationSidebar = async () => {
     return(
         <div className="space-y-4 flex flex-col items-center h-full text-white w-full bg-[#a733b9] dark:bg-[#4f2456] py-3">
             <NavigationAction/>
+            <Separator className="h-[2px] bg-[#c073bc] rounded-md w-20 mx-auto"/>
             <div className=" pb-3 mt-auto flex items-center flex-col gap-y-3">
-            <Button variant="link" className="text-white">Home</Button>
-                    <Button variant="link" className="text-white">Virtual Exhibits</Button>
-                    <Button variant="link" className="text-white">Challenges</Button>
-                    <ModeToggle/>
-                    <UserButton
+                <Button variant="link" className="text-white">
+                    Home
+                </Button>
+                <Button variant="link" className="text-white">Virtual Exhibits</Button>
+                <Button variant="link" className="text-white">Challenges</Button>
+                <ModeToggle/>
+                <UserButton
                     afterSignOutUrl="/"
                     appearance={{
                         elements: {
                             avatarBox: "h-[50px] w-[50px]"
                         }
                     }}
-                    />
+                />
             </div>
         </div>
     )

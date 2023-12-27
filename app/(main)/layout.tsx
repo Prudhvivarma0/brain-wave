@@ -1,6 +1,4 @@
-import { ModeToggle } from "@/components/mode-toggle";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import { UserButton } from "@clerk/nextjs";
 
 const MainLayout = async ({
     children

@@ -3,7 +3,7 @@
 import { useModal } from "@/hooks/use-modal-store";
 import { useOrigin } from "@/hooks/use-origin";
 import axios from "axios";
-import { Check, Copy, QrCode, RefreshCw } from "lucide-react";
+import { Check, Clipboard, QrCode, RefreshCw } from "lucide-react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
@@ -75,7 +75,7 @@ export const InviteModal = () => {
                     <Button disabled={isLoading} onClick={onCopy} size="icon" className="bg-transparant">
                         {copied 
                         ? <Check className="w-4 h-4 text-white"/> 
-                        : <Copy className="w-4 h-4 text-white"/>}
+                        : <Clipboard className="w-5 h-5 text-white"/>}
                     </Button>
                     <Button disabled={isLoading} onClick={generate} size="icon" className="bg-transparant">
                         <QrCode className="text-white"/>

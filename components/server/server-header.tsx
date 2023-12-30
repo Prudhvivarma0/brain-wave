@@ -5,8 +5,6 @@ import { ServerWithMembersWithProfiles } from "@/types"
 import { MemberRole } from "@prisma/client"
 import { ChevronDown, LogOut, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
-import { Button } from "../ui/button"
-import { redirect } from "next/navigation"
 
 interface ServerHeaderProps {
     server: ServerWithMembersWithProfiles
@@ -84,6 +82,7 @@ export const ServerHeader = ({
                     {isAdmin && (
                         <DropdownMenuItem
                         className="px-3 py-2 text-sm cursor-pointer text-rose-500"
+                        onClick={() => onOpen("deleteServer", {server})}
                         >
                             <Trash2 className="h-4 w-4 mr-9"/>
                             Delete Collab
@@ -93,6 +92,7 @@ export const ServerHeader = ({
                     {!isAdmin && (
                         <DropdownMenuItem
                         className="px-3 py-2 text-sm cursor-pointer text-rose-500"
+                        onClick={() => onOpen("leaveServer", {server})}
                         >
                             <LogOut className="h-4 w-4 mr-9"/>
                             Leave Collab

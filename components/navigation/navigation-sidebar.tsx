@@ -24,7 +24,7 @@ export const NavigationSidebar = async () => {
     });
 
     return (
-        <div className="space-y-5 flex flex-col items-center h-full text-white w-[135px] bg-gradient-to-t from-purple-500 to-purple-900 py-3 ">
+        <div className="space-y-4 flex flex-col items-center h-full text-white w-[135px] bg-gradient-to-t from-purple-500 to-purple-900 py-3 ">
             <img src="/brain.jpg" alt="Brain Wave" width="80" height="80" />
             <Separator className="h-[2px] bg-[#c073bc] rounded-md w-20 mx-auto" />
             <div className="flex flex-col items-center gap-y-4 h-full">

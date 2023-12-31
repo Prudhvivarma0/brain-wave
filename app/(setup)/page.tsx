@@ -51,7 +51,7 @@ const SetupPage = async () => {
                 <main className="md:pl-[120px] h-full">
                     <div className="flex items-center justify-between mt-5">
                         <div className="text-4xl ml-8">
-                        Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!
+                            Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!
                         </div>
                         <div className="flex items-center">
                             <NavigationAction />
@@ -61,10 +61,10 @@ const SetupPage = async () => {
                         My Teams
                     </div>
                     <Separator className="h-[3px] bg-[#a733b9] w-[1500px] mt-3.5 mx-auto" />
-                    <div className="mt-3 text-1xl text-zinc-500 ml-9">
+                    <div className="text-zinc-500 mt-3 ml-9">
                         {servers?.length} Teams
                     </div>
-                   <div className="flex items-center flex-wrap gap-10 p-20">
+                   <div className="flex items-center flex-wrap gap-10 mt-5 ml-10">
                         {servers.map((server) => (
                             <div key={server.id} className="mb-4">
                                 <NavigationItem

@@ -9,7 +9,7 @@ import { ModalProvider } from '@/components/providers/modal-provider'
 const font = Open_Sans({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Brainwave: Telecommunication',
+  title: 'Brainwave',
   description: 'F29SO Group 9',
 }
 

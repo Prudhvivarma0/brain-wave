@@ -60,7 +60,7 @@ const SetupPage = async () => {
                     <div className="text-1xl ml-9">
                         My Teams
                     </div>
-                    <Separator className="h-[3px] bg-[#a733b9] w-[1500px] mt-3.5 mx-auto" />
+                    <Separator className="h-[3px] bg-[#a733b9] w-full mt-3.5" />
                     <div className="text-zinc-500 mt-3 ml-9">
                         {servers?.length} Teams
                     </div>

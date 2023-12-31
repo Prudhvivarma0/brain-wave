@@ -8,6 +8,9 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { initailProfile } from "@/lib/initial-profile";
 import { redirect } from "next/navigation";
+import { NavigationAction } from "@/components/navigation/navigation-action";
+import { AlignVerticalJustifyCenter } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const SetupPage = async () => {
     // Loads the profile of the user
@@ -40,36 +43,49 @@ const SetupPage = async () => {
     // if server/s exist, return home page
     if (server) {
         // return redirect(`/servers/${server.id}`);
-        return(
+        return (
             <div className="h-full">
-            <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0">
-                <NavigationSidebar/>
-            </div>
-            <main className="md:pl-[120px] h-full">
-                <div className="text-4xl">
-                    Servers
+                <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0">
+                    <NavigationSidebar />
                 </div>
-                
-                <ScrollArea className="flex-1 w-full">
-                    {servers.map((server) => (
-                        <div key={server.id} className="mb-4">
-                            <NavigationItem
-                                id={server.id}
-                                name={server.name}
-                                imageUrl={server.imageUrl}
-                            />
+                <main className="md:pl-[120px] h-full">
+                    <div className="flex items-center justify-between mt-5">
+                        <div className="text-4xl ml-8">
+                        Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!
                         </div>
-                    ))}
-                </ScrollArea>
-            </main>
-        </div>
+                        <div className="flex items-center">
+                            <NavigationAction />
+                        </div>
+                    </div>
+                    <div className="text-1xl ml-9">
+                        My Teams
+                    </div>
+                    <Separator className="h-[3px] bg-[#a733b9] w-[1500px] mt-3.5 mx-auto" />
+                    <div className="mt-3 text-1xl text-zinc-500 ml-9">
+                        {servers?.length} Teams
+                    </div>
+                   <div className="flex items-center flex-wrap gap-10 p-20">
+                        {servers.map((server) => (
+                            <div key={server.id} className="mb-4">
+                                <NavigationItem
+                                    id={server.id}
+                                    name={server.name}
+                                    imageUrl={server.imageUrl}
+                                />
+                            </div>
+                        ))}
+                         
+                    </div>
+                    
+                </main>
+            </div>
         )
     }
 
     // else prompt to make a server
-    return ( 
-        <InitialModal/>
+    return (
+        <InitialModal />
     );
 }
- 
+
 export default SetupPage;

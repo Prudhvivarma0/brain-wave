@@ -6,7 +6,6 @@ import { ModeToggle } from "../mode-toggle";
 import { Separator } from "../ui/separator";
 import Challenges from "./challenges";
 import HomeButton from "./home";
-import { NavigationAction } from "./navigation-action";
 import VirtualExhibits from "./virtual-exhibits";
 
 export const NavigationSidebar = async () => {
@@ -24,11 +23,11 @@ export const NavigationSidebar = async () => {
         }
     });
 
-    return(
-        <div className="space-y-4 flex flex-col items-center h-full text-white w-full bg-[#a733b9] dark:bg-[#4f2456] py-3">
-            <NavigationAction />
+    return (
+        <div className="space-y-5 flex flex-col items-center h-full text-white w-[135px] bg-gradient-to-t from-purple-500 to-purple-900 py-3 ">
+            <img src="/brain.jpg" alt="Brain Wave" width="80" height="80" />
             <Separator className="h-[2px] bg-[#c073bc] rounded-md w-20 mx-auto" />
-            <div className="flex flex-col items-center gap-y-3 h-full">
+            <div className="flex flex-col items-center gap-y-4 h-full">
                 <HomeButton />
                 <VirtualExhibits />
                 <Challenges />

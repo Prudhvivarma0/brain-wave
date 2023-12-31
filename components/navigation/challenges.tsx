@@ -14,7 +14,8 @@ const Challenges = () => {
 
   return (
     <div>
-      <Button onClick={handleClick} variant="link" className='text-white'>
+      <Button onClick={handleClick}  className='text-white' style={{ border: '1px solid transperant', padding: '7px 9px', borderRadius: '20px',backgroundColor:'#b754c9'}}
+      >
         <Bike className='pr-2'/>
         Challenges
       </Button>

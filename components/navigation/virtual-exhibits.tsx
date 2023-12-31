@@ -14,9 +14,10 @@ const VirtualExhibits = () => {
 
   return (
     <div>
-      <Button onClick={handleClick} variant="link" className='text-white'>
+      <Button onClick={handleClick}  className='text-white' style={{ border: '1px solid transperant', padding: '8px 19px', borderRadius: '20px',backgroundColor:'#b754c9'}}
+      >
         <Footprints className='pr-2'/>
-        Virtual Ex
+        Exhibits
       </Button>
     </div>
   );

@@ -5,10 +5,10 @@ const VirtualExhibits = async ({
 }: {children: React.ReactNode}) => {
     return ( 
         <div className="h-full">
-            <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0">
+            <div className="hidden md:flex h-full w-[135px] z-30 flex-col fixed inset-y-0">
                 <NavigationSidebar/>
             </div>
-            <main className="md:pl-[120px] h-full">
+            <main className="md:pl-[135px] h-full">
                 Virtual Exhibits
             </main>
         </div>

@@ -10,6 +10,7 @@ import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
+import { TextArea } from "../ui/textarea";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -17,6 +18,17 @@ const formSchema = z.object({
     }),
     prize: z.string().min(1, {
         message: "Challenge prize is required"
+    }),
+    objective: z.string().min(1, {
+        message: "Challenge objective is required"
+    }),
+    duration: z.string().min(1, {
+        message: "Challenge duration is required"
+    }),
+    terms: z.string().min(1, {
+        message: "Challenge T&Cs are required"
+    }).max(350, {
+        message: "Challenge T&Cs max length is 350"
     }),
 
 })
@@ -34,6 +46,9 @@ export const CreateChallengeModal = () => {
         defaultValues: {
             name: "",
             prize: "",
+            objective:"",
+            duration: "",
+            terms:"",
         }
     });
 
@@ -102,6 +117,67 @@ export const CreateChallengeModal = () => {
                                             disabled={isLoading}
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter prize"
+                                            {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </FormItem>
+                                )}
+                                />
+                                <FormField
+                                control={form.control}
+                                name="objective"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                            Challenge objective
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                            disabled={isLoading}
+                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                            placeholder="Describe the objective"
+                                            {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </FormItem>
+                                )}
+                                />
+                                 <FormField
+                                control={form.control}
+                                name="duration"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                            Challenge duration
+                                        </FormLabel>
+                                        <FormControl>
+                                            <Input
+                                            disabled={isLoading}
+                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                            placeholder="Enter the number of days"
+                                            {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage/>
+                                    </FormItem>
+                                )}
+                                />
+                                <FormField
+                                control={form.control}
+                                name="terms"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                            Challenge Terms & Conditions
+                                        </FormLabel>
+                                        <FormControl>
+                                            <TextArea
+                                            rows={5}
+                                            disabled={isLoading}
+                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                            placeholder="Describe the Terms & Conditions"
                                             {...field}
                                             />
                                         </FormControl>

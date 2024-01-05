@@ -99,6 +99,9 @@ model Challenge {
   id        String   @id @default(uuid())
   name      String
   prize     String
+  duration  String
+  objective String
+  terms     String
   startDate DateTime
   endDate   DateTime
   

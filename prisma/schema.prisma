@@ -93,3 +93,16 @@ model Channel {
   @@index([profileId])
 
 }
+
+// Challenge model
+model Challenge {
+  id        String   @id @default(uuid())
+  name      String
+  prize     String
+  startDate DateTime
+  endDate   DateTime
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+}

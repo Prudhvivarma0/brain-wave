@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { CreateChallengeModal } from "../modals/create-challenge-modal";
 import { CreateChannelModal } from "../modals/create-channel-modal";
 import { CreateServerModal } from "../modals/create-server-modal";
 import { DeleteChannelModal } from "../modals/delete-channel-modal";
@@ -33,6 +34,7 @@ export const ModalProvider = () => {
             <DeleteServerModal/>
             <DeleteChannelModal/>
             <EditChannelModal/>
+            <CreateChallengeModal/>
         </>
     )
 }

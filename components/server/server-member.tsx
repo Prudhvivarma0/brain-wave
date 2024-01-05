@@ -26,9 +26,14 @@ export const ServerMember = ({
     
     const icon = roleIconMap[member.role];
 
+    const onClick = () => {
+        router.push(`/servers/${params?.serverId}/conversation/${member.id}`)
+    }
+
     return (
         <div>
             <button
+            onClick={onClick}
             className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full mb-1 hover:bg-purple-500"
             >
                 <UserAvatar 

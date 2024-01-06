@@ -20,7 +20,7 @@ export const NavigationItem = ({
     const buttonName = name;
     const buttonPrize = prize;
     const handleClick = () => {        
-        router.push('/new-page');
+        router.push('/challenges/'+id);
         };
     return (
         <div style={{ display: 'flex' }}>

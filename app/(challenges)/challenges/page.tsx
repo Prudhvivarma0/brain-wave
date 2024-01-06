@@ -35,12 +35,12 @@ const Challenges = async ({
                 </div> 
                 <Separator className="h-[2px] bg-[#c073bc] rounded-md w-21 mx-auto mb-4" />
                 <div className="flex justify-between">
-                    <div className="text-4xl ml-20 ">Challenges</div>
-                    <div className="text-4xl mr-20">Prize</div>
+                    <div className="text-4xl ml-9 ">Challenges</div>
+                    <div className="text-4xl mr-12">Prize</div>
                 </div>
-                <div className="flex items-center flex-wrap gap-10 p-20">
+                <div className="flex items-center flex-wrap gap-10 p-9">
                 {challenges.map((challenge) => (
-                            <div key={challenge.id} className="mb-2">
+                            <div key={challenge.id} className="mb-2 w-full">
                                 <NavigationItem
                                     id={challenge.id}
                                     name={challenge.name}

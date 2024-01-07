@@ -62,7 +62,7 @@ const SetupPage = async () => {
                     </div>
                     <Separator className="h-[3px] bg-[#a733b9] w-full mt-3.5" />
                     <div className="text-zinc-500 mt-3 ml-9">
-                        {servers?.length} Teams
+                        {servers?.length} Team/s
                     </div>
                    <div className="flex items-center flex-wrap gap-10 mt-5 ml-10">
                         {servers.map((server) => (

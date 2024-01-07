@@ -30,6 +30,30 @@ const ChallengePage = async ({
         redirect("/challenges")
     }
 
+    const server = await db.server.findUnique({
+        where: {
+            id: challenge.serverId
+        }
+    });
+
+    const alreadyJoined = await db.server.findUnique({
+        where: {
+            id: challenge.serverId,
+            members: {
+                some: {
+                    profileId: profile.id
+                }
+            }
+        }
+    });
+
+    let link  = '#';
+    if(alreadyJoined) {
+        link = `/servers/${server?.id}`;
+    } else if(server?.inviteCode) {
+        link = `/invite/${server?.inviteCode}`;
+    }
+
     return ( 
         <div className="h-full">
             <div className="hidden md:flex h-full w-[135px] z-30 flex-col fixed inset-y-0">
@@ -56,11 +80,11 @@ const ChallengePage = async ({
                         <strong>Terms & Conditions:</strong><br/> {challenge.terms}
                 </div>
                 
-                <button className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-9 mt-10">
+                <a href={link} className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-9 mt-10">
                     <div className="flex h-[70px] w-[200px] rounded-[18px]  transition-all overflow-hidden items-center justify-center bg-[#a733b9] group-hover:bg-[#b539cb]">
-                        <div className="text-white">Join this challenge</div>
+                        <div className="text-white">{alreadyJoined ? "Go to challenge": "Join this challenge"}</div>
                     </div>
-                </button>
+                </a>
             </main>
         </div>
      );

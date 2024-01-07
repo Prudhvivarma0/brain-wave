@@ -56,7 +56,15 @@ export const CreateChallengeModal = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            await axios.post("/api/challenges", values);
+            const {data: server} = await axios.post("/api/servers", {
+                name: values.name,
+                imageUrl: 'https://placekitten.com/600/400' //ToDo: Hardcoding image here, need to add form field for image upload
+            });
+            console.log(server);
+            await axios.post("/api/challenges", {
+                ...values,
+                serverId: server.id
+            });
             form.reset();
             router.refresh();
             onClose();

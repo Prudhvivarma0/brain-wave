@@ -104,7 +104,8 @@ model Challenge {
   terms     String
   startDate DateTime
   endDate   DateTime
-  
+  serverId String
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

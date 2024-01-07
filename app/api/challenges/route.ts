@@ -7,11 +7,9 @@ import { v4 as uuidv4 } from "uuid";
 // Posting to prisma
 export async function POST(req: Request) {
     try {
-        const {name, prize, objective, duration, terms} = await req.json();
+        const {name, prize, objective, duration, terms, serverId} = await req.json();
         const {searchParams} = new URL(req.url);
         const profile = await currentProfile();
-        const serverId = searchParams.get("serverId");
-        const safeServerId = serverId !== null ? serverId : undefined;
         
 
         if (!profile) {
@@ -24,9 +22,9 @@ export async function POST(req: Request) {
                 objective,
                 duration,
                 terms,
+                serverId,
                 startDate: new Date(),
-                endDate: new Date(),
-                 
+                endDate: new Date()
             }
             }
         );

@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { TextArea } from "../ui/textarea";
+import { FileUpload } from "../file-upload";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -18,6 +19,9 @@ const formSchema = z.object({
     }),
     prize: z.string().min(1, {
         message: "Challenge prize is required"
+    }),
+    imageUrl: z.string().min(1, {
+        message: "Challenge image is required"
     }),
     objective: z.string().min(1, {
         message: "Challenge objective is required"
@@ -46,6 +50,7 @@ export const CreateChallengeModal = () => {
         defaultValues: {
             name: "",
             prize: "",
+            imageUrl: "",
             objective:"",
             duration: "",
             terms:"",
@@ -56,15 +61,7 @@ export const CreateChallengeModal = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const {data: server} = await axios.post("/api/servers", {
-                name: values.name,
-                imageUrl: 'https://placekitten.com/600/400' //ToDo: Hardcoding image here, need to add form field for image upload
-            });
-            console.log(server);
-            await axios.post("/api/challenges", {
-                ...values,
-                serverId: server.id
-            });
+            await axios.post("/api/challenges", values);
             form.reset();
             router.refresh();
             onClose();
@@ -81,17 +78,35 @@ export const CreateChallengeModal = () => {
     return (
         <Dialog open = {isModalOpen} onOpenChange={handleClose}>
             <DialogContent className="bg-purple-500 dark:bg-[#301934] text-white p-0 overflow-hidden">
-                <DialogHeader className="pt-8 px-6">
+                <DialogHeader className="pt-8 px-6 ">
                     <DialogTitle className="text-2xl text-center font-bold">
                         Create a Challenge!
                     </DialogTitle>
-                    <DialogDescription className="text-center text-white">
-                        Give your challenge a name, a prize and image
+                    <DialogDescription className="text-center text-white ">
+                        Fill in the neccesary details and image
                     </DialogDescription>
                 </DialogHeader>
                     <Form {...form}>
                         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                            <div className="space-y-8 px-6">
+                            <div className="flex flex-col gap-8 px-6">
+                                <div className="flex items-center justify-center text-center">
+                                    <FormField
+                                    control={form.control}
+                                    name="imageUrl"
+                                    render={({field}) => (
+                                        <FormItem>
+                                            <FormControl>
+                                                <FileUpload
+                                                endpoint="serverImage"
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                                />
+                                            </FormControl>
+                                        </FormItem>
+                                    )}
+                                    />
+                                </div>
+                                <div className="flex gap-8">
                                 <FormField
                                 control={form.control}
                                 name="name"
@@ -116,7 +131,7 @@ export const CreateChallengeModal = () => {
                                 control={form.control}
                                 name="prize"
                                 render={({ field }) => (
-                                    <FormItem>
+                                    <FormItem className="mb-4">
                                         <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
                                             Challenge prize
                                         </FormLabel>
@@ -132,6 +147,8 @@ export const CreateChallengeModal = () => {
                                     </FormItem>
                                 )}
                                 />
+                                </div>
+                                <div className="flex gap-8">
                                 <FormField
                                 control={form.control}
                                 name="objective"
@@ -152,7 +169,7 @@ export const CreateChallengeModal = () => {
                                     </FormItem>
                                 )}
                                 />
-                                 <FormField
+                                <FormField
                                 control={form.control}
                                 name="duration"
                                 render={({ field }) => (
@@ -164,7 +181,7 @@ export const CreateChallengeModal = () => {
                                             <Input
                                             disabled={isLoading}
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
-                                            placeholder="Enter the number of days"
+                                            placeholder="Enter the duration"
                                             {...field}
                                             />
                                         </FormControl>
@@ -172,17 +189,18 @@ export const CreateChallengeModal = () => {
                                     </FormItem>
                                 )}
                                 />
+                                </div>
                                 <FormField
                                 control={form.control}
                                 name="terms"
                                 render={({ field }) => (
-                                    <FormItem>
+                                    <FormItem className="col-span-2">
                                         <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
                                             Challenge Terms & Conditions
                                         </FormLabel>
                                         <FormControl>
                                             <TextArea
-                                            rows={5}
+                                            rows={1}
                                             disabled={isLoading}
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Describe the Terms & Conditions"
@@ -193,14 +211,15 @@ export const CreateChallengeModal = () => {
                                     </FormItem>
                                 )}
                                 />
-
-                            </div>
-                            <DialogFooter className="bg-grey-100 px-6 py-4">
+                            <div className="flex justify-end">
+                            <DialogFooter className="bg-grey-100 px-6 py-4 mt-2">
                                 <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900">
                                     Create
                                 </Button>
 
                             </DialogFooter>
+                            </div>
+                           </div> 
                         </form>
                     </Form>
             </DialogContent>

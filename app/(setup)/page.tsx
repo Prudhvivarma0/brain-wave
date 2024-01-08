@@ -11,6 +11,8 @@ import { redirect } from "next/navigation";
 import { NavigationAction } from "@/components/navigation/navigation-action";
 import { AlignVerticalJustifyCenter } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { MobileToggle } from "@/components/mobile-toggle";
+import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 
 const SetupPage = async () => {
     // Loads the profile of the user
@@ -49,7 +51,9 @@ const SetupPage = async () => {
                     <NavigationSidebar />
                 </div>
                 <main className="md:pl-[120px] h-full">
+                    <HomeMobileToggle/>
                     <div className="flex items-center justify-between mt-5">
+                        
                         <div className="text-4xl ml-8">
                             Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!
                         </div>

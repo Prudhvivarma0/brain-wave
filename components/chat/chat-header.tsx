@@ -1,5 +1,7 @@
 import { MessageCircle } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
+import { SocketIndicator } from "../socket-indicator";
+import { UserAvatar } from "../user-avatar";
 
 interface ChatHeaderProps {
     serverId: string;
@@ -20,9 +22,15 @@ export const ChatHeader = ({
             {type === "channel" && (
                 <MessageCircle className="w-5 h-5 text-black dark:text-white mr-2"/>
             )}
+            {type === "conversation" && (
+                <UserAvatar src={imageUrl} className="h-8 w-8 md:h-8 md:w-8 mr-2"/>
+            )}
             <p className="font-semibold text-md">
                 {name}
             </p>
+            <div className="ml-auto flex items-center">
+                <SocketIndicator/>
+            </div>
         </div>
     )
 }

@@ -1,3 +1,4 @@
+import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { NavigationAction } from "@/components/navigation/navigation-action2";
 import { NavigationItem } from "@/components/navigation/navigation-item2";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
@@ -25,6 +26,7 @@ const Challenges = async ({
                 <NavigationSidebar/>
             </div>
             <main className="md:pl-[135px] h-full">
+                <HomeMobileToggle/>
                 <div className="flex items-center justify-between mt-5">
                         <div className="text-4xl ml-9">
                         Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!

@@ -5,7 +5,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Input } from "../ui/input";
-import { PlusIcon } from "lucide-react";
+import { PlusIcon, Send } from "lucide-react";
 import axios from "axios";
 import qs from "query-string";
 import { useModal } from "@/hooks/use-modal-store";
@@ -41,11 +41,13 @@ export const ChatInput = ({
                 url: apiUrl,
                 query,
             });
-            await axios.post(url, values)
+            await axios.post(url, values);
+            form.reset();
         } catch (error){
             console.log(error)
         }
     }
+    // Show error but works
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -65,6 +67,12 @@ export const ChatInput = ({
                                         placeholder={`Message ${type === "conversation" ? name : "in " + name}`}
                                         {...field}
                                     />
+                                    
+                                    <button onClick={onSubmit} className="absolute top-7 right-8">
+                                        <Send 
+                                            className="text-black w-6 h-6 "
+                                        />
+                                    </button>
                                 </div>
                             </FormControl>
                         </FormItem>

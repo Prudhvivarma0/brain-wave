@@ -11,10 +11,10 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           height: '100vh',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'end',
+          justifyContent: 'center',
           backgroundImage: backgroundImage,
           backgroundSize: 'cover',
-          paddingRight: '50px'
+          //paddingRight: '50px'
         }}>
         {children}
       </div> 

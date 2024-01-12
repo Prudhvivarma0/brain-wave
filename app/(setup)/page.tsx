@@ -13,6 +13,7 @@ import { AlignVerticalJustifyCenter } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { MobileToggle } from "@/components/mobile-toggle";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
+import { UserButton } from "@clerk/nextjs";
 
 const SetupPage = async () => {
     // Loads the profile of the user
@@ -52,15 +53,29 @@ const SetupPage = async () => {
                 </div>
                 <main className="md:pl-[120px] h-full">
                     <HomeMobileToggle/>
-                    <div className="flex items-center justify-between mt-5">
+                    
+                    <div className="flex items-center justify-between md:mt-5">
                         
                         <div className="text-4xl ml-8">
                             Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!
                         </div>
-                        <div className="flex items-center">
-                            <NavigationAction />
+                        <div className="flex items-center">   
+                            <NavigationAction/>
+                            <div className="mr-2">
+                                <div className="md:hidden">
+                                    <UserButton
+                                        afterSignOutUrl="/"
+                                        appearance={{
+                                            elements: {
+                                            avatarBox: "h-[40px] w-[40px]",
+                                            },
+                                        }}
+                                    />
+                                </div>
+                             </div>
                         </div>
                     </div>
+                    
                     <div className="text-1xl ml-9">
                         My Teams
                     </div>

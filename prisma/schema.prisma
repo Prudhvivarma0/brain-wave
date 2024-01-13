@@ -113,7 +113,6 @@ model Challenge {
   startDate DateTime
   endDate   DateTime
   serverId String
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

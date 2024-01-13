@@ -25,7 +25,7 @@ export async function POST(req: Request) {
                 serverId,
                 startDate: new Date(),
                 endDate: new Date()
-            }
+                }
             }
         );
 

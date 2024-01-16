@@ -63,14 +63,14 @@ export const ChatInput = ({
                                     </button>
                                     <Input
                                         disabled={isLoading}
-                                        className="text-black px-14 py-6 dark:bg-white bg-gray-200"
+                                        className="text-black px-14 py-6  bg-gray-200"
                                         placeholder={`Message ${type === "conversation" ? name : "in " + name}`}
                                         {...field}
                                     />
                                     
                                     <button onClick={onSubmit} className="absolute top-7 right-8">
                                         <Send 
-                                            className="text-black w-6 h-6 "
+                                            className="text-black w-5"
                                         />
                                     </button>
                                 </div>

@@ -71,15 +71,20 @@ export const CreateChallengeModal = () => {
     // }
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            const {data: server} = await axios.post("/api/servers", {
+            // First, create the server entry and get the server id
+            const serverResponse = await axios.post("/api/servers", {
                 name: values.name,
-                imageUrl: 'https://placekitten.com/600/400' //ToDo: Hardcoding image here, need to add form field for image upload
+                imageUrl: values.imageUrl // Make sure this is the uploaded image URL
             });
-            console.log(server);
+            
+            const serverId = serverResponse.data.id; // Assuming the server's ID is returned in the response
+    
+            // Now, create the challenge entry with the serverId
             await axios.post("/api/challenges", {
                 ...values,
-                serverId: server.id
+                serverId: serverId // Use the obtained serverId here
             });
+    
             form.reset();
             router.refresh();
             onClose();
@@ -87,6 +92,7 @@ export const CreateChallengeModal = () => {
             console.log(error);
         }
     }
+    
 
     const handleClose = () => {
         form.reset();

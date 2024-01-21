@@ -3,7 +3,7 @@
 import { useModal } from "@/hooks/use-modal-store"
 import { ServerWithMembersWithProfiles } from "@/types"
 import { MemberRole } from "@prisma/client"
-import { ChevronDown, LogOut, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
+import { ChevronDown, LogOut, Settings, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 
 interface ServerHeaderProps {
@@ -30,7 +30,7 @@ export const ServerHeader = ({
                     className="text-white w-full test-md font-semibold px-3 flex items-center h-12 border-white border-b-2 hover:bg-purple-700/30 dark:hover:bg-purple-700/50 transition"
                     >
                         {server.name}
-                        <ChevronDown className="h-5 w-5 ml-auto"/>
+                        <Settings className="h-5 w-5 ml-auto hover:animate-spin"/>
                     </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent

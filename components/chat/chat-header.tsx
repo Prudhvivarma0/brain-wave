@@ -1,5 +1,3 @@
-"use client"
-
 import { MessageCircle, PenLine } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
 import { SocketIndicator } from "../socket-indicator";
@@ -19,9 +17,9 @@ export const ChatHeader = ({
     imageUrl
 }: ChatHeaderProps) => {
 
-    const handleButtonClick = () => {
-        window.location.href = '/whiteboard';
-    };
+    // const handleButtonClick = () => {
+    //     window.location.href = '/whiteboard';
+    // };
 
     return (
         <div className="text-md font-semibold px-3 flex items-center h-12 dark:border-white border-black border-b-2">
@@ -36,9 +34,9 @@ export const ChatHeader = ({
                 {name}
             </p>
             <div className="ml-auto flex items-center">
-                <button onClick = {handleButtonClick} className="rounded hover:text-gray-400">
+                <a href="/whiteboard" className="rounded hover:text-gray-400">
                     <PenLine className="mr-3"/>
-                </button>
+                </a>
                 <SocketIndicator/>
             </div>
         </div>

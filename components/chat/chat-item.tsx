@@ -67,6 +67,8 @@ export const ChatItem = ({
     const isPDF = fileType === "pdf" && fileUrl;
     const isImage = !isPDF && fileUrl;
     const {onOpen} = useModal();
+    const isLink = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(content);
+
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -121,7 +123,7 @@ export const ChatItem = ({
                                 {roleIconMap[member.role]}
                             </p>
                         </div>
-                        <span className="text-xs">
+                        <span className="text-xs text-gray-600">
                             {timestamp}
                         </span>
                     </div>
@@ -156,7 +158,13 @@ export const ChatItem = ({
                     )}
                     {!fileUrl && !isEditing && (
                         <div className={`flex ${isOwner ? "flex-row-reverse" : ""}`}>
-                            {content}
+                            {isLink ? (
+                                <a href={content} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                                    {content}
+                                </a>
+                            ) : (
+                                content
+                            )}
                             {isUpdated && !deleted && (
                                 <span className="text-xs text-gray-600 ml-2 mr-2 mt-2">
                                     edited

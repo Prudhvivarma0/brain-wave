@@ -198,18 +198,19 @@ export const ChatItem = ({
                 </div>
             </div>
             {canDeleteMessage && (
-                <div className="hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 right-5 border rounded-sm">
+                <div className={`hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 ${isOwner ? "right-5" : "left-5"} border rounded-sm  ${!isOwner ? "flex-row-reverse" : ""}`}>
                     {canEdit && (
-                        <Edit onClick={() => setIsEditing(true)} className="cursor-pointer ml-auto w-4 h-4"/>
+                        <Edit onClick={() => setIsEditing(true)} className="cursor-pointer w-4 h-4" />
                     )}
                     {canDeleteMessage && (
                         <Trash onClick={() => onOpen("deleteMessage", {
                             apiUrl: `${socketUrl}/${id}`,
                             query: socketQuery
-                        })} className="cursor-pointer ml-auto w-4 h-4"/>
+                        })} className="cursor-pointer w-4 h-4" />
                     )}
                 </div>
             )}
+
         </div>
     )
 }

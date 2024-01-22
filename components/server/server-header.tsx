@@ -3,7 +3,7 @@
 import { useModal } from "@/hooks/use-modal-store"
 import { ServerWithMembersWithProfiles } from "@/types"
 import { MemberRole } from "@prisma/client"
-import { ChevronDown, LogOut, Settings, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
+import { LogOut, Settings, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 
 interface ServerHeaderProps {

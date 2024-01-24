@@ -57,8 +57,9 @@ const SetupPage = async () => {
                     <div className="flex items-center justify-between md:mt-5">
                         
                     <div className="text-4xl ml-8">
-                        Welcome <strong>{currprofile.name ? currprofile.name.split(' ')[0] : 'User'}</strong>!
+                        Welcome <strong>{currprofile.name !== "null null" ? currprofile.name.split(' ')[0].toUpperCase() : 'User'}</strong>!
                     </div>
+
 
                         <div className="flex items-center">   
                             <NavigationAction/>

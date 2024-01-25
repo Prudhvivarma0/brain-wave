@@ -47,15 +47,12 @@ const MemberIdPage = async ({
     return ( 
     
     <div className="flex flex-col h-full">
-        <div style={{ position: 'fixed', top: 0, width: '100%' }}>
             <ChatHeader
                 imageUrl={otherMember.profile.imageUrl}
                 name={otherMember.profile.name}
                 serverId={params.serverId}
                 type="conversation"
             />
-        </div>
-        <div  style={{ marginTop: '60px', marginBottom: '60px', overflowY: 'scroll' }}>
             <ChatMessages
                 member={currentMember}
                 name={otherMember.profile.name}
@@ -69,8 +66,6 @@ const MemberIdPage = async ({
                     conversationId: conversation.id
                 }}
             />
-        </div>
-        <div style={{ position: 'fixed', bottom: 0, width: '100%' }}>
             <ChatInput
                 name={otherMember.profile.name}
                 type="conversation"
@@ -80,7 +75,6 @@ const MemberIdPage = async ({
                 }}
             />
         </div>
-    </div>
 );
 
 }

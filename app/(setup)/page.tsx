@@ -9,7 +9,7 @@ import { db } from "@/lib/db";
 import { initailProfile } from "@/lib/initial-profile";
 import { redirect } from "next/navigation";
 import { NavigationAction } from "@/components/navigation/navigation-action";
-import { AlignVerticalJustifyCenter } from "lucide-react";
+import { AlignVerticalJustifyCenter, Bell } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { MobileToggle } from "@/components/mobile-toggle";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
@@ -44,49 +44,45 @@ const SetupPage = async () => {
     });
 
     // if server/s exist, return home page
-    if (server) {
+    // if (server) {
         // return redirect(`/servers/${server.id}`);
         return (
             <div className="h-full">
-                <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0">
+                <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0 ">
                     <NavigationSidebar />
                 </div>
-                <main className="md:pl-[120px] h-full">
-                    <HomeMobileToggle/>
-                    
-                    <div className="flex items-center justify-between md:mt-5">
-                        
-                    <div className="text-4xl ml-8">
-                        Welcome <strong>{currprofile.name ? currprofile.name.split(' ')[0] : 'User'}</strong>!
-                    </div>
+                <main className="md:pl-[200px] pr-[40px] h-full">
+                    <HomeMobileToggle />
 
-                        <div className="flex items-center">   
-                            <NavigationAction/>
-                            <div className="mr-2">
-                                <div className="md:hidden">
-                                    <UserButton
-                                        afterSignOutUrl="/"
-                                        appearance={{
-                                            elements: {
-                                            avatarBox: "h-[40px] w-[40px]",
-                                            },
-                                        }}
-                                    />
-                                </div>
-                             </div>
+                    <div className="flex justify-between items-center mt-7">
+                        <div className="text-left">
+                            <div className="text-4xl ml-4">
+                            Welcome <strong>{currprofile.name !== "null null" ? currprofile.name.split(' ')[0].toUpperCase() : 'User'}</strong>!
+                            </div>
+                            <div className="text-1xl ml-5">
+                                My Teams
+                            </div>
+                        </div>
+                        <div className="flex items-center">
+                            <Bell className="mr-4 mt-4 w-6 h-6" />
+                            <UserButton
+                                afterSignOutUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "h-[50px] w-[50px]",
+                                    },
+                                }}
+                            />
                         </div>
                     </div>
-                    
-                    <div className="text-1xl ml-9">
-                        My Teams
-                    </div>
-                    <Separator className="h-[3px] bg-[#a733b9] w-full mt-3.5" />
-                    <div className="text-zinc-500 mt-3 ml-9">
+
+                    <Separator className="h-[3px] bg-[rgb(117,96,163)] w-full mt-5" />
+                    <div className="text-zinc-500 mt-3 ml-5">
                         {servers?.length} Team/s
                     </div>
-                   <div className="flex items-center flex-wrap gap-10 mt-5 ml-10">
+                    <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
                         {servers.map((server) => (
-                            <div key={server.id} className="mb-4">
+                            <div key={server.id} >
                                 <NavigationItem
                                     id={server.id}
                                     name={server.name}
@@ -94,18 +90,17 @@ const SetupPage = async () => {
                                 />
                             </div>
                         ))}
-                         
+                        <NavigationAction />
                     </div>
-                    
                 </main>
             </div>
         )
     }
 
-    // else prompt to make a server
-    return (
-        <InitialModal />
-    );
-}
+    // // else prompt to make a server
+    // return (
+    //     <InitialModal />
+    // );
+// }
 
 export default SetupPage;

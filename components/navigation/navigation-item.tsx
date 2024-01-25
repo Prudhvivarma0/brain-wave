@@ -30,7 +30,7 @@ export const NavigationItem = ({
         >
             <div
                 className={cn(
-                    "relative flex mx-9 h-[150px] w-[220px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
+                    "relative flex mx-9 h-[200px] w-[280px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
                     params?.serverId === id && "bg-primary/10 text-primary"
                 )}
             >

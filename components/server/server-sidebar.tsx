@@ -54,11 +54,7 @@ export const ServerSidebar = async ({
     const role = server.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className="flex flex-col h-full text-white w-full dark:bg-[#500e45] bg-[#e598f4]">
-            <ServerHeader
-            server={server}
-            role={role}
-            />
+        <div className="flex flex-col h-[640px] text-white w-50 dark:bg-[#500e45] bg-[#997FDD] rounded-xl">
             <ScrollArea className="flex-1 px-3">
                 {!!textChannels?.length &&
                     <div className="mt-2 mb-2">

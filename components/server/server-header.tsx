@@ -27,10 +27,9 @@ export const ServerHeader = ({
                 asChild
                 >
                     <button
-                    className="text-white w-full test-md font-semibold px-3 flex items-center h-12 border-white border-b-2 hover:bg-purple-700/30 dark:hover:bg-purple-700/50 transition"
+                    className="text-white w-full test-md font-semibold px-3 flex items-center h-12"
                     >
-                        {server.name}
-                        <Settings className="h-5 w-5 ml-auto hover:animate-spin"/>
+                        <Settings className="h-5 w-5 ml-auto hover:text-gray-400"/>
                     </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent

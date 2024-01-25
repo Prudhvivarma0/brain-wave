@@ -1,21 +1,50 @@
 "use client";
-
 import { useModal } from "@/hooks/use-modal-store";
 import { Button } from "../ui/button";
-import { Home, Settings } from "lucide-react";
+import { Settings } from "lucide-react";
+import { useState } from 'react';
 
 export const NavSettings = () => {
-    const {onOpen} = useModal();
-    return(
-        <div>
-            <Button
-            onClick={() => onOpen("settings")}
-            className='text-white'
-            style={{ border: '1px solid transperant', padding: '2px 25px', borderRadius: '20px',backgroundColor:'#b754c9'}}
-            >
-                <Settings className='pr-2'/>
-                    Settings
-            </Button>
-        </div>
-    )
-}
+  const { onOpen } = useModal();
+  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleClick = () => {
+    onOpen("settings");
+    setIsActive(true);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setIsActive(false);
+  };
+
+  const handleMouseDown = () => {
+    setIsActive(true);
+  };
+
+  const buttonStyle = {
+    border: '1px solid transparent',
+    backgroundColor: isHovered || isActive ? 'rgb(99, 103, 180)' : 'transparent',
+  };
+
+  return (
+    <div>
+      <Button
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onMouseDown={handleMouseDown}
+        className='text-white w-[155px]'
+        style={buttonStyle}
+      >
+        <Settings className='pr-2'/>
+        Settings
+      </Button>
+    </div>
+  );
+};

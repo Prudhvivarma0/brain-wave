@@ -12,7 +12,7 @@ export const HomeMobileToggle = () => {
                 </Button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0 flex gap-0 w-[130px]">
-                <div className="w-[130px]">
+                <div className="w-[155px]">
                     <NavigationSidebar/>
                 </div>
             </SheetContent>

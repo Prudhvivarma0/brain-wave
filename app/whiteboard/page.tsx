@@ -34,7 +34,13 @@ const Whiteboard = async ({
             </div>
             <Separator className="h-[2px] bg-[#c073bc] rounded-md w-21 mx-auto mb-4" />
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
-                <Canvas/>
+            <iframe
+                src="https://excalidraw.com/"
+                title="Web Whiteboard"
+                width="1300"
+                height="600"
+            >
+            </iframe>
             </div>
             </main>          
         </div>

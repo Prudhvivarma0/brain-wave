@@ -21,14 +21,16 @@ export const ServerMember = ({
     server
 }: ServerMemberProps) => {
     const params = useParams();
-
     const router = useRouter();
-    
     const icon = roleIconMap[member.role];
 
     const onClick = () => {
         router.push(`/servers/${params?.serverId}/conversation/${member.id}`)
     }
+
+    // Split the name into chunks of 10 letters
+    const nameChunks = member.profile.name.match(/.{1,10}/g); 
+    const nameDisplay = nameChunks.map((chunk, i) => <p key={i} className="line-clamp-1 font-semibold">{chunk}</p>);
 
     return (
         <div>
@@ -40,9 +42,9 @@ export const ServerMember = ({
                 src={member.profile.imageUrl}
                 className="h-8 w-8"
                 />
-                <p className="">
-                    {member.profile.name}
-                </p>
+                <div className="text-overflow-ellipsis">
+                    {nameDisplay}
+                </div>
                 {icon}
             </button>
         </div>

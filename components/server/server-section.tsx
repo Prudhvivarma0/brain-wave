@@ -21,22 +21,29 @@ export const ServerSection = ({
     server
 }: ServerSectionProps) => {
     const {onOpen} = useModal();
+
+    // Split the label by space and create a new paragraph for each word
+    const words = label.split(' ').map((word, index, array) => {
+        // Add colon only to the last word
+        return <p key={index} className="font-bold">{word}{index === array.length - 1 ? ':' : ''}</p>;
+    });
+
     return (
         <div className="flex items-center justify-between py-2">
             
-            <p className="font-bold">
-                {label}:
-            </p>
+            <div>
+                {words}
+            </div>
             
             {role !==MemberRole.GUEST && sectionType === "channels" &&
                 <button onClick={() => onOpen("createChannel", {channelType})}>
-                    <PlusCircle className="h-5 w-5"/>
+                    <PlusCircle className="h-4 w-4"/>
                 </button>
             }
             
             {role === MemberRole.ADMIN && sectionType === "members" &&
                 <button onClick={() => onOpen("members", {server})}>
-                    <Settings className="h-5 w-5"/>
+                    <Settings className="h-4 w-4"/>
                 </button>
             }
         </div>

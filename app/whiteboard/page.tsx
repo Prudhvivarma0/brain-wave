@@ -4,6 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { db } from "@/lib/db";
 import { currentProfile } from "@/lib/current-profile";
 import { redirect } from "next/navigation";
+import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 
 const Whiteboard = async ({
     children
@@ -20,20 +21,21 @@ const Whiteboard = async ({
     return ( 
       <>
         <div className="h-full">
-            <div className="hidden md:flex h-full w-[135px] z-30 flex-col fixed inset-y-0">
+            <div className="hidden md:flex h-full w-[155px] z-30 flex-col fixed inset-y-0">
                 <NavigationSidebar/>
             </div> 
-            <main className="md:pl-[135px] h-full">
+            <main className="md:pl-[180px] pr-[20px] h-full">
+            <HomeMobileToggle/>
             <div className="flex items-center justify-between mt-5">
                 <div className="text-4xl ml-9">
-                    Welcome <strong>{currprofile.name.split(' ')[0]}</strong>!
+                    <strong>WHITEBOARD</strong>
                 </div>
             </div>
             <div className="text-1xl ml-9">
             {currprofile.name.split(' ')[0]}'s Whiteboard
             </div>
-            <Separator className="h-[2px] bg-[#c073bc] rounded-md w-21 mx-auto mb-4" />
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
+            <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-4" />
+            <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
             <iframe
                 src="https://excalidraw.com/"
                 title="Web Whiteboard"

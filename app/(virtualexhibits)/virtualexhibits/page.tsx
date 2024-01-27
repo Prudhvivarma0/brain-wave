@@ -25,6 +25,10 @@ const VirtualExhibits = async ({
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
+                <div className="mt-[250px]" style={{ textAlign: 'center', fontSize: '25px'}}>
+    Feature Coming Soon!!!
+</div>
+
             </main>
         </div>
      );

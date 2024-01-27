@@ -1,3 +1,4 @@
+
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import Canvas from "@/components/canvascomp/canvas";
 import { Separator } from "@/components/ui/separator";
@@ -5,6 +6,7 @@ import { db } from "@/lib/db";
 import { currentProfile } from "@/lib/current-profile";
 import { redirect } from "next/navigation";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
+import { ChevronLeft } from "lucide-react";
 
 const Whiteboard = async ({
     children
@@ -30,10 +32,14 @@ const Whiteboard = async ({
                 <div className="text-4xl ml-9">
                     <strong>WHITEBOARD</strong>
                 </div>
+                <button>
+                <ChevronLeft className="pr-1"/>
+                </button>
             </div>
             <div className="text-1xl ml-9">
             {currprofile.name.split(' ')[0]}'s Whiteboard
             </div>
+
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4" />
             <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
             <iframe

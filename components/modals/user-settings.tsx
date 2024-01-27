@@ -68,7 +68,7 @@ export const UserSettingsModal = () => {
 
     return (
         <Dialog open = {isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-purple-500 dark:bg-[#301934] text-white p-0 overflow-hidden">
+            <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
                        <div className="text-rose-500 text-3xl font-bold"> TODO: Do not use yet!! </div> <br/> Edit Profile 

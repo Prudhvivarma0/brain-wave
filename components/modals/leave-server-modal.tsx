@@ -41,10 +41,10 @@ export const LeaveServerModal = () => {
 
     return (
         <Dialog open = {isModalOpen} onOpenChange={onClose}>
-            <DialogContent className="bg-purple-500 dark:bg-[#301934] text-white p-0 overflow-hidden">
+            <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Leave Collab
+                        Leave Team
                     </DialogTitle>
                     <DialogDescription className="text-center text-white">
                         Are you sure you want to "<span className="text-rose-500 font-bold">LEAVE {server?.name.toUpperCase()}</span>" ?

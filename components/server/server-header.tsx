@@ -84,7 +84,7 @@ export const ServerHeader = ({
                         onClick={() => onOpen("deleteServer", {server})}
                         >
                             <Trash2 className="h-4 w-4 mr-9"/>
-                            Delete Collab
+                            Delete Team
                             
                         </DropdownMenuItem>
                     )}

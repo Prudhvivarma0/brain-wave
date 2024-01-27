@@ -24,7 +24,7 @@ const VirtualExhibits = async ({
                         <strong>VIRTUAL EXHIBITS</strong>
                     </div>
                 </div>
-                <Separator className="h-[3px] bg-[rgb(117,96,163)] w-full mt-2" />
+                <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-2" />
             </main>
         </div>
      );

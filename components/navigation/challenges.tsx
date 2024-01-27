@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { Bike } from 'lucide-react';
+import { Bike, Swords } from 'lucide-react';
 import { useState } from 'react';
 
 const Challenges = () => {
@@ -42,7 +42,7 @@ const Challenges = () => {
         className='text-white w-[155px]'
         style={buttonStyle}
       >
-        <Bike className='pr-2'/>
+        <Swords className='pr-2'/>
         Challenges
       </Button>
     </div>

@@ -68,7 +68,7 @@ export const ChatMessages = ({
     })
     if (status === "pending") {
         return (
-            <div className="flex flex-col flex-1 justify-center items-center bg-[rgb(236,236,236)] dark:bg-[rgb(0,0,0)]">
+            <div className="flex flex-col flex-1 justify-center items-center bg-[rgb(236,236,236)] dark:bg-[rgb(,,)]">
                 <Loader2 className="h-7 w-7 animate-spin"/>
                 <p>
                     Loading...
@@ -79,7 +79,7 @@ export const ChatMessages = ({
     };
     if (status === "error") {
         return (
-            <div className="flex flex-col flex-1 justify-center items-center bg-[rgb(236,236,236)] dark:bg-[rgb(0,0,0)]">
+            <div className="flex flex-col flex-1 justify-center items-center bg-[rgb(236,236,236)] dark:bg-[rgb(99,102,106)]">
                 <Frown className="h-7 w-7"/>
                 <p>
                     Something went wrong
@@ -89,7 +89,7 @@ export const ChatMessages = ({
         )
     }
     return (
-        <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto bg-[rgb(236,236,236)] dark:bg-[rgb(0,0,0)]">
+        <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto bg-[rgb(236,236,236)] dark:bg-[rgb(51,51,51)]">
             {hasNextPage && (
                 <div className="flex justify-center">
                     {isFetchingNextPage ? (
@@ -101,7 +101,7 @@ export const ChatMessages = ({
                     )}
                 </div>
             )}
-            <div className=" flex flex-col-reverse mt-auto bg-[rgb(236,236,236)] dark:bg-[rgb(0,0,0)] ">
+            <div className=" flex flex-col-reverse mt-auto bg-[rgb(236,236,236)] dark:bg-[rgb(51,51,51)] ">
                 {data?.pages?.map((group, i) => (
                     <Fragment key={i}>
                         {group.items.map((message: MessageWithMemberWithProfile) => (

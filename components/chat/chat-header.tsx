@@ -50,7 +50,7 @@ export const ChatHeader = async ({
     // };
 
     return (
-        <div className="text-md font-semibold px-3 flex items-center h-16 text-white" style={{ backgroundColor: 'rgb(116, 105, 217)', borderRadius: '10px', borderBlockColor:"black"}}>
+        <div className="text-md font-semibold px-3 flex items-center h-16 text-white " style={{ backgroundColor: 'rgb(81,40,94)' , borderRadius: '10px', borderBlockColor:"black"}}>
             <MobileToggle serverId={serverId}/>
             {type === "channel" && (
                 <MessageCircle className="w-5 h-5 text-white mr-2"/>

@@ -5,9 +5,12 @@ import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
 const ServerIdLayout = async ({
-    children, params
-}: {children: React.ReactNode; 
-    params: {serverId: string}}) => {
+    children, 
+    params
+}: {
+    children: React.ReactNode; 
+    params: {serverId: string}
+}) => {
     const profile = await currentProfile();
     if (!profile){
         return redirectToSignIn();
@@ -27,17 +30,15 @@ const ServerIdLayout = async ({
         return redirect("/");
     }
     return ( 
-        
-        <div className="h-full ">
-            
-            <div className="hidden md:flex h-full w-50 z-20 flex-col fixed inset-y-8 ml-8 mt-20 mb-20">
+        <div className="h-full flex">
+            <div className="w-50 z-20 flex-col fixed inset-y-8 ml-8 mt-20 mb-20 md:block hidden mr-2">
                 <ServerSidebar serverId={params.serverId}/>
             </div>
-            <main className="h-full md:pl-60 md:pt-20 mr-[30px]">
+            <main className="h-full md:pl-52 md:pt-20 mr-[30px] flex-grow">
                 {children}
             </main>     
         </div>
-     );
+    );
 }
  
 export default ServerIdLayout;

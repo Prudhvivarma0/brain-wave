@@ -34,7 +34,7 @@ const Whiteboard = async ({
             <div className="text-1xl ml-9">
             {currprofile.name.split(' ')[0]}'s Whiteboard
             </div>
-            <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-4" />
+            <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4" />
             <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
             <iframe
                 src="https://excalidraw.com/"

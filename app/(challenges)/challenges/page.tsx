@@ -32,7 +32,7 @@ const Challenges = async ({
                         <strong>CHALLENGES</strong>
                         </div>
                 </div>
-                <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-2" />
+                <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
                 <div className="flex justify-between">
                     <div className="text-4xl font-bold text-center py-4 ml-9 ">Challenges</div>
                     <div className="text-4xl font-bold text-center py-4 ml-[270px]">Prize</div>

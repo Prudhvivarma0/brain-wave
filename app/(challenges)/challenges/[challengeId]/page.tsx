@@ -94,7 +94,7 @@ const ChallengePage = async ({
                 </div>
 
                 
-                <a href={link} className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-9 mt-10">
+                <a href={link} className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-9 mt-10 mb-10">
                     <div className="flex h-[70px] w-[200px] rounded-[18px]  transition-all overflow-hidden items-center justify-center bg-[rgb(102,26,138)] group-hover:bg-[rgb(122,46,158)]">
                         <div className="text-white">{alreadyJoined ? "Go to challenge": "Join this challenge"}</div>
                     </div>

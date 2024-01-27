@@ -29,7 +29,7 @@ const VirtualExhibits = () => {
 
   const buttonStyle = {
     border: '1px solid transparent',
-    backgroundColor: isHovered || isActive ? 'rgb(99, 103, 180)' : 'transparent',
+    backgroundColor: isHovered || isActive ? 'rgb(99,103,180)' : 'transparent',
   };
 
   return (

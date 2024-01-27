@@ -46,7 +46,7 @@ const words = channel.name.split(' ').map((word, index) => {
 return (
     <button
     onClick={onClick}
-    className="group px-2 py-2 rounded-md flex relative items-center gap-x-2 w-full transition mb-1 hover:bg-purple-500 flex-col"
+    className="group px-2 py-2 rounded-md flex relative gap-x-2 w-full transition mb-1 hover:bg-purple-500 flex-col"
     >
         <div className="flex items-center gap-x-2 w-50">
             <Icon className="flex-shrink-0 w-5 h-5"/>

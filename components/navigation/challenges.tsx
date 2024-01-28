@@ -29,7 +29,8 @@ const Challenges = () => {
 
   const buttonStyle = {
     border: '1px solid transparent',
-    backgroundColor: isHovered || isActive ? 'rgb(99, 103, 180)' : 'transparent',
+    backgroundColor: isActive ? 'rgb(99, 103, 180)' : (isHovered ? 'rgb(99, 103, 180)' : 'transparent'),
+    boxShadow: isHovered ? '0px 6px 15px rgba(0, 0, 0, 0.3)' : 'none', // Adjust this line
   };
 
   return (

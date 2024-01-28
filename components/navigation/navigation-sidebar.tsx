@@ -27,8 +27,8 @@ export const NavigationSidebar = async () => {
     return (
         <div className="space-y-4 flex flex-col items-center h-full text-white w-[155px] bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)] py-9 ">
             <img src="/brain.jpg" alt="Brain Wave" width="100" height="100" />
-            <Separator className="h-[2px] bg-[#c073bc] rounded-md w-20 mx-auto" />
-            <div style={{height: '20px'}}></div> {/* This div creates the space after the separator */}
+            {/* <Separator className="h-[2px] bg-[#c073bc] rounded-md w-20 mx-auto" /> */}
+            <div style={{height: '50px'}}></div> {/* This div creates the space after the separator */}
             <div className="flex flex-col items-center gap-y-4 h-full ">
                 <HomeButton />
                 <VirtualExhibits />

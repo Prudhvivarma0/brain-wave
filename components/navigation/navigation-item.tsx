@@ -26,11 +26,11 @@ export const NavigationItem = ({
     return (
         <button
             onClick={onClick}
-            className="group relative flex flex-col items-center gap-y-3 w-[220px] "
+            className="group relative flex flex-col items-center gap-y-3 w-[220px] transition-transform duration-200 ease-in-out transform hover:scale-105"
         >
             <div
                 className={cn(
-                    "relative flex mx-9 h-[200px] w-[280px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
+                    "relative flex mx-9 h-[200px] w-[280px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden shadow-md hover:shadow-xl",
                     params?.serverId === id && "bg-primary/10 text-primary"
                 )}
             >

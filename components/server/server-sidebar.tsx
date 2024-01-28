@@ -37,8 +37,6 @@ export const ServerSidebar = async ({
                     role: "asc"
                 }
             }
-
-
         }
     });
 

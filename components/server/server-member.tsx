@@ -28,9 +28,15 @@ export const ServerMember = ({
         router.push(`/servers/${params?.serverId}/conversation/${member.id}`)
     }
 
-    // Split the name into chunks of 10 letters
     const nameChunks = member.profile.name.match(/.{1,10}/g); 
-    const nameDisplay = nameChunks.map((chunk, i) => <p key={i} className="line-clamp-1 font-semibold">{chunk}</p>);
+        let nameDisplay;
+
+        if (nameChunks === null) {
+            // TODO: Handle the case when no matches are found
+        } else {
+            nameDisplay = nameChunks.map((chunk, i) => <p key={i} className="line-clamp-1 font-semibold">{chunk}</p>);
+        }
+    
 
     return (
         <div>

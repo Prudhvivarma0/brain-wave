@@ -11,8 +11,6 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 import QRcode from "qrcode";
 
-
-
 export const InviteModal = () => {
 
     const [src, setSrc] = useState<string>('')
@@ -72,13 +70,13 @@ export const InviteModal = () => {
                 </Label>
                 <div className="flex items-center mt-2 gap-x-2">
                     <Input disabled={isLoading} className="text-black dark:bg-white" value={inviteUrl}/>
-                    <Button disabled={isLoading} onClick={onCopy} size="icon" className="bg-transparant">
+                    <Button disabled={isLoading} onClick={onCopy} size="icon" className="bg-transparant hover:bg-gray-400">
                         {copied 
                         ? <Check className="w-4 h-4 text-white"/> 
                         : <Clipboard className="w-5 h-5 text-white"/>}
                     </Button>
-                    <Button disabled={isLoading} onClick={generate} size="icon" className="bg-transparant">
-                        <QrCode className="text-white"/>
+                    <Button disabled={isLoading} onClick={generate} size="icon" className="bg-transparant hover:bg-gray-400">
+                        <QrCode className="text-white "/>
                     </Button>
                 </div>
                 <Button onClick={onNew} disabled={isLoading} variant="link" size="sm" className="text-white mt-4">

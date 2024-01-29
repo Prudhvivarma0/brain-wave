@@ -173,7 +173,7 @@ export const ChatItem = ({
                     {!fileUrl && !isEditing && (
                         <div className={`flex ${isOwner ? "flex-row-reverse" : ""}`}>
                             {isLink ? (
-                                <a href={content} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
+                                <a href={content} target="_blank" rel="noopener noreferrer" className="text-blue-300 hover:underline">
                                 {content}
                                 </a>
                             ) : (

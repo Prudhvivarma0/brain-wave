@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { Bike } from 'lucide-react';
+import { Bike, Swords } from 'lucide-react';
 import { useState } from 'react';
 
 const Challenges = () => {
@@ -29,7 +29,8 @@ const Challenges = () => {
 
   const buttonStyle = {
     border: '1px solid transparent',
-    backgroundColor: isHovered || isActive ? 'rgb(99, 103, 180)' : 'transparent',
+    backgroundColor: isActive ? 'rgb(99, 103, 180)' : (isHovered ? 'rgb(99, 103, 180)' : 'transparent'),
+    boxShadow: isHovered ? '0px 6px 15px rgba(0, 0, 0, 0.3)' : 'none', // Adjust this line
   };
 
   return (
@@ -42,7 +43,7 @@ const Challenges = () => {
         className='text-white w-[155px]'
         style={buttonStyle}
       >
-        <Bike className='pr-2'/>
+        <Swords className='pr-2'/>
         Challenges
       </Button>
     </div>

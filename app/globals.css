@@ -8,6 +8,22 @@ body,
   height: 100%
 }
 
+/* This will affect the entire document */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(56,37,91); 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(107, 37, 155); 
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

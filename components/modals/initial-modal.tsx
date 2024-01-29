@@ -65,10 +65,10 @@ export const InitialModal = () => {
     return (
         <div>
             <Dialog open>
-                <DialogContent className="bg-purple-500 text-white p-0 overflow-hidden">
+                <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                     <DialogHeader className="pt-8 px-6">
                         <DialogTitle className="text-3xl text-center font-bold">
-                            Create a collab
+                            Create a Team
                         </DialogTitle>
                         <DialogDescription className="text-white text-center">
                             Give you collab a name and picture

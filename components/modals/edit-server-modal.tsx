@@ -68,10 +68,10 @@ export const EditServerModal = () => {
 
     return (
         <Dialog open = {isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-purple-500 dark:bg-[#301934] text-white p-0 overflow-hidden">
+            <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Edit Collab 
+                        Edit Team 
                     </DialogTitle>
                     <DialogDescription className="text-center text-white">
                         Change the image and name to your team

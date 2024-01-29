@@ -37,8 +37,6 @@ export const ServerSidebar = async ({
                     role: "asc"
                 }
             }
-
-
         }
     });
 
@@ -54,7 +52,7 @@ export const ServerSidebar = async ({
     const role = server.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className="flex flex-col h-[640px] text-white w-50 dark:bg-[#500e45] bg-[#997FDD] rounded-xl">
+        <div className="flex flex-col h-[640px] text-white w-50 bg-[rgb(81,40,94)] rounded-xl">
             <ScrollArea className="flex-1 px-3">
                 {!!textChannels?.length &&
                     <div className="mt-2 mb-2">

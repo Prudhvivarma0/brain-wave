@@ -47,7 +47,6 @@ export const ChatInput = ({
             console.log(error)
         }
     }
-    // Show error but works
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -69,7 +68,7 @@ export const ChatInput = ({
                                         autoComplete="off"
                                     />
                                     
-                                    <button onClick={onSubmit} className="absolute top-7 right-8">
+                                    <button onClick={() => onSubmit} className="absolute top-7 right-8">
                                         <Send 
                                             className="text-black w-5"
                                         />

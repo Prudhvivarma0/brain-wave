@@ -195,7 +195,7 @@ export const ChatItem = ({
                     )}
                     {!fileUrl && isEditing && (
                         <Form {...form}>
-                            <form className="flex items-center w-full gap-x-2 pt-2" onSubmit={form.handleSubmit(onSubmit)}>
+                            <form className="flex items-center text-black dark:text-white w-full gap-x-2 pt-2" onSubmit={form.handleSubmit(onSubmit)}>
                                 <FormField
                                     control={form.control}
                                     name="content"

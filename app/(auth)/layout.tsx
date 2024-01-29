@@ -14,7 +14,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           justifyContent: 'center',
           backgroundImage: backgroundImage,
           backgroundSize: 'cover',
-          //paddingRight: '50px'
+          paddingLeft: '750px'
         }}>
         {children}
       </div> 

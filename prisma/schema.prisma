@@ -3,107 +3,74 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
-  url = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
-// Profile model
 model Profile {
-  id String @id @default(uuid())
-  userId String @unique
-  name String 
-  imageUrl String @db.Text // More characters (longer)
-  email String @db.Text
-
-  servers Server[]
-  members Member[]
-  channels Channel[]
-  posts Post[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String    @id @default(uuid())
+  userId    String    @unique
+  name      String
+  imageUrl  String    @db.Text
+  email     String    @db.Text
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  servers   Server[]
+  members   Member[]
+  channels  Channel[]
+  posts     Post[]
 }
 
-// Server model
 model Server {
-  id String @id @default(uuid())
-  name String
-  imageUrl String @db.Text
-  inviteCode String @unique
-
-  profileId String
-  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-  members Member[]
-  channels Channel[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String    @id @default(uuid())
+  name       String
+  imageUrl   String    @db.Text
+  inviteCode String    @unique
+  profileId  String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  profile    Profile   @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  members    Member[]
+  channels   Channel[]
 
   @@index([profileId])
 }
 
-
-enum MemberRole {
-  ADMIN
-  MODERATOR
-  GUEST
-}
-
-// Members model
 model Member {
-  id String @id @default(uuid())
-  role MemberRole @default(GUEST)
-
-  profileId String
-  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-  serverId String
-  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
-
-  messages Message[]
-  directMessages DirectMessage[]
-
-  conversationsInitiated Conversation[] @relation("MemberOne")
-  conversationsReceived Conversation[] @relation("MemberTwo")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id                     String          @id @default(uuid())
+  role                   MemberRole      @default(GUEST)
+  profileId              String
+  serverId               String
+  createdAt              DateTime        @default(now())
+  updatedAt              DateTime        @updatedAt
+  profile                Profile         @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  server                 Server          @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  messages               Message[]
+  directMessages         DirectMessage[]
+  conversationsInitiated Conversation[]  @relation("MemberOne")
+  conversationsReceived  Conversation[]  @relation("MemberTwo")
 
   @@index([profileId])
   @@index([serverId])
 }
 
-enum ChannelType{
-  TEXT
-  AUDIO
-  VIDEO
-}
-
-// Channel Model
 model Channel {
-  id String @id @default(uuid())
-  name String
-  type ChannelType @default(TEXT)
-
-  profileId String 
-  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-  
-  serverId String
-  server Server @relation(fields: [serverId], references: [id], onDelete: Cascade)
-
-  messages Message[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id        String      @id @default(uuid())
+  name      String
+  type      ChannelType @default(TEXT)
+  profileId String
+  serverId  String
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  profile   Profile     @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  server    Server      @relation(fields: [serverId], references: [id], onDelete: Cascade)
+  messages  Message[]
 
   @@index([serverId])
   @@index([profileId])
-
 }
 
-// Challenge model
 model Challenge {
   id        String   @id @default(uuid())
   name      String
@@ -113,85 +80,76 @@ model Challenge {
   terms     String
   startDate DateTime
   endDate   DateTime
-  serverId String
+  serverId  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
 }
 
-// Channels messages
 model Message {
-  id String @id @default(uuid())
-  content String @db.Text
-
-  fileUrl String? @db.Text
-
-  memberId String
-  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
-
+  id        String   @id @default(uuid())
+  content   String   @db.Text
+  fileUrl   String?  @db.Text
+  memberId  String
   channelId String
-  channel Channel @relation(fields: [channelId], references: [id], onDelete: Cascade)
-
-  deleted Boolean @default(false)
-
+  deleted   Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  member    Member   @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  channel   Channel  @relation(fields: [channelId], references: [id], onDelete: Cascade)
 
   @@index([channelId])
   @@index([memberId])
 }
 
-// DMs
 model Conversation {
-  id String @id @default(uuid())
-
-  memberOneId String
-  memberOne Member @relation("MemberOne", fields: [memberOneId], references: [id], onDelete: Cascade)
-
-  memberTwoId String
-  memberTwo Member @relation("MemberTwo", fields: [memberTwoId], references: [id], onDelete: Cascade)
-
+  id             String          @id @default(uuid())
+  memberOneId    String
+  memberTwoId    String
+  memberOne      Member          @relation("MemberOne", fields: [memberOneId], references: [id], onDelete: Cascade)
+  memberTwo      Member          @relation("MemberTwo", fields: [memberTwoId], references: [id], onDelete: Cascade)
   directMessages DirectMessage[]
 
-  @@index([memberTwoId])
-
   @@unique([memberOneId, memberTwoId])
+  @@index([memberTwoId])
 }
 
 model DirectMessage {
-  id String @id @default(uuid())
-  content String @db.Text
-  fileUrl String? @db.Text
-
-  memberId String
-  member Member @relation(fields: [memberId], references: [id], onDelete: Cascade)
-
+  id             String       @id @default(uuid())
+  content        String       @db.Text
+  fileUrl        String?      @db.Text
+  memberId       String
   conversationId String
-  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
-
-  deleted Boolean @default(false)
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  deleted        Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  member         Member       @relation(fields: [memberId], references: [id], onDelete: Cascade)
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
 
   @@index([memberId])
   @@index([conversationId])
 }
 
-// Virtual Exhibits
 model Post {
-  id String @id @default(uuid())
-  content String @db.Text
-
-  fileUrl String? @db.Text
-
-  profileId String
-  profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
-
-  deleted Boolean @default(false)
-
+  id        String   @id @default(uuid())
   createdAt DateTime @default(now())
+  content   String   @db.Text
+  deleted   Boolean  @default(false)
+  fileUrl   String?  @db.Text
+  profileId String
   updatedAt DateTime @updatedAt
+  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
 
   @@index([profileId])
+}
+
+enum MemberRole {
+  ADMIN
+  MODERATOR
+  GUEST
+}
+
+enum ChannelType {
+  TEXT
+  AUDIO
+  VIDEO
 }

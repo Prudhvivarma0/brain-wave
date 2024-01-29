@@ -46,7 +46,7 @@ const ChallengePage = async ({
             }
         }
     });
-
+    
     let link  = '#';
     if(alreadyJoined) {
         link = `/servers/${server?.id}`;
@@ -85,6 +85,12 @@ const ChallengePage = async ({
                         <div className="text-white">{alreadyJoined ? "Go to challenge": "Join this challenge"}</div>
                     </div>
                 </a>
+                <button 
+                    className="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-[10px] shadow-lg hover:shadow-xl transition duration-300 ease-in-out ml-9 mt-3"
+                >
+                    Delete Challenge
+                </button>
+            
             </main>
         </div>
      );

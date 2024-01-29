@@ -99,7 +99,6 @@ const ChallengePage = async ({
                         <div className="text-white">{alreadyJoined ? "Go to challenge": "Join this challenge"}</div>
                     </div>
                 </a>
-                </div>
             </main>
         </div>
      );

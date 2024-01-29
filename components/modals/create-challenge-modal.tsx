@@ -56,6 +56,7 @@ export const CreateChallengeModal = () => {
             terms:"",
         }
     });
+    
 
     const isLoading = form.formState.isSubmitting;
 

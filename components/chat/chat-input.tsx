@@ -66,6 +66,7 @@ export const ChatInput = ({
                                         className="text-black px-14 py-6  bg-gray-200"
                                         placeholder={`Message ${type === "conversation" ? name : "in " + name}`}
                                         {...field}
+                                        autoComplete="off"
                                     />
                                     
                                     <button onClick={onSubmit} className="absolute top-7 right-8">

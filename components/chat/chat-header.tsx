@@ -1,4 +1,4 @@
-import { MessageCircle, Mic, PenLine, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
+import { MessageCircle, Mic, PenLine, PhoneCall, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
 import { SocketIndicator } from "../socket-indicator";
 import { UserAvatar } from "../user-avatar";
@@ -135,6 +135,9 @@ export const ChatHeader = async ({
                         />
                     </div>
                 </ScrollArea>
+                <a href="/videocall" target="_blank" className="rounded hover:text-gray-400">
+                    <PhoneCall className="mr-3" />
+                </a>
                 <a href="/whiteboard" className="rounded hover:text-gray-400">
                     <PenLine className="mr-3" />
                 </a>

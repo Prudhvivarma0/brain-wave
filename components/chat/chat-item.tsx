@@ -105,7 +105,7 @@ export const ChatItem = ({
                 <div>
                     <UserAvatar src={member.profile.imageUrl}/>
                 </div>
-                <div className={`flex flex-col ${isOwner ? "flex-row-reverse" : ""}`}>
+                <div className={`flex flex-col text-white bg-[rgb(81,40,94)] p-2 min-w-[200px] rounded-lg ${isOwner ? "flex-row-reverse" : ""}`}>
                     <div className={`flex items-center gap-x-2 ${isOwner ? "flex-row-reverse" : ""}`}>
                         <div className={`flex items-center ${isOwner ? "flex-row-reverse" : ""}`}>
                            
@@ -123,7 +123,7 @@ export const ChatItem = ({
                                 {roleIconMap[member.role]}
                             </p>
                         </div>
-                        <span className="text-xs text-gray-600">
+                        <span className="text-xs ">
                             {timestamp}
                         </span>
                     </div>
@@ -150,9 +150,9 @@ export const ChatItem = ({
                             href={fileUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={`ml-2 text-sm text-black dark:text-white hover:underlin`}
+                            className={`ml-2 text-sm text-white dark:text-white hover:underlin`}
                         > 
-                            PDF File
+                            {fileType.toUpperCase()}
                         </a>
                     </div>
                     )}

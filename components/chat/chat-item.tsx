@@ -19,6 +19,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useModal } from "@/hooks/use-modal-store";
+import { useParams, useRouter } from "next/navigation";
 
 interface ChatItemProps {
     id: string;
@@ -68,6 +69,19 @@ export const ChatItem = ({
     const isImage = !isPDF && fileUrl;
     const {onOpen} = useModal();
     const isLink = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(content);
+
+    const isMention = content.startsWith("@");
+    const mentionedUserName = isMention ? content.substring(1) : null;
+    // TODO: Somehow get the user id from the name string above and push that id instead of the name
+    // const mentionedUserId = member.profile.id
+    const router = useRouter();
+    const params = useParams();
+    const onMentionClick = () => {
+        if (mentionedUserName) {
+        // Handle mention click action (e.g., navigate to the user's profile or conversation)
+        router.push(`/servers/${params?.serverId}/conversation/${mentionedUserName}`);
+        }
+    };
 
 
     const form = useForm<z.infer<typeof formSchema>>({
@@ -160,10 +174,16 @@ export const ChatItem = ({
                         <div className={`flex ${isOwner ? "flex-row-reverse" : ""}`}>
                             {isLink ? (
                                 <a href={content} target="_blank" rel="noopener noreferrer" className="text-blue-700 hover:underline">
-                                    {content}
+                                {content}
                                 </a>
                             ) : (
+                                isMention ? (
+                                <span className="cursor-pointer text-green-500 hover:underline" onClick={onMentionClick}>
+                                    {content}
+                                </span>
+                                ) : (
                                 content
+                                )
                             )}
                             {isUpdated && !deleted && (
                                 <span className="text-xs text-gray-600 ml-2 mr-2 mt-2">

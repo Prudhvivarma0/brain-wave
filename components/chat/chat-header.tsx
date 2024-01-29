@@ -1,4 +1,4 @@
-import { MessageCircle, Mic, PenLine, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
+import { MessageCircle, Mic, PenLine, PhoneCall, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
 import { SocketIndicator } from "../socket-indicator";
 import { UserAvatar } from "../user-avatar";
@@ -78,11 +78,14 @@ export const ChatHeader = async ({
     return (
         <div className="text-md font-semibold px-3 flex items-center h-16 text-white " style={{ backgroundColor: 'rgb(81,40,94)' , borderRadius: '10px', borderBlockColor:"black"}}>
             <MobileToggle serverId={serverId}/>
+            <p className="font-semibold" style={{ fontSize: '1.5rem' }}>
+                {server.name} -&nbsp; 
+            </p>
             {type === "channel" && (
-                <MessageCircle className="w-5 h-5 text-white mr-2"/>
+                <MessageCircle className="w-4 h-4 text-white mr-2"/>
             )}
             {type === "conversation" && (
-                <UserAvatar src={imageUrl} className="h-8 w-8 md:h-8 md:w-8 mr-2"/>
+                <UserAvatar src={imageUrl} className="h-4 w-4 md:h-8 md:w-8 mr-2"/>
             )}
             <p className="font-semibold text-md">
                 {name}
@@ -132,6 +135,9 @@ export const ChatHeader = async ({
                         />
                     </div>
                 </ScrollArea>
+                <a href="/videocall" target="_blank" className="rounded hover:text-gray-400">
+                    <PhoneCall className="mr-3" />
+                </a>
                 <a href="/whiteboard" className="rounded hover:text-gray-400">
                     <PenLine className="mr-3" />
                 </a>

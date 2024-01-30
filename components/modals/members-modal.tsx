@@ -15,7 +15,7 @@ import { useModal } from "@/hooks/use-modal-store";
 import { ServerWithMembersWithProfiles } from "@/types";
 import { MemberRole } from "@prisma/client";
 import axios from "axios";
-import { Check, GavelIcon, Loader2, MoreVertical, Shield, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
+import { BadgeCheck, Check, Crown, GavelIcon, Loader2, MoreVertical, Shield, ShieldAlert, ShieldCheck, ShieldQuestion } from "lucide-react";
 import { useRouter } from "next/navigation";
 import qs from "query-string";
 import { useState } from "react";
@@ -25,8 +25,8 @@ import { UserAvatar } from "../user-avatar";
 
 const roleIconMap = {
     "GUEST": null,
-    "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2 text-green-500"/>,
-    "ADMIN": <ShieldAlert className="h-4 w-4 text-rose-500"/>
+    "MODERATOR": <BadgeCheck className="h-4 w-4 ml-2 text-green-500"/>,
+    "ADMIN": <Crown className="h-4 w-4 text-yellow-500"/>
 
 }
 
@@ -124,14 +124,14 @@ export const MembersModal = () => {
                                             <DropdownMenuPortal>
                                                 <DropdownMenuSubContent>
                                                     <DropdownMenuItem onClick={() => onRoleChange(member.id, "GUEST")}>
-                                                        <Shield className="h-4 w-4 mr-2"/>
+                                                        <Crown className="h-4 w-4 mr-2"/>
                                                         Guest
                                                         {member.role === "GUEST" && (
                                                             <Check className="h-4 w-4 ml-auto"/>
                                                         )}
                                                     </DropdownMenuItem>
                                                     <DropdownMenuItem onClick={() => onRoleChange(member.id, "MODERATOR")}>
-                                                        <ShieldCheck className="h-4 w-4 mr-2"/>
+                                                        <BadgeCheck className="h-4 w-4 mr-2"/>
                                                         Team Leader
                                                         {member.role === "MODERATOR" && (
                                                             <Check className="h-4 w-4 ml-auto"/>

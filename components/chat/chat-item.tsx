@@ -2,7 +2,7 @@
 
 import { Member, MemberRole, Profile } from "@prisma/client";
 import { UserAvatar } from "../user-avatar";
-import { Delete, Edit, FileIcon, ShieldAlert, ShieldCheck, Trash, X } from "lucide-react";
+import { BadgeCheck, Crown, Delete, Edit, FileIcon, ShieldAlert, ShieldCheck, Trash, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { 
@@ -38,8 +38,8 @@ interface ChatItemProps {
 
 const roleIconMap = {
     "GUEST": null,
-    "MODERATOR": <ShieldCheck className="h-4 w-4 ml-2 text-green-500"/>,
-    "ADMIN": <ShieldAlert className="h-4 w-4 ml-2 text-rose-500"/>
+    "MODERATOR": <BadgeCheck className="h-4 w-4 ml-2 text-green-500"/>,
+    "ADMIN": <Crown className="h-4 w-4 ml-2 text-yellow-500"/>
 };
 
 const formSchema = z.object({

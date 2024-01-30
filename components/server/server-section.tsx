@@ -22,11 +22,11 @@ export const ServerSection = ({
 }: ServerSectionProps) => {
     const {onOpen} = useModal();
 
-    // Split the label by space and create a new paragraph for each word
     const words = label.split(' ').map((word, index, array) => {
         // Add colon only to the last word
-        return <p key={index} className="font-bold">{word}{index === array.length - 1 ? ':' : ''}</p>;
+        return <span key={index} className="font-bold">{word}{index === array.length - 1 ? ':' : ''} </span>;
     });
+    
 
     return (
         <div className="flex items-center justify-between py-2">

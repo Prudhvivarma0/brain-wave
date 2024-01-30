@@ -60,7 +60,7 @@ export const ServerSidebar = async ({
                             sectionType="channels"
                             channelType={ChannelType.TEXT}
                             role={role}
-                            label="Text Channels"
+                            label="Collab Space"
                         />
                         {textChannels.map((channel) => (
                             <ServerChannel

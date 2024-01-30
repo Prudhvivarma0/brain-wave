@@ -1,13 +1,10 @@
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import { UserButton } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
-import { Separator } from "../ui/separator";
 import Challenges from "./challenges";
 import HomeButton from "./home";
 import VirtualExhibits from "./virtual-exhibits";
-import { NavSettings } from "./settings-navigation";
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
@@ -33,7 +30,6 @@ export const NavigationSidebar = async () => {
                 <HomeButton />
                 <VirtualExhibits />
                 <Challenges />
-                <NavSettings />
                 <div className="mt-auto flex items-center flex-col gap-y-3">
                     <ModeToggle />
                 </div>

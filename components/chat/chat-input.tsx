@@ -70,7 +70,7 @@ export const ChatInput = ({
                                     
                                     <button onClick={() => onSubmit} disabled={isLoading} className="absolute top-7 right-8">
                                         <Send 
-                                            className="text-black w-5"
+                                            className={`text-black w-5 ${isLoading ? 'text-gray-500' : ''}`}
                                         />
                                     </button>
                                 </div>

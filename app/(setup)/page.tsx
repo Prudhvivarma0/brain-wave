@@ -1,19 +1,16 @@
 // This is root file
 
-import { InitialModal } from "@/components/modals/initial-modal";
+import { HomeMobileToggle } from "@/components/home-mobile-toggle";
+import { NavigationAction } from "@/components/navigation/navigation-action";
 import { NavigationItem } from "@/components/navigation/navigation-item";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { initailProfile } from "@/lib/initial-profile";
-import { redirect } from "next/navigation";
-import { NavigationAction } from "@/components/navigation/navigation-action";
-import { AlignVerticalJustifyCenter, Bell } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import { MobileToggle } from "@/components/mobile-toggle";
-import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { UserButton } from "@clerk/nextjs";
+import { Bell } from "lucide-react";
+import { redirect } from "next/navigation";
 
 const SetupPage = async () => {
     // Loads the profile of the user
@@ -57,7 +54,7 @@ const SetupPage = async () => {
                 <div className="flex justify-between items-center mt-7">
                     <div className="text-left">
                         <div className="text-4xl ml-4">
-                            Welcome <strong>{currprofile.name !== "null null" ? currprofile.name.split(' ')[0].toUpperCase() : 'User'}</strong>!
+                            Welcome <strong>{currprofile.name !== "null" ? currprofile.name.split(' ')[0].toUpperCase() : 'User'}</strong>!
                         </div>
                         <div className="text-1xl ml-5">
                             My Teams

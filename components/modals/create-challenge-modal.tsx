@@ -241,12 +241,11 @@ export const CreateChallengeModal = () => {
                                 <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900">
                                     Create
                                 </Button>
-
                             </DialogFooter>
                             </div>
-                           </div> 
-                        </form>
-                    </Form>
+                        </div> 
+                    </form>
+                </Form>
             </DialogContent>
         </Dialog>
     )

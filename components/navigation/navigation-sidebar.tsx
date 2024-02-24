@@ -5,6 +5,7 @@ import { ModeToggle } from "../mode-toggle";
 import Challenges from "./challenges";
 import HomeButton from "./home";
 import VirtualExhibits from "./virtual-exhibits";
+import EditorButton from "./editor";
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
@@ -30,6 +31,7 @@ export const NavigationSidebar = async () => {
                 <HomeButton />
                 <VirtualExhibits />
                 <Challenges />
+                <EditorButton/>
                 <div className="mt-auto flex items-center flex-col gap-y-3">
                     <ModeToggle />
                 </div>

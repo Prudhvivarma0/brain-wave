@@ -14,6 +14,8 @@ import { MembersModal } from "../modals/members-modal";
 import { MessageFileModal } from "../modals/message-file-modal";
 import { DeleteMessageModal } from "../modals/delete-message-modal";
 import { UserSettingsModal } from "../modals/user-settings";
+import { CreateExhibitModal } from "../modals/create-exhibits-modal";
+import { DeletePostModal } from "../modals/delete-post-modal";
 
 
 export const ModalProvider = () => {
@@ -41,6 +43,8 @@ export const ModalProvider = () => {
             <MessageFileModal/>
             <DeleteMessageModal/>
             <UserSettingsModal/>
+            <CreateExhibitModal />
+            <DeletePostModal/>
         </>
     )
 }

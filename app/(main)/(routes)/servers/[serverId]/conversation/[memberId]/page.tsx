@@ -78,5 +78,5 @@ const MemberIdPage = async ({
 );
 
 }
- 
+
 export default MemberIdPage;

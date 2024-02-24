@@ -131,14 +131,14 @@ model DirectMessage {
 }
 
 model Post {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  content   String   @db.Text
-  deleted   Boolean  @default(false)
-  fileUrl   String?  @db.Text
-  profileId String
-  updatedAt DateTime @updatedAt
-  profile   Profile  @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  id                 String @id @default(uuid())
+  imageURL           String @db.Text
+  description        String
+  profileId          String 
+  profile Profile @relation(fields:[profileId],references: [id],onDelete: Cascade)
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 
   @@index([profileId])
 }

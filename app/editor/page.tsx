@@ -8,6 +8,7 @@ import { redirect } from "next/navigation";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { ChevronLeft } from "lucide-react";
 import Editor from "@/components/editor/editor";
+import Tiptap from "@/components/editor/textEditor";
 
 const Whiteboard = async ({
     children
@@ -36,6 +37,7 @@ const Whiteboard = async ({
             </div>
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4 mb-6" />
             <Editor children={undefined}/>
+            {/* <Tiptap/> */}
             </main>          
         </div>
           

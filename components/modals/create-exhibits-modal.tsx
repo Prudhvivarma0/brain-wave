@@ -14,10 +14,10 @@ import { Input } from "../ui/input";
 
 const formSchema = z.object({
     description: z.string().min(1, {
-        message: "Team name is required"
+        message: "Description is required"
     }),
     imageUrl: z.string().min(1, {
-        message: "Team image is required"
+        message: "Description is required"
     })
 
 })

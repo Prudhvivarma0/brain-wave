@@ -94,6 +94,7 @@ export const ChatHeader = async ({
                 <ScrollArea className="flex-1 px-5">
                     <div>
                         <ServerSearch 
+                        
                             data={[
                                 {
                                     label: "Text Channels",

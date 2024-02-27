@@ -1,12 +1,11 @@
 
-import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import Canvas from "@/components/canvascomp/canvas";
-import { Separator } from "@/components/ui/separator";
-import { db } from "@/lib/db";
-import { currentProfile } from "@/lib/current-profile";
-import { redirect } from "next/navigation";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
+import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
+import { Separator } from "@/components/ui/separator";
+import { currentProfile } from "@/lib/current-profile";
+import { db } from "@/lib/db";
 import { ChevronLeft } from "lucide-react";
+import { redirect } from "next/navigation";
 
 const Whiteboard = async ({
     children
@@ -43,7 +42,7 @@ const Whiteboard = async ({
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4" />
             <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
             <iframe
-                src="https://excalidraw.com/"
+                src="https://www.tldraw.com/"
                 title="Web Whiteboard"
                 width="1300"
                 height="600"

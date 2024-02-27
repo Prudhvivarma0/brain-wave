@@ -5,7 +5,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "../ui/form";
 import { Input } from "../ui/input";
-import { PlusIcon, Send } from "lucide-react";
+import { PlusIcon, Send, Smile } from "lucide-react";
 import axios from "axios";
 import qs from "query-string";
 import { useModal } from "@/hooks/use-modal-store";
@@ -56,10 +56,12 @@ export const ChatInput = ({
                     render={({field}) => (
                         <FormItem>
                             <FormControl>
-                                <div className="relative p-4 pb-6">
+                                <div className="relative p-4 pb-6 flex justify-between items-center">
+                                    <div>
                                     <button type="button" onClick={() => onOpen("messageFile", {apiUrl, query})} className="absolute top-7 left-8 h-[24px] w-[24px] bg-gray-300 hover:bg-gray-400 transition rounded-full p-1 flex items-center justify-center">
                                         <PlusIcon className="text-black"/>
                                     </button>
+                                    </div>
                                     <Input
                                         disabled={isLoading}
                                         className="text-black px-14 py-6  bg-gray-200"

@@ -11,6 +11,7 @@ import { ChevronLeft } from "lucide-react";
 import React, { useState, useEffect, useRef } from 'react';
 import 'react-quill/dist/quill.snow.css';
 import ReactQuill, { Quill } from 'react-quill';
+
 interface QuillState {
     quill: Quill | null; // Initially can be null 
 }
@@ -40,7 +41,7 @@ const Editor = ({
         ['clean']                                         // remove formatting button
       ];
 
-    useEffect(() => {
+      useEffect(() => {
         if (quillRef.current && !quillState.quill) {
             const newQuill = new Quill(quillRef.current, {
                 modules: {
@@ -48,15 +49,20 @@ const Editor = ({
                 },
                 theme: 'snow'
             });
-
-            setQuillState(prevState => ({ ...prevState, quill: newQuill })); // Update using setter
+    
+            setQuillState(prevState => ({ ...prevState, quill: newQuill }));
         }
-    }, []);
+    }, [quillState.quill]); // Add quillState.quill to the dependency array to prevent re-initialization
 
     // ... rest of your Editor component 
 
     return (
-            <div ref={quillRef}/>
+            // <div ref={quillRef} className="quill-editor"/>
+            <ReactQuill 
+                modules={{ toolbar: toolbarOptions }}
+                placeholder="write some text here...." 
+                className="h-full"
+            />
             
     );
 }

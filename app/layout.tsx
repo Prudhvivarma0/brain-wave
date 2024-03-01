@@ -25,7 +25,7 @@ export default function RootLayout({
       <html lang="en" suppressHydrationWarning>
         <body className={cn (
           font.className,
-          "bg-[rgb(244,244,244)] dark:bg-[rgb(28,24,46)]"
+          "bg-[rgb(244,244,244)] dark:bg-[rgb(3,2,66)]"
           )}>
           <ThemeProvider
           attribute='class'

@@ -48,7 +48,7 @@ const SetupPage = async () => {
             <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0 ">
                 <NavigationSidebar />
             </div>
-            <main className="md:pl-[200px] pr-[40px] h-full">
+            <main className="pl-[10px] pr-[10px] h-full md:pl-[170px] pr-[40px] h-full">
                 <HomeMobileToggle />
 
                 <div className="flex justify-between items-center mt-7">

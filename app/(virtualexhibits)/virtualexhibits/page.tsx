@@ -27,7 +27,7 @@ const VirtualExhibits = async ({
             <div className="hidden md:flex h-full w-[155px] z-30 flex-col fixed inset-y-0">
                 <NavigationSidebar/>
             </div>
-            <main className="md:pl-[180px] pr-[20px] h-full">
+            <main className="pl-[10px] pr-[10px] h-full md:pl-[170px] pr-[40px] h-full">
             <HomeMobileToggle/>
                 <div className="flex items-center justify-between mt-5">
                     <div className="text-4xl ml-9 mb-5 ">
@@ -35,7 +35,7 @@ const VirtualExhibits = async ({
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
-                <div className="md:pl-[350px] pr-[20px] h-full">
+                <div className="pl-[30px]sm:pl-[110px] md:pl-[350px] pr-[20px] h-full">
                 {posts.map((post) => (
                             <div key={post.id} className="mb-1 w-full">
                                 <PostItems

@@ -20,12 +20,14 @@ const Challenges = async ({
     const challenges = await db.challenge.findMany({
     });
 
+    const prof = await db.server.findMany({});
+
     return (
         <div className="h-full">
             <div className="hidden md:flex h-full w-[155px] z-30 flex-col fixed inset-y-0">
                 <NavigationSidebar />
             </div>
-            <main className="md:pl-[180px] pr-[20px] h-full">
+            <main className="pl-[10px] pr-[10px] h-full md:pl-[170px] pr-[40px] h-full">
                 <HomeMobileToggle />
                 <div className="flex items-center justify-between mt-5">
                     <div className="text-4xl ml-9 mb-5" >
@@ -33,11 +35,11 @@ const Challenges = async ({
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
-                <div className="flex justify-between">
+                {/* <div className="flex justify-between">
                     <div className="text-4xl font-bold text-center py-4 ml-9 ">Name</div>
                     <div className="text-4xl font-bold text-center py-4 ml-[270px]">Prize</div>
                     <div className="text-4xl font-bold text-center py-4  mr-12">Duration</div>
-                </div>
+                </div> */}
                 <div className="flex items-center flex-wrap gap-3 p-9"> 
                     {challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
                         .map((challenge) => (
@@ -47,6 +49,8 @@ const Challenges = async ({
                                     name={challenge.name}
                                     prize={challenge.prize}
                                     duration={challenge.duration}
+                                    by = {challenge.objective}
+                                    img= {challenge.id}
                                 />
                             </div>
                         ))}

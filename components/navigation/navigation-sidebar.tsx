@@ -31,7 +31,7 @@ export const NavigationSidebar = async () => {
                 <HomeButton />
                 <VirtualExhibits />
                 <Challenges />
-                <EditorButton/>
+                {/* <EditorButton/> */}
                 <div className="mt-auto flex items-center flex-col gap-y-3">
                     <ModeToggle />
                 </div>

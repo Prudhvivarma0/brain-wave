@@ -121,10 +121,16 @@ const profiless = await db.profile.findMany({
     const transformedProfiles = profiless.map(profiless => profiless.name);
 
     return (
-        <div className="text-md font-semibold px-3 flex items-center h-16 text-white " style={{ backgroundColor: 'rgb(81,40,94)' , borderRadius: '10px', borderBlockColor:"black"}}>
+        <div className="text-md font-semibold px-3 flex items-center h-16 text-white " style={{ backgroundColor: 'rgb(81,40,94)', borderBlockColor:"black"}}>
             <MobileToggle serverId={serverId}/>
-            <p className="font-semibold" style={{ fontSize: '1.5rem' }}>
-                {server.name} -&nbsp; 
+            <p className="font-semibold" style={{ fontSize: '1.3rem' }}>
+                {server.name}
+            </p>
+                &nbsp; 
+                    -
+                &nbsp; 
+            <p>
+
             </p>
             {type === "channel" && (
                 <MessageCircle className="w-4 h-4 text-white mr-2"/>
@@ -193,7 +199,7 @@ const profiless = await db.profile.findMany({
                 <div title="Settings">
                 <ServerHeader server={server} role={role} members={transformedMembers} channel={transformedChannels} profile={transformedProfiles}/>
                 </div>
-                {/* <SocketIndicator/> */}
+                {/* <SocketIndicator/>  */}
             </div>
         </div>
     )

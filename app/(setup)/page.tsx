@@ -48,7 +48,7 @@ const SetupPage = async () => {
             <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0 ">
                 <NavigationSidebar />
             </div>
-            <main className="pl-[10px] pr-[10px] h-full md:pl-[170px] pr-[40px] h-full">
+            <main className="pl-[10px] md:pl-[170px] pr-[40px] h-full">
                 <HomeMobileToggle />
 
                 <div className="flex justify-between items-center mt-7">
@@ -73,11 +73,11 @@ const SetupPage = async () => {
                     </div>
                 </div>
 
-                <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-5" />
+                <Separator className="h-[3px]  dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-5" />
                 <div className="text-zinc-500 mt-3 ml-5">
                     {servers?.length} {servers?.length === 1 ? 'Team' : 'Teams'}
                 </div>
-
+                
                 <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
                     {servers.map((server) => (
                         <div key={server.id} >

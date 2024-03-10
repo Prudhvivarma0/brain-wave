@@ -56,7 +56,7 @@ export const ChatInput = ({
                     render={({field}) => (
                         <FormItem>
                             <FormControl>
-                                <div className="relative p-4 pb-6 flex justify-between items-center">
+                                <div className="relative p-4 pb-6 ">
                                     <div>
                                     <button type="button" onClick={() => onOpen("messageFile", {apiUrl, query})} className="absolute top-7 left-8 h-[24px] w-[24px] bg-gray-300 hover:bg-gray-400 transition rounded-full p-1 flex items-center justify-center">
                                         <PlusIcon className="text-black"/>

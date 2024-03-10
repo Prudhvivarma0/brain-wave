@@ -30,11 +30,8 @@ const ServerIdLayout = async ({
         return redirect("/");
     }
     return ( 
-        <div className="h-full flex">
-            <div className="w-50 z-20 flex-col fixed inset-y-8 ml-3 mt-10 mb-20 md:block hidden mr-4">
-                <ServerSidebar serverId={params.serverId}/>
-            </div>
-            <main className="h-full md:pl-56 md:pt-5 mr-[30px] flex-grow">
+        <div className="h-full">
+            <main className="h-full">
                 {children}
             </main>     
         </div>

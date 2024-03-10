@@ -5,12 +5,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { Toaster, toast } from "sonner";
 import * as z from "zod";
 import { FileUpload } from "../file-upload";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
+//import { Toaster } from "../ui/sonner";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -43,6 +45,7 @@ export const CreateServerModal = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             await axios.post("/api/servers", values);
+            toast.success("Team created successfully");
             form.reset();
             router.refresh();
             onClose();
@@ -110,10 +113,10 @@ export const CreateServerModal = () => {
 
                             </div>
                             <DialogFooter className="bg-grey-100 px-6 py-4">
-                                <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900">
+                                <Toaster richColors/>
+                                <Button disabled={isLoading} onClick={() => toast.success("Done")} variant="brain" className="bg-purple-600 dark:bg-purple-900">
                                     Create
                                 </Button>
-
                             </DialogFooter>
                         </form>
                     </Form>

@@ -4,6 +4,7 @@ import { useModal } from "@/hooks/use-modal-store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Toaster, toast } from "sonner";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
 
@@ -53,14 +54,19 @@ export const DeleteServerModal = () => {
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="bg-[#310a4477] px-6 py-4">
-                    <div className="flex items-center justify-end w-full">
-                        <Button 
+                <div className="flex items-center justify-end w-full">
+                    <Toaster richColors/>
+                    <Button 
                         disabled={isLoading}
                         variant="destructive"
-                        onClick={onClick}>
-                            Delete
-                        </Button>
-                    </div>
+                        onClick={() => {
+                        onClick(); // Call onClick function
+                        toast.warning("Team Deleted");
+                        }}>
+                        Delete
+                    </Button>
+                </div>
+
                 </DialogFooter>
             </DialogContent>
         </Dialog>

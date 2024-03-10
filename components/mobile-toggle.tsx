@@ -3,6 +3,7 @@ import { NavigationSidebar } from "./navigation/navigation-sidebar"
 import { ServerSidebar } from "./server/server-sidebar"
 import { Button } from "./ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
+import { Separator } from "./ui/separator"
 
 export const MobileToggle = ({
     serverId
@@ -10,15 +11,16 @@ export const MobileToggle = ({
     return(
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="md:hidden">
+                <Button variant="ghost" size="icon">
                     <MenuIcon/>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="p-0 flex gap-3">
-                <div className="w-[250px]">
+            <SheetContent side="left" className="p-0 flex gap-0">
+                <div className="w-[155px]">
                     <NavigationSidebar/>
                 </div>
-                <div className="md:m1-[60px] mt-[80px]">
+                <div className="border-l border-black"></div>
+                <div className="w-full">
                     <ServerSidebar
                     serverId={serverId}
                 />

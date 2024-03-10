@@ -1,19 +1,17 @@
 "use client";
 
-import { Edit2, Search, Trash2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Search } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-import { 
-  CommandDialog, 
-  CommandEmpty, 
-  CommandGroup, 
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
   CommandInput,
   CommandItem,
   CommandList
 } from "@/components/ui/command";
-import { Channel, MemberRole, Server } from "@prisma/client";
-import { ModalType, useModal } from "@/hooks/use-modal-store";
 
 interface ServerSearchProps {
   data: {
@@ -85,7 +83,7 @@ export const ServerSearch = ({
 
 
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Search all channels and members" />
+        <CommandInput placeholder="Search all Collabs and DMs" />
         <CommandList>
           <CommandEmpty>
             No Results found
@@ -100,12 +98,6 @@ export const ServerSearch = ({
                       <CommandItem key={id} onSelect={() => onClick({ id, type })}>
                         {icon}
                         <span>{name}</span>
-                        {/* {name !== "main" && role !== MemberRole.GUEST && (
-                        <div className="ml-auto flex flex-row items-center gap-x-1">
-                            <Edit2 onClick={(e) => onAction(e,"editChannel")} className="group-hover:block w-4 h-4"/>
-                            <Trash2 onClick={(e) => onAction(e, "deleteChannel")} className="group-hover:block w-4 h-4"/>
-                        </div>
-                        )} */}
 
                       </CommandItem>
                     )

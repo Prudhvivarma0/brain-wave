@@ -1,25 +1,18 @@
 "use client"
 
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue
-} from "@/components/ui/select";
 import { useModal } from "@/hooks/use-modal-store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ChannelType } from "@prisma/client";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import qs from "query-string";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
-import { useEffect } from "react";
 
 const formSchema = z.object({
     name: z.string().min(1, {
@@ -121,7 +114,7 @@ export const CreateChannelModal = () => {
                                     </FormItem>
                                 )}
                                 />
-                                <FormField
+                                {/* <FormField
                                     control={form.control}
                                     name="type"
                                     render={({field}) => (
@@ -154,7 +147,7 @@ export const CreateChannelModal = () => {
                                             <FormMessage/>
                                         </FormItem>
                                     )}
-                                />
+                                /> */}
 
                             </div>
                             <DialogFooter className="bg-grey-100 px-6 py-4">

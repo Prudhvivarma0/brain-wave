@@ -1,25 +1,25 @@
 "use client"
 
+import { useModal } from "@/hooks/use-modal-store";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Member, MemberRole, Profile } from "@prisma/client";
-import { UserAvatar } from "../user-avatar";
-import { BadgeCheck, Crown, Delete, Edit, FileIcon, ShieldAlert, ShieldCheck, Trash, X } from "lucide-react";
+import axios from "axios";
+import { BadgeCheck, Crown, Edit, FileIcon, Music, Trash, Video, X } from "lucide-react";
 import Image from "next/image";
+import { useParams, useRouter } from "next/navigation";
+import qs from "query-string";
 import { useEffect, useState } from "react";
-import { 
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { Button } from "../ui/button";
+import {
     Form,
     FormControl,
     FormField,
     FormItem
 } from "../ui/form";
-import * as z from "zod";
-import axios from "axios";
-import qs from "query-string";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "../ui/input";
-import { Button } from "../ui/button";
-import { useModal } from "@/hooks/use-modal-store";
-import { useParams, useRouter } from "next/navigation";
+import { UserAvatar } from "../user-avatar";
 
 interface ChatItemProps {
     id: string;
@@ -66,7 +66,12 @@ export const ChatItem = ({
     const canDeleteMessage = !deleted && (isAdmin || isMod || isOwner);
     const canEdit = !deleted && isOwner && !fileUrl;
     const isPDF = fileType === "pdf" && fileUrl;
-    const isImage = !isPDF && fileUrl;
+    
+    const isAudio = fileType === "mp3" && fileUrl;
+    const isVideo = fileType === "mp4" && fileUrl; 
+    
+    const isImage = !isPDF && !isAudio && !isVideo && fileUrl;
+
     const {onOpen} = useModal();
     const isLink = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(content);
 
@@ -167,6 +172,32 @@ export const ChatItem = ({
                             className={`ml-2 text-sm text-white dark:text-white hover:underlin`}
                         > 
                             {fileType.toUpperCase()}
+                        </a>
+                    </div>
+                    )}
+                    {isAudio && (
+                        <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
+                        <Music className="h-10 w-10 mr-1"/>
+                        <a 
+                            href={fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`ml-2 text-sm text-white dark:text-white hover:underlin`}
+                        > 
+                        {fileType.toUpperCase()}
+                        </a>
+                    </div>
+                    )}
+                    {isVideo && (
+                        <div className="relative flex items-center p-2 mt-2 rounded-md bg-background/10">
+                        <Video className="h-10 w-10 mr-1"/>
+                        <a 
+                            href={fileUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`ml-2 text-sm text-white dark:text-white hover:underlin`}
+                        > 
+                        {fileType.toUpperCase()}
                         </a>
                     </div>
                     )}

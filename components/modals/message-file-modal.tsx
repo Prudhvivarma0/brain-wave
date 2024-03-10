@@ -76,7 +76,7 @@ export const MessageFileModal = () => {
                             Add Attachments
                         </DialogTitle>
                         <DialogDescription className="text-white text-center">
-                            Send an image or pdf file
+                            Send an Image, PDF, Video, GIF or Audio files
                         </DialogDescription>
                     </DialogHeader>
                     <Form {...form}>

@@ -61,6 +61,45 @@ export const ChatHeader = async ({
         }
     });
 
+    const channel = await db.channel.findMany({
+        where:{
+            serverId: server?.id
+        }
+    });
+
+    const adminsAndModerators = await db.member.findMany({
+        where: {
+          role: {
+            in: ['ADMIN', 'MODERATOR'], // Filtering by ADMIN and MODERATOR roles
+          },
+          serverId: server?.id
+        },
+        select: {
+          profileId: true, // Select the profileId field
+        },
+    });
+
+    // Extract profileId values from adminsAndModerators
+const profileIds = adminsAndModerators.map(member => member.profileId);
+
+// Use the extracted profileIds in the where clause
+const profiless = await db.profile.findMany({
+    where: {
+        id: {
+            in: profileIds, // Use the in operator to match any id in the profileIds array
+        },
+    }
+});
+
+    // const messages = await db.message.findMany({
+    //     where:{
+    //         channelId: channel[0].id
+    //     }
+
+    // });
+
+    
+
     if (!server) {
         return redirect("/");
     }
@@ -74,6 +113,12 @@ export const ChatHeader = async ({
     // const handleButtonClick = () => {
     //     window.location.href = '/whiteboard';
     // };
+
+    const transformedMembers = members.map(member => member.profile.name);
+
+    const transformedChannels = channel.map(channel => channel.name);
+
+    const transformedProfiles = profiless.map(profiless => profiless.name);
 
     return (
         <div className="text-md font-semibold px-3 flex items-center h-16 text-white " style={{ backgroundColor: 'rgb(81,40,94)' , borderRadius: '10px', borderBlockColor:"black"}}>
@@ -146,7 +191,7 @@ export const ChatHeader = async ({
                 <Album />
                 </a>
                 <div title="Settings">
-                <ServerHeader server={server} role={role} />
+                <ServerHeader server={server} role={role} members={transformedMembers} channel={transformedChannels} profile={transformedProfiles}/>
                 </div>
                 {/* <SocketIndicator/> */}
             </div>

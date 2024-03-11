@@ -32,7 +32,7 @@ export const PostItems = ({
     const {onOpen} = useModal();
 
     return (
-        <div className="flex flex-col w-[500px] rounded-[10px] overflow-hidden bg-[rgb(69,38,93)]" style={{ marginBottom: '20px' }}>
+        <div className="flex flex-col h-50 w-50 rounded-[10px] overflow-hidden bg-[rgb(69,38,93)] sm:w-100 sm:h-100">
             <div className="p-4 text-white flex justify-between items-center" >
                 <div className="flex items-center">
                     <img src={pfp} alt={name} className="w-[45px] h-[45px] rounded-full mr-2" />
@@ -46,9 +46,13 @@ export const PostItems = ({
                     </button>
                 )}
             </div>
-            <div>
-                <img src={imageURL} alt={description} className="w-full" />
-            </div>
+            <a 
+                href={imageURL}
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img src={imageURL} alt={description} className="h-60 w-60 sm:w-100 sm:h-100" />
+            </a>
 
             <div className="p-4 text-white">
                 {description}

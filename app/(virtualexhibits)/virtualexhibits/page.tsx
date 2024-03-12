@@ -47,7 +47,8 @@ const VirtualExhibits = async ({
                                         description={post.description}    
                                         currUser={currprofile.userId}
                                         postUser={post.profile.userId}    
-                                        post={post.id}                                                           
+                                        post={post.id}        
+                                        liked={post.liked}                                                   
                                     />
                                 </div>
                             ))}

@@ -52,7 +52,7 @@ export async function GET(
 }
 export async function POST(
     req: Request,
-    {params}: {params: {postId: string}}
+    {params}: {params: {postId: string, state: boolean}}
 ) {
     try {
         const profile = await currentProfile();
@@ -60,14 +60,20 @@ export async function POST(
             return new NextResponse("Unauthorized", {status: 401})
         }
 
+        // Parse the request body to get the isLiking value
+        const { isLiking } = await req.json();
+
         const post = await db.post.update({
-            where: {
+            where: {    
                 id: params.postId
             },
             data: {
                 likeCount: {
-                    increment: 1 // Assuming you want to increment the likeCount by 1
-                }
+                    // Increment if the post is being liked, decrement if it's being unliked
+                    increment: isLiking ? 1 : -1
+
+                },
+                liked: isLiking
             }
         });
         return NextResponse.json(post);

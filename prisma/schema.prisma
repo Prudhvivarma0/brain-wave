@@ -136,6 +136,7 @@ model Post {
   description        String
   profileId          String 
   profile Profile @relation(fields:[profileId],references: [id],onDelete: Cascade)
+  likeCount Int      @default(0)
 
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt

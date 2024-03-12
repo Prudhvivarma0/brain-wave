@@ -24,3 +24,55 @@ export async function DELETE(
         return new NextResponse("Internal Error", {status: 500})
     }
 }
+
+export async function GET(
+    req: Request,
+    {params}: {params: {postId: string}}
+) {
+    try {
+        const profile = await currentProfile();
+        if (!profile) {
+            return new NextResponse("Unauthorized", {status: 401})
+        }
+
+        const post = await db.post.findUnique({
+            where: {
+                id: params.postId
+            },
+            select: {
+                // Assuming 'likeCount' is a relation name defined in your schema
+                likeCount: true
+            }
+        });
+        return NextResponse.json(post);
+    } catch (error){
+        console.log("[POST_ID_LIKE]", error);
+        return new NextResponse("Internal Error", {status: 500})
+    }
+}
+export async function POST(
+    req: Request,
+    {params}: {params: {postId: string}}
+) {
+    try {
+        const profile = await currentProfile();
+        if (!profile) {
+            return new NextResponse("Unauthorized", {status: 401})
+        }
+
+        const post = await db.post.update({
+            where: {
+                id: params.postId
+            },
+            data: {
+                likeCount: {
+                    increment: 1 // Assuming you want to increment the likeCount by 1
+                }
+            }
+        });
+        return NextResponse.json(post);
+    } catch (error){
+        console.log("[POST_ID_LIKE]", error);
+        return new NextResponse("Internal Error", {status: 500})
+    }
+}

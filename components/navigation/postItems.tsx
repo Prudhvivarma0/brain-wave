@@ -4,8 +4,10 @@ import { useParams, useRouter } from "next/navigation";
 import { db } from "@/lib/db";
 import { MoreVertical } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
+import LikeButton from "./likebutton";
 
 interface PostItemProps {
+    id: string;
     name: string;
     imageURL: string;
     description: string;
@@ -16,6 +18,7 @@ interface PostItemProps {
 };
 
 export const PostItems = ({
+    id,
     post,
     pfp,
     name,
@@ -51,11 +54,12 @@ export const PostItems = ({
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={imageURL} alt={description} className="h-60 w-60 sm:w-100 sm:h-100" />
+                <img src={imageURL} alt={description} className="h-[350px] w-[400px] sm:w-100 sm:h-100" />
             </a>
 
             <div className="p-4 text-white">
                 {description}
+                <LikeButton postId={id}/>
             </div>
         </div>
     );

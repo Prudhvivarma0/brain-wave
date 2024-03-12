@@ -13,7 +13,7 @@ const VirtualExhibits = async ({
     const posts = await db.post.findMany({
         include: {
             profile: {
-                select: { name: true ,imageUrl: true, userId:true }
+                select: { id:true,name: true ,imageUrl: true, userId:true }
             }
 }});
 
@@ -35,10 +35,12 @@ const VirtualExhibits = async ({
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
+                <div className="pl-[140px]">
                 <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
                     {posts.map((post) => (
                                 <div key={post.id}>
                                     <PostItems
+                                        id = {post.id}
                                         pfp = {post.profile.imageUrl}
                                         name = {post.profile.name}
                                         imageURL={post.imageURL}
@@ -49,6 +51,7 @@ const VirtualExhibits = async ({
                                     />
                                 </div>
                             ))}
+                    </div>
                     </div>
                 <div className="flex items-center">
                             <PostButton/>

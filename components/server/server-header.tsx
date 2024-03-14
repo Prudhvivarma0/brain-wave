@@ -169,6 +169,16 @@ export const ServerHeader = ({
 
                         </DropdownMenuItem>
                     )}
+                    {/* {isMod && (
+                        <DropdownMenuItem
+                            className="px-3 py-2 text-sm cursor-pointer "
+                            onClick={downloadPDF}
+                        >
+                            <FileBarChart2 className="h-4 w-4 mr-9" />
+                            Platform Statistics
+
+                        </DropdownMenuItem>
+                    )} */}
                     {isAdmin && (
                         <DropdownMenuItem
                             className="px-3 py-2 text-sm cursor-pointer text-rose-500"

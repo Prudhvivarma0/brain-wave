@@ -1,4 +1,6 @@
 //raiqah commit testing
+import White from "@/components/board/board";
+import Example from "@/components/board/board";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import { Separator } from "@/components/ui/separator";
@@ -6,6 +8,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { ChevronLeft } from "lucide-react";
 import { redirect } from "next/navigation";
+import dynamic from "next/dynamic"
 
 const Whiteboard = async ({
     children
@@ -13,6 +16,10 @@ const Whiteboard = async ({
     const server = await db.server.findFirst({
 
     });
+    const Editor = dynamic(
+        async () => import('@/components/board/board'),
+        { ssr: false }
+    );
     const currprofile = await currentProfile();
     if (!currprofile) {
         return redirect("/")
@@ -41,13 +48,15 @@ const Whiteboard = async ({
 
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4" />
             <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
-            <iframe
+            {/* <iframe
                 src="https://www.tldraw.com/"
                 title="Web Whiteboard"
                 width="1300"
                 height="600"
-            >
-            </iframe>
+            > */}
+            
+            <Editor/>
+            {/* </iframe> */}
             </div>
             </main>          
         </div>

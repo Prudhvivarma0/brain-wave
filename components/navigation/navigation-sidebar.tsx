@@ -41,26 +41,6 @@ export const NavigationSidebar = async () => {
                 {/* <EditorButton/> */}
                 {profile.isAdmin && <AdminFeatures servers={transformServers} users={transformProfiles} challenges={transformChallenges} name={profile.name}/>}
                 <div className="mt-auto flex items-center flex-col gap-y-3">
-                <ServerSearch 
-                    data={[
-                        {
-                        label: "Teams", 
-                        type: "server", 
-                        data: servers.map(server => ({ 
-                            id: server.id,
-                            name: server.name,
-                        }))
-                        },
-                        {
-                        label: "Challenges", 
-                        type: "challenge", 
-                        data: challenges.map(challenge => ({ 
-                            id: challenge.id,
-                            name: challenge.name,                            
-                        }))
-                        }
-                    ]}
-                                />
                     <ModeToggle />
                 </div>
             </div>

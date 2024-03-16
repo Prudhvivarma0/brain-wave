@@ -4,6 +4,7 @@ import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { NavigationAction } from "@/components/navigation/navigation-action";
 import { NavigationItem } from "@/components/navigation/navigation-item";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
+import { ServerSearch } from "@/components/server/server-main_search";
 import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
@@ -61,6 +62,27 @@ const SetupPage = async () => {
                         </div>
                     </div>
                     <div className="flex items-center">
+                    <div className="mt-4 pr-6">
+                    <ServerSearch 
+                    data={[
+                        {
+                        label: "Teams", 
+                        type: "server", 
+                        data: servers.map(server => ({ 
+                            id: server.id,
+                            name: server.name,
+                        }))
+                        },
+                        // {
+                        // label: "Challenges", 
+                        // type: "challenge", 
+                        // data: challenges.map(challenge => ({ 
+                        //     id: challenge.id,
+                        //     name: challenge.name,                            
+                        // }))
+                        // }
+                    ]}/>
+                    </div>
                         <Bell className="mr-4 mt-4 w-6 h-6" />
                         <UserButton
                             afterSignOutUrl="/sign-in"

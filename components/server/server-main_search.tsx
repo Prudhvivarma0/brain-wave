@@ -50,7 +50,7 @@ export const ServerSearch = ({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="pr-2 flex items-center outline rounded-md transition hover:bg-white hover:text-black "
+        className="pr-2 w-[264px] flex items-center outline rounded-md transition hover:bg-white hover:text-black "
       >
         <Search className="pl-2 flex items-center" />
 
@@ -59,14 +59,14 @@ export const ServerSearch = ({
           <p
             className="pl-2 flex items-center"
           >
-            Teams
+            Search
           </p>
         </div>
       </button>
 
 
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Search all Teams and Challenges" />
+        <CommandInput placeholder="Search" />
         <CommandList>
           <CommandEmpty>
             No Results found

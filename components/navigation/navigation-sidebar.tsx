@@ -8,23 +8,26 @@ import VirtualExhibits from "./virtual-exhibits";
 import EditorButton from "./editor";
 import { ServerSearch } from "../server/server-main_search";
 import { useState } from 'react';
+import AdminFeatures from "./adminfeatures";
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
     if (!profile) {
         return redirect("/")
     }
-    const servers = await db.server.findMany({
+    const servers = await db.server.findMany();
+    const profiles = await db.profile.findMany();
+    const challenges = await db.challenge.findMany({
         where: {
-            members: {
-                some: {
-                    profileId: profile.id
-                }
+            serverId: {
+                in: servers.map(server => server.id)
             }
         }
     });
-    const challenges = await db.challenge.findMany({
-    });
+
+    const transformServers = servers.map(servers => servers.name);
+    const transformProfiles = profiles.map(profiles => profiles.name);
+    const transformChallenges = challenges.map(challenges => challenges.name);
 
     return (
         <div className="space-y-4 flex flex-col items-center h-full text-white w-[155px] bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)] py-9 ">
@@ -36,6 +39,7 @@ export const NavigationSidebar = async () => {
                 <VirtualExhibits />
                 <Challenges />
                 {/* <EditorButton/> */}
+                {profile.isAdmin && <AdminFeatures servers={transformServers} users={transformProfiles} challenges={transformChallenges} name={profile.name}/>}
                 <div className="mt-auto flex items-center flex-col gap-y-3">
                 <ServerSearch 
                     data={[

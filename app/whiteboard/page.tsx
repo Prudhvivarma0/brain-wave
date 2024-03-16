@@ -47,17 +47,11 @@ const Whiteboard = async ({
             </div>
 
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4" />
-            <div className="mt-12" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80 vh' }}>
-            {/* <iframe
-                src="https://www.tldraw.com/"
-                title="Web Whiteboard"
-                width="1300"
-                height="600"
-            > */}
-            
-            <Editor/>
-            {/* </iframe> */}
-            </div>
+            <div className="mt-6" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', width: '86vw', position: 'relative' }}>
+                <div style={{ width: '90%', height: '90%', position: 'relative', paddingLeft:'50px' }}>
+                    <Editor/>
+                </div>
+                </div>
             </main>          
         </div>
           

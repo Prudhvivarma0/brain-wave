@@ -7,8 +7,8 @@ export default function White() {
 	return (
 		<div
 			style={{
-				position: 'fixed',
-				inset: 0,
+				position: 'absolute',
+				inset: 10,
 			}}
 		>
 			<Tldraw />

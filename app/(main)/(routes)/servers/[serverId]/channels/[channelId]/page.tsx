@@ -53,7 +53,7 @@ const ChannelPage = async ({
                 type="channel"
             />
             <div
-                
+                className="mt-6"
                 style={{
                     display: 'flex',
                     justifyContent: 'center',

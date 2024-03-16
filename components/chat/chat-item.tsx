@@ -77,6 +77,16 @@ export const ChatItem = ({
 
     const isMention = content.startsWith("@");
     const mentionedUserName = isMention ? content.substring(1) : null;
+
+    const formattedContent = content.split(' ').map(word => {
+        let newWord = '';
+        while (word.length > 0) {
+            newWord += word.substring(0, 50) + '\n';
+            word = word.substring(50);
+        }
+        return newWord;
+    }).join(' ');
+
     // TODO: Somehow get the user id from the name string above and push that id instead of the name
     // const mentionedUserId = member.profile.id
     const router = useRouter();
@@ -213,7 +223,7 @@ export const ChatItem = ({
                                     {content}
                                 </span>
                                 ) : (
-                                content
+                                formattedContent
                                 )
                             )}
                             {isUpdated && !deleted && (

@@ -89,7 +89,7 @@ export const ChatMessages = ({
         )
     }
     return (
-        <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto bg-[rgb(236,236,236)] dark:bg-[rgb(51,51,51)]">
+        <div ref={chatRef} className="flex-1 flex flex-col py-4 overflow-y-auto bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]">
             {hasNextPage && (
                 <div className="flex justify-center">
                     {isFetchingNextPage ? (
@@ -101,7 +101,7 @@ export const ChatMessages = ({
                     )}
                 </div>
             )}
-            <div className=" flex flex-col-reverse mt-auto bg-[rgb(236,236,236)] dark:bg-[rgb(51,51,51)] ">
+            <div className="flex-1 flex flex-col-reverse py-4 overflow-y-auto bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)] justify-end">
                 {data?.pages?.map((group, i) => (
                     <Fragment key={i}>
                         {group.items.map((message: MessageWithMemberWithProfile) => (

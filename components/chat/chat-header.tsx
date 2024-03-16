@@ -190,9 +190,9 @@ const profiless = await db.profile.findMany({
                 <a href="/videocall" target="_blank" className="rounded hover:text-gray-400" title="Call">
                     <PhoneCall className="mr-3" />
                 </a>
-                <a href="/whiteboard" className="rounded hover:text-gray-400"  title="Whiteboard">
+                {/* <a href="/whiteboard" className="rounded hover:text-gray-400"  title="Whiteboard">
                     <PenLine className="mr-3" />
-                </a>
+                </a> */}
                 <a href="/editor" className="rounded hover:text-gray-400" title="Editor">
                 <Album />
                 </a>

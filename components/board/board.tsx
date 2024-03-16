@@ -9,6 +9,7 @@ export default function White() {
 			style={{
 				position: 'absolute',
 				inset: 10,
+				zIndex: 1, // Increase the z-index value
 			}}
 		>
 			<Tldraw />

@@ -6,26 +6,25 @@ import Challenges from "./challenges";
 import HomeButton from "./home";
 import VirtualExhibits from "./virtual-exhibits";
 import EditorButton from "./editor";
-import AdminFeatures from "./adminfeatures";
+import { ServerSearch } from "../server/server-main_search";
+import { useState } from 'react';
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
     if (!profile) {
         return redirect("/")
     }
-    const servers = await db.server.findMany();
-    const profiles = await db.profile.findMany();
-    const challenges = await db.challenge.findMany({
+    const servers = await db.server.findMany({
         where: {
-            serverId: {
-                in: servers.map(server => server.id)
+            members: {
+                some: {
+                    profileId: profile.id
+                }
             }
         }
     });
-
-    const transformServers = servers.map(servers => servers.name);
-    const transformProfiles = profiles.map(profiles => profiles.name);
-    const transformChallenges = challenges.map(challenges => challenges.name);
+    const challenges = await db.challenge.findMany({
+    });
 
     return (
         <div className="space-y-4 flex flex-col items-center h-full text-white w-[155px] bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)] py-9 ">
@@ -37,8 +36,27 @@ export const NavigationSidebar = async () => {
                 <VirtualExhibits />
                 <Challenges />
                 {/* <EditorButton/> */}
-                {profile.isAdmin && <AdminFeatures servers={transformServers} users={transformProfiles} challenges={transformChallenges} name={profile.name}/>}
                 <div className="mt-auto flex items-center flex-col gap-y-3">
+                <ServerSearch 
+                    data={[
+                        {
+                        label: "Teams", 
+                        type: "server", 
+                        data: servers.map(server => ({ 
+                            id: server.id,
+                            name: server.name,
+                        }))
+                        },
+                        {
+                        label: "Challenges", 
+                        type: "challenge", 
+                        data: challenges.map(challenge => ({ 
+                            id: challenge.id,
+                            name: challenge.name,                            
+                        }))
+                        }
+                    ]}
+                                />
                     <ModeToggle />
                 </div>
             </div>

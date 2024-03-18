@@ -5,6 +5,8 @@ import Quill from 'quill'
 import './styles.css'
 import { io, Socket } from 'socket.io-client';
 
+
+const SAVE_INTERVAL_MS = 2000
 const toolbarOptions = [
   [{header:[1,2,3,4,5,6,false]}],
   [{font:[]}],
@@ -46,6 +48,19 @@ console.log(documentId);
     socket.emit('get-document',documentId)
 
   },[socket,quill,documentId])
+
+  useEffect(() => {
+    if(socket == null || quill == null) return
+
+    const interval = setInterval(() => {
+      socket.emit('save-document', quill.getContents())
+
+      return () => {
+        clearInterval(interval)
+      }
+    }, SAVE_INTERVAL_MS)
+
+  }, [socket,quill])
 
   useEffect(() => {
     if(socket==null || quill==null) return

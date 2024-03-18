@@ -69,7 +69,9 @@ const ChannelPage = async ({
                     title="Embedded Editor"
                     >
                 </iframe> */}
+                
                 <WhiteBoard/>
+                
                 <div>
                     <div className="mt-5 bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ height: '600px', width: '450px', maxHeight: '600px', overflowY: 'auto' }}>
                         <ChatMessages

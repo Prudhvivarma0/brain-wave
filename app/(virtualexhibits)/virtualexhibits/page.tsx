@@ -35,25 +35,31 @@ const VirtualExhibits = async ({
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
-                <div className="pl-[140px]">
-                <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
+                <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '25px', marginTop: '8px' }}>
                     {posts.map((post) => (
-                                <div key={post.id}>
-                                    <PostItems
-                                        id = {post.id}
-                                        pfp = {post.profile.imageUrl}
-                                        name = {post.profile.name}
-                                        imageURL={post.imageURL}
-                                        description={post.description}    
-                                        currUser={currprofile.userId}
-                                        postUser={post.profile.userId}    
-                                        post={post.id}        
-                                        liked={post.liked}                                                   
-                                    />
-                                </div>
-                            ))}
-                    </div>
-                    </div>
+                        <div 
+                            key={post.id} 
+                            style={{
+                                flex: '1 0 100%',
+                                maxWidth: '300px',
+                                boxSizing: 'border-box'
+                            }}
+                        >
+                            <PostItems
+                                id = {post.id}
+                                pfp = {post.profile.imageUrl}
+                                name = {post.profile.name}
+                                imageURL={post.imageURL}
+                                description={post.description}    
+                                currUser={currprofile.userId}
+                                postUser={post.profile.userId}    
+                                post={post.id}        
+                                liked={post.liked}                                                   
+                            />
+                        </div>
+                    ))}
+                </div>
+                
                 <div className="flex items-center">
                             <PostButton/>
                 </div>  

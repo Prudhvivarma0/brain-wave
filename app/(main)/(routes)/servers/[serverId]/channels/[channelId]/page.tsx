@@ -1,10 +1,10 @@
+import WhiteBoard from "@/components/board/server-whiteboard";
 import { ChatHeader } from "@/components/chat/chat-header";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessages } from "@/components/chat/chat-messages";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
-import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 
 interface ChannelPageProps {
@@ -40,10 +40,6 @@ const ChannelPage = async ({
         redirect("/")
     }
 
-    const Editor = dynamic(
-        async () => import('@/components/board/board'),
-        { ssr: false }
-    );
 
     return (
         <div className="flex flex-col h-full">
@@ -63,11 +59,19 @@ const ChannelPage = async ({
                     position: 'relative',
                 }}
             >
-                <div style={{ width: '90%', height: '90%', position: 'relative', paddingRight: '50px' }}>
+                {/* <div style={{ width: '90%', height: '90%', position: 'relative', paddingRight: '50px' }}>
                     <Editor />
-                </div>
+                </div> */}
+                {/* <iframe
+                    src="https://sketch.io/sketchpad/"
+                    width="100%"
+                    height="100%"
+                    title="Embedded Editor"
+                    >
+                </iframe> */}
+                <WhiteBoard/>
                 <div>
-                    <div className="bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ height: '500px', width: '450px', maxHeight: '500px', overflowY: 'auto' }}>
+                    <div className="mt-5 bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ height: '600px', width: '450px', maxHeight: '600px', overflowY: 'auto' }}>
                         <ChatMessages
                             member={member}
                             name={channel.name}

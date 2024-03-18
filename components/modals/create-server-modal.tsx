@@ -45,7 +45,6 @@ export const CreateServerModal = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             await axios.post("/api/servers", values);
-            toast.success("Team created successfully");
             form.reset();
             router.refresh();
             onClose();
@@ -114,7 +113,7 @@ export const CreateServerModal = () => {
                             </div>
                             <DialogFooter className="bg-grey-100 px-6 py-4">
                                 <Toaster richColors position="top-right"/>
-                                <Button disabled={isLoading} onClick={() => toast.success("Creating Team")} variant="brain" className="bg-purple-600 dark:bg-purple-900">
+                                <Button disabled={isLoading} onClick={() => toast.info("Creating Team")} variant="brain" className="bg-purple-600 dark:bg-purple-900">
                                     Create
                                 </Button>
                             </DialogFooter>

@@ -1,4 +1,3 @@
-
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import Canvas from "@/components/canvascomp/canvas";
 import { Separator } from "@/components/ui/separator";
@@ -9,8 +8,13 @@ import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { ChevronLeft } from "lucide-react";
 // import Editor from "@/components/editor/editor";
 import Tiptap from "@/components/editor/textEditor";
-import { Editor } from '@tinymce/tinymce-react';
+// import { Editor } from '@tinymce/tinymce-react';
 import NewTextEditor from "@/components/editor/newTextEditor";
+import App from "@/components/editor/cke";
+import NewEditor from "@/components/editor/cke";
+import CKEditorComponent from "@/components/editor/editorr";
+import Editor from "@/components/editor/editor";
+import TextEditors from "@/components/editor/TextEditorr";
 
 const TextEditor = async ({
     children
@@ -40,7 +44,9 @@ const TextEditor = async ({
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4 mb-6" />
             {/* <Editor children={undefined}/> */}
             {/* <Tiptap/> */}
-            <NewTextEditor />
+            {/* <NewTextEditor /> */}
+            {/* <CKEditorComponent/> */}
+            <TextEditors/>
             </main>          
         </div>
           

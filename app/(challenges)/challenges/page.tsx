@@ -30,31 +30,25 @@ const Challenges = async ({
             </div>
             <main className="pl-[10px] pr-[10px] h-full md:pl-[170px] pr-[40px] h-full">
                 <HomeMobileToggle />
-                <div className="flex items-center justify-between mt-5">
-                    <div className="text-4xl ml-9 mb-5" >
-                        <strong>CHALLENGES</strong>
-                    </div>
+                <div className="flex flex-row items-center justify-between mt-5">
+  <div className="text-4xl ml-9 mb-5">
+    <strong>CHALLENGES</strong>
+  </div>
 
-                    <ServerSearch 
-                    data={[
-                        // {
-                        // label: "Teams", 
-                        // type: "server", 
-                        // data: servers.map(server => ({ 
-                        //     id: server.id,
-                        //     name: server.name,
-                        // }))
-                        // },
-                        {
-                        label: "Challenges", 
-                        type: "challenge", 
-                        data: challenges.map(challenge => ({ 
-                            id: challenge.id,
-                            name: challenge.name,                            
-                        }))
-                        }
-                    ]}/>
-                </div>
+  <ServerSearch 
+    data={[
+      {
+        label: "Challenges", 
+        type: "challenge", 
+        data: challenges.map(challenge => ({ 
+          id: challenge.id,
+          name: challenge.name,                            
+        }))
+      }
+    ]}
+  />
+</div>
+
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
                 {/* <div className="flex justify-between">
                     <div className="text-4xl font-bold text-center py-4 ml-9 ">Name</div>

@@ -49,20 +49,19 @@ export const ServerSearch = ({
   return (
     <>
       <button
-        onClick={() => setOpen(true)}
-        className="pr-2 w-[264px] flex items-center outline rounded-md transition hover:bg-white hover:text-black "
-      >
-        <Search className="pl-2 flex items-center" />
+  onClick={() => setOpen(true)}
+  className="pr-2 flex items-center outline rounded-md transition hover:bg-white hover:text-black sm:w-auto md:w-[264px]"
+>
+  <Search className="pl-2 flex items-center" />
 
-        {/* Show the following elements only on medium and larger screens */}
-        <div className="pr-2 flex items-center">
-          <p
-            className="pl-2 flex items-center"
-          >
-            Search
-          </p>
-        </div>
-      </button>
+  {/* Show the following elements only on medium and larger screens */}
+  <div className="pr-2 flex items-center sm:hidden md:flex">
+    <p className="pl-2 flex items-center">
+      Search
+    </p>
+  </div>
+</button>
+
 
 
       <CommandDialog open={open} onOpenChange={setOpen}>

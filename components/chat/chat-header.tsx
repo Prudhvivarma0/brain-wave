@@ -193,7 +193,7 @@ const profiless = await db.profile.findMany({
                 {/* <a href="/whiteboard" className="rounded hover:text-gray-400"  title="Whiteboard">
                     <PenLine className="mr-3" />
                 </a> */}
-                <a href="/editor" className="rounded hover:text-gray-400" title="Editor">
+                <a href={`/editor/${serverId}`} className="rounded hover:text-gray-400" title="Editor">
                 <Album />
                 </a>
                 <div title="Settings">

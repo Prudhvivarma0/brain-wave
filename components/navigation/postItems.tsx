@@ -37,7 +37,7 @@ export const PostItems = ({
     const { onOpen } = useModal();
 
     return (
-        <div className="flex flex-col h-50 w-50 rounded-[10px] overflow-hidden bg-[rgb(69,38,93)] sm:w-100 sm:h-100">
+        <div className="flex flex-col h-50 w-50 rounded-[10px] overflow-hidden bg-[rgb(69,38,93)]">
             <div className="p-4 text-white flex justify-between items-center" >
                 <div className="flex items-center">
                     <img src={pfp} alt={name} className="w-[45px] h-[45px] rounded-full mr-2" />
@@ -56,7 +56,7 @@ export const PostItems = ({
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                <img src={imageURL} alt={description} className="h-[350px] w-[400px] sm:w-100 sm:h-100" />
+                <img src={imageURL} alt={description} className="h-[350px] w-[400px] " />
             </a>
 
             <div className="p-4 text-white flex justify-between items-center">

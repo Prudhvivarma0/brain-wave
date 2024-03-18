@@ -2,10 +2,16 @@
 // Import useRouter from next/navigation instead of next/router
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { Home, Pencil } from 'lucide-react';
+import { Album, Home, Pencil } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const EditorButton = () => {
+
+interface EditorProps {
+  serverId: string;
+}
+
+const EditorButton = ({serverId}:EditorProps) => {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -43,11 +49,9 @@ const EditorButton = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}
-        className='text-white w-[155px]'
-        style={buttonStyle}
+        className='rounded bg-transparent hover:text-gray-400'
       >
-        <Pencil className='pr-2'/>
-        Editor
+        <Album />
       </Button>
     </div>
   );

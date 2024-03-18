@@ -61,8 +61,10 @@ const VirtualExhibits = async ({
                 </div>
                 
                 <div className="flex items-center">
-                            <PostButton/>
+                    <PostButton/>
                 </div>  
+                
+                <div className="pb-[20px]" />
             </main>
         </div>
      );

@@ -96,7 +96,7 @@ export const CreateServerModal = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Team name
+                                            Team name (max 28 characters)
                                         </FormLabel>
                                         <FormControl>
                                             <Input
@@ -104,6 +104,7 @@ export const CreateServerModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter name"
                                             {...field}
+                                            maxLength={28}
                                             />
                                         </FormControl>
                                         <FormMessage/>

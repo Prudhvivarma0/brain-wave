@@ -56,7 +56,11 @@ export const PostItems = ({
                 target="_blank"
                 rel="noopener noreferrer"
             >
+<<<<<<< HEAD
                 <img src={imageURL} alt={description} className="h-[350px] w-[400px] " />
+=======
+                <img src={imageURL} alt={description} className="h-[250px] w-[300px]" />
+>>>>>>> 1ceb084f1317e07c3a03fddd0c2cbaf2f8a011e2
             </a>
 
             <div className="p-4 text-white flex justify-between items-center">

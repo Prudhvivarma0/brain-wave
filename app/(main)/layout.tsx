@@ -5,11 +5,6 @@ import dynamic from "next/dynamic";
 const MainLayout = async ({
     children
 }: {children: React.ReactNode}) => {
-
-    const Editor = dynamic(
-        async () => import('@/components/board/board'),
-        { ssr: false }
-    );
     
     return (
         <div className="h-full">

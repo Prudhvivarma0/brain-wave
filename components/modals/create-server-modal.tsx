@@ -45,7 +45,6 @@ export const CreateServerModal = () => {
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             await axios.post("/api/servers", values);
-            toast.success("Team created successfully");
             form.reset();
             router.refresh();
             onClose();
@@ -57,6 +56,7 @@ export const CreateServerModal = () => {
     const handleClose = () => {
         form.reset();
         onClose();
+        toast.success("Team Created!");
     }
 
     return (
@@ -96,7 +96,7 @@ export const CreateServerModal = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Team name
+                                            Team name (max 28 characters)
                                         </FormLabel>
                                         <FormControl>
                                             <Input
@@ -104,6 +104,7 @@ export const CreateServerModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter name"
                                             {...field}
+                                            maxLength={28}
                                             />
                                         </FormControl>
                                         <FormMessage/>
@@ -114,7 +115,7 @@ export const CreateServerModal = () => {
                             </div>
                             <DialogFooter className="bg-grey-100 px-6 py-4">
                                 <Toaster richColors position="top-right"/>
-                                <Button disabled={isLoading} onClick={() => toast.success("Creating Team")} variant="brain" className="bg-purple-600 dark:bg-purple-900">
+                                <Button disabled={isLoading} onClick={() => toast.loading("Creating Team")} variant="brain" className="bg-purple-600 dark:bg-purple-900">
                                     Create
                                 </Button>
                             </DialogFooter>

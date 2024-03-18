@@ -95,7 +95,7 @@ export const CreateExhibitModal = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Description
+                                            Description (max 25 characters)
                                         </FormLabel>
                                         <FormControl>
                                             <Input
@@ -103,6 +103,7 @@ export const CreateExhibitModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Describe your work!!"
                                             autoComplete="off"
+                                            maxLength={25}
                                             {...field}
                                             />
                                         </FormControl>

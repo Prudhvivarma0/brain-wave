@@ -12,6 +12,7 @@ import { initailProfile } from "@/lib/initial-profile";
 import { UserButton } from "@clerk/nextjs";
 import { Bell } from "lucide-react";
 import { redirect } from "next/navigation";
+import { Toaster } from "sonner";
 
 const SetupPage = async () => {
     // Loads the profile of the user
@@ -51,10 +52,9 @@ const SetupPage = async () => {
             </div>
             <main className="pl-[10px] md:pl-[170px] pr-[40px] h-full">
                 <HomeMobileToggle />
-
                 <div className="flex justify-between items-center mt-7">
                     <div className="text-left">
-                        <div className="text-4xl ml-4">
+                        <div className={`text-4xl ml-4`}>
                             Welcome <strong>{currprofile.name !== "null" ? currprofile.name.split(' ')[0].toUpperCase() : 'User'}</strong>!
                         </div>
                         <div className="text-1xl ml-5">

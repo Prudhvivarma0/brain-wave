@@ -4,7 +4,6 @@ import { ChannelType } from "@prisma/client";
 import { redirect } from "next/navigation";
 import { ScrollArea } from "../ui/scroll-area";
 import { ServerChannel } from "./server-channel";
-import { ServerHeader } from "./server-header";
 import { ServerMember } from "./server-member";
 import { ServerSection } from "./server-section";
 interface ServerSidebarProps {

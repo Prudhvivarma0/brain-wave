@@ -172,7 +172,7 @@ const ChannelPage = async ({
                 }}
             >
                 <div style={{ width: '90%', height: '90%', position: 'relative', paddingRight: '50px' }}>
-                    <Editor />
+                    <Editor roomId ={channel.serverId} />
                 </div>
                 <div>
                     <div className="bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ height: '500px', width: '450px', maxHeight: '500px', overflowY: 'auto' }}>

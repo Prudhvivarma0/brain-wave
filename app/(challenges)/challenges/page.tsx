@@ -21,6 +21,7 @@ const Challenges = async ({
     const challenges = await db.challenge.findMany({
     });
 
+
     const prof = await db.server.findMany({});
 
     return (
@@ -36,17 +37,24 @@ const Challenges = async ({
   </div>
 
   <ServerSearch 
-    data={[
-      {
-        label: "Challenges", 
-        type: "challenge", 
-        data: challenges.map(challenge => ({ 
-          id: challenge.id,
-          name: challenge.name,                            
-        }))
-      }
-    ]}
-  />
+                    data={[
+                        // {
+                        // label: "Teams", 
+                        // type: "server", 
+                        // data: servers.map(server => ({ 
+                        //     id: server.id,
+                        //     name: server.name,
+                        // }))
+                        // },
+                        {
+                        label: "Challenges", 
+                        type: "challenge", 
+                        data: challenges.map(challenge => ({ 
+                            id: challenge.id,
+                            name: challenge.name,                            
+                        }))
+                        }
+                    ]}/>
 </div>
 
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />

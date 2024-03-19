@@ -1,6 +1,7 @@
 // This is root file
 
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
+import Help from "@/components/navigation/help";
 import { NavigationAction } from "@/components/navigation/navigation-action";
 import { NavigationItem } from "@/components/navigation/navigation-item";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
@@ -62,27 +63,27 @@ const SetupPage = async () => {
                         </div>
                     </div>
                     <div className="flex items-center">
-                    <div className="mt-4 pr-6">
-                    <ServerSearch 
-                    data={[
-                        {
-                        label: "Teams", 
-                        type: "server", 
-                        data: servers.map(server => ({ 
-                            id: server.id,
-                            name: server.name,
-                        }))
-                        },
-                        // {
-                        // label: "Challenges", 
-                        // type: "challenge", 
-                        // data: challenges.map(challenge => ({ 
-                        //     id: challenge.id,
-                        //     name: challenge.name,                            
-                        // }))
-                        // }
-                    ]}/>
-                    </div>
+                        <div className="mt-4 pr-6">
+                            <ServerSearch
+                                data={[
+                                    {
+                                        label: "Teams",
+                                        type: "server",
+                                        data: servers.map(server => ({
+                                            id: server.id,
+                                            name: server.name,
+                                        }))
+                                    },
+                                    // {
+                                    // label: "Challenges", 
+                                    // type: "challenge", 
+                                    // data: challenges.map(challenge => ({ 
+                                    //     id: challenge.id,
+                                    //     name: challenge.name,                            
+                                    // }))
+                                    // }
+                                ]} />
+                        </div>
                         <Bell className="mr-4 mt-4 w-6 h-6" />
                         <UserButton
                             afterSignOutUrl="/sign-in"
@@ -99,7 +100,7 @@ const SetupPage = async () => {
                 <div className="text-zinc-500 mt-3 ml-5">
                     {servers?.length} {servers?.length === 1 ? 'Team' : 'Teams'}
                 </div>
-                
+
                 <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
                     {servers.map((server) => (
                         <div key={server.id} >
@@ -112,6 +113,10 @@ const SetupPage = async () => {
                     ))}
                     <NavigationAction />
                 </div>
+                <div style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
+                    <Help />
+                </div>
+
             </main>
         </div>
     )

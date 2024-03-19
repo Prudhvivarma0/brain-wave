@@ -49,7 +49,8 @@ const Challenges = async ({
                         {
                         label: "Challenges", 
                         type: "challenge", 
-                        data: challenges.map(challenge => ({ 
+                        data: challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
+                        .map(challenge => ({ 
                             id: challenge.id,
                             name: challenge.name,                            
                         }))

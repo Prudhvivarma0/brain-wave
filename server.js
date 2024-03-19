@@ -2,10 +2,7 @@ const mongoose = require("mongoose")
 const Document = require("./Document");
 const { data } = require("autoprefixer");
 
-mongoose.connect("mongodb+srv://yoboz:tiger@yoboz.e4xsvsi.mongodb.net/google-docs-clone", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect("mongodb+srv://yoboz:tiger@yoboz.e4xsvsi.mongodb.net/google-docs-clone");
 
 const io = require('socket.io')(3001, {
     cors: {

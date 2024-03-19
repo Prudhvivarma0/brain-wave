@@ -7,16 +7,16 @@ import { io, Socket } from 'socket.io-client';
 
 
 const SAVE_INTERVAL_MS = 2000
-const toolbarOptions = [
-  [{header:[1,2,3,4,5,6,false]}],
-  [{font:[]}],
-  [{list:"ordered"},{list:"bullet"}],
-  ["bold","italic","underline"],
-  [{color:[]},{background:[]}],
-  [{script:"sub"},{script:"super"}],
-  [{align:[]}],
-  ["image","blackquote","code-block"],
-  ["clean"],
+const toolbarOptions =  [
+  [{ 'font': [] }, { 'size': [] }],
+  [ 'bold', 'italic', 'underline', 'strike' ],
+  [{ 'color': [] }, { 'background': [] }],
+  [{ 'script': 'super' }, { 'script': 'sub' }],
+  [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+  [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+  [ 'direction', { 'align': [] }],
+  [ 'link', 'image', 'video' ],
+  [ 'clean' ]
 ]
 
 export default function TextEditors() {

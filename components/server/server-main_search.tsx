@@ -1,7 +1,4 @@
 "use client";
-import { Search } from "lucide-react";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -10,6 +7,9 @@ import {
   CommandItem,
   CommandList
 } from "@/components/ui/command";
+import { Search } from "lucide-react";
+import { useParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 interface ServerSearchProps {
   data: {
     label: string;
@@ -55,7 +55,7 @@ export const ServerSearch = ({
     <>
       <button
         onClick={() => setOpen(true)}
-        className="group px-2 py-2 rounded-md flex items-center gap-x-2 w-full bg-white hover:bg-gray-400 dark:hover:bg-zinc-700/50 transition border border-black"
+        className="group px-2 py-2 rounded-md flex items-center gap-x-2 bg-white hover:bg-gray-400 dark:hover:bg-zinc-700/50 transition border border-black"
       >
         <Search className="w-4 h-4 text-zinc-500 dark:text-zinc-400" />
 

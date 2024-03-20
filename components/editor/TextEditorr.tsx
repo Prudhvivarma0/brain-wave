@@ -20,9 +20,9 @@ const toolbarOptions =  [
 ]
 
 export default function TextEditors() {
-
+  
   const [socket, setSocket] = useState<Socket | undefined>();
-  const [quill,setQuill] = useState()
+  const [quill, setQuill] = useState()
 
 const urlSegments = window.location.pathname.split('/');
 const documentId = urlSegments[urlSegments.length - 1];
@@ -38,7 +38,6 @@ console.log(documentId);
   },[])
 
   useEffect(()=>{
-
     if(socket == null || quill == null) return
 
     socket.once("load-document", document => {

@@ -1,15 +1,13 @@
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import { Separator } from "@/components/ui/separator";
-import { currentProfile } from "@/lib/current-profile";
-import { redirect } from "next/navigation";
 import { PostButton } from "@/components/navigation/postButton";
 import { PostItems } from "@/components/navigation/postItems";
+import { Separator } from "@/components/ui/separator";
+import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
+import { redirect } from "next/navigation";
 
-const VirtualExhibits = async ({
-    children
-}: {children: React.ReactNode}) => {
+const VirtualExhibits = async () => {
     const posts = await db.post.findMany({
         include: {
             profile: {

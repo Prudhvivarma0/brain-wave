@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from 'react';
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
+
 
 
 function randomID(len :any) {
@@ -17,12 +17,18 @@ function randomID(len :any) {
   return result;
 }
 
-export function getUrlParams(
-  url = window.location.href
-) {
+// export function getUrlParams(
+//   url = window.location.href
+// ) {
+//   let urlStr = url.split('?')[1];
+//   return new URLSearchParams(urlStr);
+// }
+
+function getUrlParams(url: string = window.location.href) {
   let urlStr = url.split('?')[1];
   return new URLSearchParams(urlStr);
 }
+
 
 export default function App() {
 

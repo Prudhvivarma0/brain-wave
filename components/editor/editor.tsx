@@ -1,24 +1,15 @@
 // app/editor/page.tsx
 'use client';
-import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import Canvas from "@/components/canvascomp/canvas";
-import { Separator } from "@/components/ui/separator";
-import { db } from "@/lib/db";
-import { currentProfile } from "@/lib/current-profile";
-import { redirect } from "next/navigation";
-import { HomeMobileToggle } from "@/components/home-mobile-toggle";
-import { ChevronLeft } from "lucide-react";
-import React, { useState, useEffect, useRef } from 'react';
-import 'react-quill/dist/quill.snow.css';
+import quill from 'quill';
+import { useEffect, useRef, useState } from 'react';
 import ReactQuill, { Quill } from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 interface QuillState {
-    quill: Quill | null; // Initially can be null 
+    quill: quill | null; // Initially can be null 
 }
 
-const Editor = ({
-    children
-}: { children: React.ReactNode }) => {
+const Editor = () => {
     const [quillState, setQuillState] = useState<QuillState>({ quill: null });
     const quillRef = useRef(null);
     const toolbarOptions = [

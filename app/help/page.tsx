@@ -1,25 +1,14 @@
-import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import Canvas from "@/components/canvascomp/canvas";
-import { Separator } from "@/components/ui/separator";
-import { db } from "@/lib/db";
-import { currentProfile } from "@/lib/current-profile";
-import { redirect } from "next/navigation";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
+import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
+import { Separator } from "@/components/ui/separator";
+import { currentProfile } from "@/lib/current-profile";
+import { db } from "@/lib/db";
 import { ChevronLeft } from "lucide-react";
+import { redirect } from "next/navigation";
 // import Editor from "@/components/editor/editor";
-import Tiptap from "@/components/editor/textEditor";
 // import { Editor } from '@tinymce/tinymce-react';
-import NewTextEditor from "@/components/editor/newTextEditor";
-import App from "@/components/editor/cke";
-import NewEditor from "@/components/editor/cke";
-import CKEditorComponent from "@/components/editor/editorr";
-import Editor from "@/components/editor/editor";
-import TextEditors from "@/components/editor/TextEditorr";
-import { useRouter } from 'next/navigation'
 
-const Helpp = async ({
-    children
-}: {children: React.ReactNode}) => {
+const Helpp = async () => {
     const server = await db.server.findFirst({
 
     });

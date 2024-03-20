@@ -9,6 +9,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+    "eslintConfig": {
+      "env": {
+          "browser": true,
+          "node": true
+      }
+  },
+  "eslintIgnore": ["TextEditorr.tsx"],
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^41.2.0",
     "@ckeditor/ckeditor5-comments": "^41.2.0",

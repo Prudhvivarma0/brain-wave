@@ -78,7 +78,7 @@ const ChallengePage = async ({
                 <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-3 mb-10" />
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <div className="w-[450px] mb-3" style={{ display: 'flex ', justifyContent: 'center' }}>
-                <img src = {ChallengeImage.imageUrl} style={{ borderRadius: '10px' }}/>
+                <img src = {ChallengeImage ? ChallengeImage.imageUrl : 'defaultImageUrl'} style={{ borderRadius: '10px' }}/>
                 </div>
                 <div className="text-1xl ml-9 mb-3" style={{ alignSelf: 'flex-start' }}>
                         <strong>Objective:</strong><br/> {challenge.objective.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}

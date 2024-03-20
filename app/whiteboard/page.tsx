@@ -1,18 +1,14 @@
 //raiqah commit testing
-import White from "@/components/board/board";
-import Example from "@/components/board/board";
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { ChevronLeft } from "lucide-react";
+import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
-import dynamic from "next/dynamic"
 
-const Whiteboard = async ({
-    children
-}: {children: React.ReactNode}) => {
+const Whiteboard = async () => {
     const server = await db.server.findFirst({
 
     });
@@ -49,7 +45,7 @@ const Whiteboard = async ({
             <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4" />
             <div className="mt-6" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh', width: '86vw', position: 'relative' }}>
                 <div style={{ width: '90%', height: '90%', position: 'relative', paddingLeft:'50px' }}>
-                    <Editor/>
+                    <Editor roomId=""/>
                 </div>
                 </div>
             </main>          

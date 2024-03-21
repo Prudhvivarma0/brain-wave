@@ -2,13 +2,10 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import { ModeToggle } from "../mode-toggle";
+import AdminFeatures from "./adminfeatures";
 import Challenges from "./challenges";
 import HomeButton from "./home";
 import VirtualExhibits from "./virtual-exhibits";
-import EditorButton from "./editor";
-import { ServerSearch } from "../server/server-main_search";
-import { useState } from 'react';
-import AdminFeatures from "./adminfeatures";
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
@@ -18,11 +15,11 @@ export const NavigationSidebar = async () => {
     const servers = await db.server.findMany();
     const profiles = await db.profile.findMany();
     const challenges = await db.challenge.findMany({
-        where: {
-            serverId: {
-                in: servers.map(server => server.id)
-            }
-        }
+         where: {
+             serverId: {
+                 in: servers.map(server => server.id)
+             }
+         }
     });
 
     const transformServers = servers.map(servers => servers.name);

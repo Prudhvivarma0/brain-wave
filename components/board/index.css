@@ -66,3 +66,7 @@ html,
 .examples__list__item a:hover {
 	text-decoration: underline;
 }
+
+.tlui-layout__bottom .tlui-debug-panel{
+	display: none;
+}

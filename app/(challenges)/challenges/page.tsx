@@ -8,7 +8,13 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 
-const Challenges = async () => {
+interface ChallengesProps {
+    params: {
+        challengeId: string;
+    }
+}
+
+const Challenges = async ({params}: ChallengesProps) => {
     const server = await db.server.findMany({
         select: { id: true }
     });
@@ -21,6 +27,7 @@ const Challenges = async () => {
 
 
     const prof = await db.server.findMany({});
+
 
     return (
         <div className="h-full">
@@ -67,12 +74,12 @@ const Challenges = async () => {
                         .map((challenge) => (
                             <div key={challenge.id} className="mb-1 w-full">
                                 <NavigationItem
-                                    id={challenge.id}
-                                    name={challenge.name}
-                                    prize={challenge.prize}
+                                    id = {challenge.id}
+                                    name = {challenge.name}
+                                    prize = {challenge.prize}
                                     duration={challenge.duration}
                                     by = {challenge.objective}
-                                    img= {challenge.id}
+                                    img = {challenge.id}
                                 />
                             </div>
                         ))}

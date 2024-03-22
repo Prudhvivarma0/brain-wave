@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const LikeButton: React.FC<{ postId: string, state:boolean }> = ({ postId,state }) => {
-    const [liked, setLiked] = useState(false);
+const LikeButton: React.FC<{ postId: string, initialLikedByCurrentUser: boolean }> = ({ postId, initialLikedByCurrentUser }) => {
+    const [liked, setLiked] = useState(initialLikedByCurrentUser);
     const [likeCount, setLikeCount] = useState(0);
-    var update = state;
 
     useEffect(() => {
+        // Load the liked state from localStorage
+        const storedLiked = localStorage.getItem(`liked_${postId}`);
+        if (storedLiked !== null) {
+            setLiked(storedLiked === 'true');
+        }
+
         axios.get(`/api/posts/${postId}`)
             .then(response => {
                 setLikeCount(response.data.likeCount);
@@ -17,36 +22,32 @@ const LikeButton: React.FC<{ postId: string, state:boolean }> = ({ postId,state 
     }, [postId]);
 
     const handleLike = () => {
-        setLiked(prevLiked => {
-            const newLiked = !prevLiked;
-            const newLikeCount = newLiked ? likeCount + 1 : likeCount - 1;
-        setLikeCount(newLikeCount);
-            return newLiked;
-        });
+        const newLiked = !liked;
+        setLiked(newLiked);
 
-        // Correctly determine if the user is liking or disliking the post based on the new state
-        const update = !liked;
-        axios.post(`/api/posts/${postId}`, { isLiking: !liked, stateLiked: update })
+        // Store the liked state in localStorage
+        localStorage.setItem(`liked_${postId}`, newLiked.toString());
+
+        const newLikeCount = newLiked ? likeCount + 1 : likeCount - 1;
+        setLikeCount(newLikeCount);
+
+        axios.post(`/api/posts/${postId}`, { isLiking: newLiked })
             .catch(error => {
                 console.error('Error updating like count:', error);
             });
     };
 
     return (
-        <div onClick={handleLike}>
-            <button >
-                {state || liked ? (
-                    <span role="img" aria-label="Liked">
-                        ❤️
-                    </span>
-                ) : (
-                    <span role="img" aria-label="Not Liked">
-                        🤍
-                    </span>
-                )}
-            </button>
-            <span>{likeCount}</span>
-        </div>
+        <button onClick={handleLike}>
+            {liked ? (
+                <span style={{ color: 'red' }}>&#10084;</span>
+            ) : likeCount > 0 ? (
+                <span>&#9825;</span>
+            ) : (
+                <span>&#9825;</span>
+            )}
+            {likeCount}
+        </button>
     );
 };
 

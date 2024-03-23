@@ -1,10 +1,9 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
-import { db } from "@/lib/db";
 import { MoreVertical } from "lucide-react";
 import { useModal } from "@/hooks/use-modal-store";
 import LikeButton from "./likebutton";
+
 
 interface PostItemProps {
     id: string;
@@ -16,6 +15,7 @@ interface PostItemProps {
     postUser: string;
     post: string
     liked: boolean
+    isAdmin: boolean
 };
 
 export const PostItems = ({
@@ -27,7 +27,8 @@ export const PostItems = ({
     description,
     currUser,
     postUser,
-    liked
+    liked,
+    isAdmin
 }: PostItemProps) => {
     // const params = useParams();
     // const router = useRouter();
@@ -36,37 +37,37 @@ export const PostItems = ({
     //     };
     const { onOpen } = useModal();
 
-    return (
-        <div className="flex flex-col h-50 w-50 rounded-[10px] overflow-hidden bg-[rgb(69,38,93)]">
-            <div className="p-4 text-white flex justify-between items-center" >
-                <div className="flex items-center">
-                    <img src={pfp} alt={name} className="w-[45px] h-[45px] rounded-full mr-2" />
-                    {name.toUpperCase()}
+        return (
+            <div className="flex flex-col h-50 w-50 rounded-[10px] overflow-hidden bg-[rgb(69,38,93)] sm:w-100 sm:h-100">
+                <div className="p-4 text-white flex justify-between items-center" >
+                    <div className="flex items-center">
+                        <img src={pfp} alt={name} className="w-[45px] h-[45px] rounded-full mr-2" />
+                        {name.toUpperCase()}
+                    </div>
+                    {(currUser === postUser || isAdmin ) && (
+                        <button
+                            onClick={() => onOpen("deletePost", { post })}
+                        >
+                            <MoreVertical className="hover:bg-[#7D0DC3] rounded" />
+                        </button>
+                    )}
                 </div>
-                {currUser === postUser && (
-                    <button
-                        onClick={() => onOpen("deletePost", { post })}
-                    >
-                        <MoreVertical className="hover:bg-[#7D0DC3] rounded" />
-                    </button>
-                )}
-            </div>
-            <a
-                href={imageURL}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <img src={imageURL} alt={description} className="h-[250px] w-[300px]" />
-            </a>
+                <a
+                    href={imageURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img src={imageURL} alt={description} className="h-[350px] w-[400px] sm:w-100 sm:h-100" />
+                </a>
 
-            <div className="p-4 text-white flex justify-between items-center">
-                <div>
-                    {description.match(/.{1,35}/g)?.map((chunk, index) => (
-                        <div key={index} className="whitespace-normal">{chunk}</div>
-                    ))}
+                <div className="p-4 text-white flex justify-between items-center">
+                    <div>
+                        {description.match(/.{1,35}/g)?.map((chunk, index) => (
+                            <div key={index} className="whitespace-normal">{chunk}</div>
+                        ))}
+                    </div>
+                    <LikeButton postId={id} state={liked}/>
                 </div>
-                <LikeButton postId={id} state={liked}/>
             </div>
-        </div>
-    );
-};
+        );
+    };

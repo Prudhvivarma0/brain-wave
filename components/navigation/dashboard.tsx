@@ -1,24 +1,16 @@
 "use client"
-// Import useRouter from next/navigation instead of next/router
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { Album, Home, Pencil } from 'lucide-react';
+import { AppWindow, Footprints, LayoutDashboard } from 'lucide-react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
-
-interface EditorProps {
-  serverId: string;
-}
-
-const EditorButton = ({serverId}:EditorProps) => {
+const Dashboardd = () => {
   const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const [isActive, setIsActive] = useState(false);
 
-  
   const handleClick = () => {
-    router.push('/editor');
+    router.push('/dashboard');
     setIsActive(true);
   };
 
@@ -40,7 +32,6 @@ const EditorButton = ({serverId}:EditorProps) => {
     backgroundColor: isActive ? 'rgb(99, 103, 180)' : (isHovered ? 'rgb(99, 103, 180)' : 'transparent'),
     boxShadow: isHovered ? '0px 6px 15px rgba(0, 0, 0, 0.3)' : 'none', // Adjust this line
   };
-  
 
   return (
     <div>
@@ -49,12 +40,16 @@ const EditorButton = ({serverId}:EditorProps) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseDown={handleMouseDown}
-        className='rounded bg-transparent hover:text-gray-400'
+        className='text-white w-[155px]'
+        style={buttonStyle}
       >
-        <Album />
+
+        <LayoutDashboard className='pr-2'/>
+        {/* <Footprints className='pr-2'/> */}
+        Dashboard
       </Button>
     </div>
   );
 };
 
-export default EditorButton;
+export default Dashboardd;

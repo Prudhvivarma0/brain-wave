@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { AlignCenter, AppWindow, Footprints } from 'lucide-react';
+import { AlignCenter, AppWindow, BookCopy, Footprints } from 'lucide-react';
 import { useState } from 'react';
 import { jsPDF } from "jspdf";
 import { profile } from 'console';
@@ -117,7 +117,7 @@ const AdminFeatures = ({
 
   const buttonStyle = {
     border: '1px solid transparent',
-    backgroundColor: isActive ? 'rgb(99, 103, 180)' : (isHovered ? 'rgb(99, 103, 180)' : 'transparent'),
+    backgroundColor: isActive ? 'rgb(99, 103, 180)' : (isHovered ? 'rgb(99, 103, 180)' : 'rgb(58, 37, 90)'),
     boxShadow: isHovered ? '0px 6px 15px rgba(0, 0, 0, 0.3)' : 'none', // Adjust this line
   };
 
@@ -131,7 +131,7 @@ const AdminFeatures = ({
         className='text-white w-[155px]'
         style={buttonStyle}
       >
-        <AppWindow className='pr-2' />
+        <BookCopy className='pr-2'/>
         {/* <Footprints className='pr-2'/> */}
         App Report
       </Button>

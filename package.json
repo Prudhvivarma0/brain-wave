@@ -9,13 +9,15 @@
     "start": "next start",
     "lint": "next lint"
   },
-    "eslintConfig": {
-      "env": {
-          "browser": true,
-          "node": true
-      }
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true
+    }
   },
-  "eslintIgnore": ["TextEditorr.tsx"],
+  "eslintIgnore": [
+    "TextEditorr.tsx"
+  ],
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^41.2.0",
     "@ckeditor/ckeditor5-comments": "^41.2.0",
@@ -86,6 +88,7 @@
     "react-quill": "^2.0.0",
     "react-responsive": "^9.0.2",
     "react-router-dom": "^5.3.4",
+    "react-table": "^7.8.0",
     "sass": "^1.71.1",
     "socket.io": "^4.7.3",
     "socket.io-client": "^4.7.3",
@@ -110,6 +113,7 @@
     "@types/qrcode": "^1.5.5",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-table": "^7.7.20",
     "@types/uuid": "^9.0.7",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",

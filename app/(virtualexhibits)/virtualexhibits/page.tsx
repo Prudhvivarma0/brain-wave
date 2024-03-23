@@ -1,13 +1,15 @@
 import { HomeMobileToggle } from "@/components/home-mobile-toggle";
 import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
-import { PostButton } from "@/components/navigation/postButton";
-import { PostItems } from "@/components/navigation/postItems";
 import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
-import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
+import { PostButton } from "@/components/navigation/postButton";
+import { PostItems } from "@/components/navigation/postItems";
+import { db } from "@/lib/db";
 
-const VirtualExhibits = async () => {
+const VirtualExhibits = async ({
+    children
+}: {children: React.ReactNode}) => {
     const posts = await db.post.findMany({
         include: {
             profile: {
@@ -33,36 +35,29 @@ const VirtualExhibits = async () => {
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
-                <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '25px', marginTop: '8px' }}>
+                <div className="pl-[140px]">
+                <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
                     {posts.map((post) => (
-                        <div 
-                            key={post.id} 
-                            style={{
-                                flex: '1 0 100%',
-                                maxWidth: '300px',
-                                boxSizing: 'border-box'
-                            }}
-                        >
-                            <PostItems
-                                id = {post.id}
-                                pfp = {post.profile.imageUrl}
-                                name = {post.profile.name}
-                                imageURL={post.imageURL}
-                                description={post.description}    
-                                currUser={currprofile.userId}
-                                postUser={post.profile.userId}    
-                                post={post.id}        
-                                liked={post.liked}                                                   
-                            />
-                        </div>
-                    ))}
-                </div>
-                
+                                <div key={post.id}>
+                                    <PostItems
+                                        id = {post.id}
+                                        pfp = {post.profile.imageUrl}
+                                        name = {post.profile.name}
+                                        imageURL={post.imageURL}
+                                        description={post.description}    
+                                        currUser={currprofile.userId}
+                                        postUser={post.profile.userId}    
+                                        post={post.id}        
+                                        liked={post.liked}
+                                        isAdmin = {currprofile.isAdmin}                                                   
+                                    />
+                                </div>
+                            ))}
+                    </div>
+                    </div>
                 <div className="flex items-center">
-                    <PostButton/>
+                            <PostButton/>
                 </div>  
-                
-                <div className="pb-[20px]" />
             </main>
         </div>
      );

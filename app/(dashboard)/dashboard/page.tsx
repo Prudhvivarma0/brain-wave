@@ -11,7 +11,7 @@ import "@/app/(dashboard)/dashboard/styles.css"
 const Dashboard = async () => {
 
     const profile = await currentProfile();
-    if (!profile) {
+    if (!profile?.isAdmin) {
         return redirect("/")
     }
 
@@ -38,12 +38,6 @@ const Dashboard = async () => {
             servers:true,
         }
     });
-
-    const data = [
-        table
-    ];
-
-    console.log(table)
 
     return (
         <div className="h-full">

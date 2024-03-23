@@ -113,6 +113,7 @@ export const EditChannelModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter name"
                                             {...field}
+                                            autoComplete="off"
                                             />
                                         </FormControl>
                                         <FormMessage/>

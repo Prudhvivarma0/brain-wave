@@ -105,6 +105,7 @@ export const CreateServerModal = () => {
                                             placeholder="Enter name"
                                             {...field}
                                             maxLength={28}
+                                            autoComplete="off"
                                             />
                                         </FormControl>
                                         <FormMessage/>

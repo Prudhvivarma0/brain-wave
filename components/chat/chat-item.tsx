@@ -4,7 +4,7 @@ import { useModal } from "@/hooks/use-modal-store";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Member, MemberRole, Profile } from "@prisma/client";
 import axios from "axios";
-import { BadgeCheck, Crown, Edit, FileIcon, Music, Trash, Video, X } from "lucide-react";
+import { BadgeCheck, Crown, Edit, FileIcon, MessageSquareWarning, Music, Trash, Video, X } from "lucide-react";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 import qs from "query-string";
@@ -62,8 +62,10 @@ export const ChatItem = ({
     const fileType = fileUrl?.split(".").pop();
     const isAdmin = currentMember.role === MemberRole.ADMIN;
     const isMod = currentMember.role === MemberRole.MODERATOR;
+    const isGuest = currentMember.role === MemberRole.GUEST;
     const isOwner = currentMember.id === member.id;
     const canDeleteMessage = !deleted && (isAdmin || isMod || isOwner);
+    const reporting = (isAdmin || isMod || isGuest)
     const canEdit = !deleted && isOwner && !fileUrl;
     const isPDF = fileType === "pdf" && fileUrl;
     
@@ -276,6 +278,16 @@ export const ChatItem = ({
                             apiUrl: `${socketUrl}/${id}`,
                             query: socketQuery
                         })} className="cursor-pointer w-4 h-4" />
+                    )}
+                    {reporting && (
+                        <MessageSquareWarning className="cursor-pointer w-4 h-4"/>
+                    )}
+                </div>
+            )}
+            {reporting && (
+                <div className={`hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 ${isOwner ? "right-5" : "left-5"} border rounded-sm  ${!isOwner ? "flex-row-reverse" : ""}`}>
+                    {reporting && (
+                        <MessageSquareWarning className="cursor-pointer w-4 h-4"/>
                     )}
                 </div>
             )}

@@ -146,6 +146,7 @@ export const CreateChallengeModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter name"
                                             {...field}
+                                            autoComplete="off"
                                             />
                                         </FormControl>
                                         <FormMessage/>
@@ -166,6 +167,7 @@ export const CreateChallengeModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter prize"
                                             {...field}
+                                            autoComplete="off"
                                             />
                                         </FormControl>
                                         <FormMessage/>
@@ -188,6 +190,7 @@ export const CreateChallengeModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Describe the objective"
                                             {...field}
+                                            autoComplete="off"
                                             />
                                         </FormControl>
                                         <FormMessage/>
@@ -208,6 +211,7 @@ export const CreateChallengeModal = () => {
                                             className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
                                             placeholder="Enter the duration"
                                             {...field}
+                                            autoComplete="off"
                                             />
                                         </FormControl>
                                         <FormMessage/>

@@ -22,12 +22,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
     if (!currprofile) {
         return redirect("/")
     }
-    const challenges = await db.challenge.findMany({
-    });
-
-
-    const prof = await db.server.findMany({});
-
+    const challenges = await db.challenge.findMany({});
 
     return (
         <div className="h-full">
@@ -40,17 +35,8 @@ const Challenges = async ({ params }: ChallengesProps) => {
                     <div className="text-4xl ml-9 mb-5">
                         <strong>CHALLENGES</strong>
                     </div>
-
                     <ServerSearch
                         data={[
-                            // {
-                            // label: "Teams", 
-                            // type: "server", 
-                            // data: servers.map(server => ({ 
-                            //     id: server.id,
-                            //     name: server.name,
-                            // }))
-                            // },
                             {
                                 label: "Challenges",
                                 type: "challenge",
@@ -63,16 +49,23 @@ const Challenges = async ({ params }: ChallengesProps) => {
                         ]} />
                 </div>
 
+
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
-                {/* <div className="flex justify-between">
-                    <div className="text-4xl font-bold text-center py-4 ml-9 ">Name</div>
-                    <div className="text-4xl font-bold text-center py-4 ml-[270px]">Prize</div>
-                    <div className="text-4xl font-bold text-center py-4  mr-12">Duration</div>
-                </div> */}
-                <div className="flex items-center flex-wrap gap-3 p-9">
+
+                <div style={{ paddingTop: '20px', paddingLeft: '30px' }}>
+                    {/* Text to be added */}
+                    <p className="text-black" style={{ fontWeight: 'bold' }}>Grow your skills by competing in our exciting competitions.
+                        <br />Find help in the documentation or learn about Community Competitions.</p>
+                </div>
+
+
+
+
+
+                <div className="flex flex-wrap gap-3 p-9">
                     {challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
                         .map((challenge) => (
-                            <div key={challenge.id} className="mb-1 w-full">
+                            <div key={challenge.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
                                 <NavigationItem
                                     id={challenge.id}
                                     name={challenge.name}

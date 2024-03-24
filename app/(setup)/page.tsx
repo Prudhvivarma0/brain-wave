@@ -16,19 +16,19 @@ import { redirect } from "next/navigation";
 import { Toaster } from "sonner";
 
 const SetupPage = async () => {
-    // Loads the profile of the user
-    const profile = await initailProfile();
+    // // Loads the profile of the user
+    // const profile = await initailProfile();
 
-    // Looking for collabs the user is in
-    const server = await db.server.findFirst({
-        where: {
-            members: {
-                some: {
-                    profileId: profile.id
-                }
-            }
-        }
-    });
+    // // Looking for collabs the user is in
+    // const server = await db.server.findFirst({
+    //     where: {
+    //         members: {
+    //             some: {
+    //                 profileId: profile.id
+    //             }
+    //         }
+    //     }
+    // });
     const currprofile = await currentProfile();
     if (!currprofile) {
         return redirect("/")
@@ -37,7 +37,7 @@ const SetupPage = async () => {
         where: {
             members: {
                 some: {
-                    profileId: profile.id
+                    profileId: currprofile.id
                 }
             }
         }

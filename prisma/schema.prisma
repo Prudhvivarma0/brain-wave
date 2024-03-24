@@ -79,6 +79,7 @@ model Challenge {
   prize     String
   duration  String
   objective String
+  description String
   imgUrl    String
   terms     String
   startDate DateTime

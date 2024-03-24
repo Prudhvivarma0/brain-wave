@@ -4,7 +4,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-import { Trophy, Clock } from 'lucide-react'; 
+import { Trophy, Clock } from 'lucide-react';
 import React from "react";
 
 interface ChallengePageProps {
@@ -87,7 +87,7 @@ const ChallengePage = async ({
                             marginBottom: '20px',
                             marginRight: 'auto',
                             marginLeft: '0',
-                            marginTop: '-30px', 
+                            marginTop: '-30px',
                             textAlign: 'center'
                         }}
                     >
@@ -118,9 +118,15 @@ const ChallengePage = async ({
 
                     </div>
                 </div>
-                <div className="text-1xl mb-3" style={{ position: 'absolute', top: '120px', right: '400px', color: 'black' }}>
-                    <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Terms & Conditions:</strong><br />
-                    <span>{challenge.terms.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
+                <div>
+                    <div className="text-1xl mb-3" style={{ position: 'absolute', top: '120px', right: '400px', color: 'black' }}>
+                        <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Terms & Conditions:</strong><br />
+                        <span>{challenge.terms.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
+                    </div>
+                    <div className="text-1xl mb-3" style={{ position: 'absolute', top: '220px', right: '480px', color: 'black' }}>
+                        <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Description</strong><br />
+                        <span>{challenge.description.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
+                    </div>
                 </div>
 
                 <a href={link} className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-17 mt-1 mb-3">

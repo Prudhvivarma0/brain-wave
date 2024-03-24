@@ -51,12 +51,13 @@ export const CreateChallengeModal = () => {
             name: "",
             prize: "",
             imageUrl: "",
-            objective:"",
+            objective: "",
             duration: "",
-            terms:"",
+            terms: "",
+            description: ""
         }
     });
-    
+
 
     const isLoading = form.formState.isSubmitting;
 
@@ -77,17 +78,17 @@ export const CreateChallengeModal = () => {
                 name: values.name,
                 imageUrl: values.imageUrl // Make sure this is the uploaded image URL
             });
-            
+
             const serverId = serverResponse.data.id; // Assuming the server's ID is returned in the response
             const imageUrl = serverResponse.data.imageUrl;
-    
+
             // Now, create the challenge entry with the serverId
             await axios.post("/api/challenges", {
                 ...values,
                 serverId: serverId, // Use the obtained serverId here
                 imageUrl: imageUrl
             });
-    
+
             form.reset();
             router.refresh();
             onClose();
@@ -95,7 +96,7 @@ export const CreateChallengeModal = () => {
             console.log(error);
         }
     }
-    
+
 
     const handleClose = () => {
         form.reset();
@@ -103,7 +104,7 @@ export const CreateChallengeModal = () => {
     }
 
     return (
-        <Dialog open = {isModalOpen} onOpenChange={handleClose}>
+        <Dialog open={isModalOpen} onOpenChange={handleClose}>
             <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6 ">
                     <DialogTitle className="text-2xl text-center font-bold">
@@ -113,115 +114,115 @@ export const CreateChallengeModal = () => {
                         Fill in the neccesary details and image
                     </DialogDescription>
                 </DialogHeader>
-                    <Form {...form}>
-                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                            <div className="flex flex-col gap-8 px-6">
-                                <div className="flex items-center justify-center text-center">
-                                    <FormField
+                <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                        <div className="flex flex-col gap-8 px-6">
+                            <div className="flex items-center justify-center text-center">
+                                <FormField
                                     control={form.control}
                                     name="imageUrl"
-                                    render={({field}) => (
+                                    render={({ field }) => (
                                         <FormItem>
                                             <FormControl>
                                                 <FileUpload
-                                                endpoint="serverImage"
-                                                value={field.value}
-                                                onChange={field.onChange}
+                                                    endpoint="serverImage"
+                                                    value={field.value}
+                                                    onChange={field.onChange}
                                                 />
                                             </FormControl>
                                         </FormItem>
                                     )}
-                                    />
-                                </div>
-                                <div className="flex gap-8">
+                                />
+                            </div>
+                            <div className="flex gap-8">
                                 <FormField
-                                control={form.control}
-                                name="name"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Challenge name
-                                        </FormLabel>
-                                        <FormControl>
-                                            <Input
-                                            disabled={isLoading}
-                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
-                                            placeholder="Enter name"
-                                            {...field}
-                                            autoComplete="off"
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </FormItem>
-                                )}
+                                    control={form.control}
+                                    name="name"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                                Challenge name
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    disabled={isLoading}
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    placeholder="Enter name"
+                                                    {...field}
+                                                    autoComplete="off"
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
                                 />
                                 <FormField
-                                control={form.control}
-                                name="prize"
-                                render={({ field }) => (
-                                    <FormItem className="mb-4">
-                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Challenge prize
-                                        </FormLabel>
-                                        <FormControl>
-                                            <Input
-                                            disabled={isLoading}
-                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
-                                            placeholder="Enter prize"
-                                            {...field}
-                                            autoComplete="off"
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </FormItem>
-                                )}
+                                    control={form.control}
+                                    name="prize"
+                                    render={({ field }) => (
+                                        <FormItem className="mb-4">
+                                            <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                                Challenge prize
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    disabled={isLoading}
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    placeholder="Enter prize"
+                                                    {...field}
+                                                    autoComplete="off"
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
                                 />
-                                </div>
-                                <div className="flex gap-8">
+                            </div>
+                            <div className="flex gap-8">
                                 <FormField
-                                control={form.control}
-                                name="objective"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Challenge objective
-                                        </FormLabel>
-                                        <FormControl>
-                                            <Input
-                                            disabled={isLoading}
-                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
-                                            placeholder="Describe the objective"
-                                            {...field}
-                                            autoComplete="off"
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </FormItem>
-                                )}
+                                    control={form.control}
+                                    name="objective"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                                Challenge objective
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    disabled={isLoading}
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    placeholder="Describe the objective"
+                                                    {...field}
+                                                    autoComplete="off"
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
                                 />
                                 <FormField
-                                control={form.control}
-                                name="duration"
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Challenge duration
-                                        </FormLabel>
-                                        <FormControl>
-                                            <Input
-                                            disabled={isLoading}
-                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
-                                            placeholder="Enter the duration"
-                                            {...field}
-                                            autoComplete="off"
-                                            />
-                                        </FormControl>
-                                        <FormMessage/>
-                                    </FormItem>
-                                )}
+                                    control={form.control}
+                                    name="duration"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                                Challenge duration
+                                            </FormLabel>
+                                            <FormControl>
+                                                <Input
+                                                    disabled={isLoading}
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    placeholder="Enter the duration"
+                                                    {...field}
+                                                    autoComplete="off"
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
                                 />
-                                </div>
-                                <FormField
+                            </div>
+                            <FormField
                                 control={form.control}
                                 name="terms"
                                 render={({ field }) => (
@@ -231,25 +232,46 @@ export const CreateChallengeModal = () => {
                                         </FormLabel>
                                         <FormControl>
                                             <TextArea
-                                            rows={1}
-                                            disabled={isLoading}
-                                            className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
-                                            placeholder="Describe the Terms & Conditions"
-                                            {...field}
+                                                rows={1}
+                                                disabled={isLoading}
+                                                className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                placeholder="Describe the Terms & Conditions"
+                                                {...field}
                                             />
                                         </FormControl>
-                                        <FormMessage/>
+                                        <FormMessage />
                                     </FormItem>
                                 )}
-                                />
+                            />
+                            <FormField
+                                control={form.control}
+                                name="description"
+                                render={({ field }) => (
+                                    <FormItem className="col-span-2">
+                                        <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
+                                            Challenge Description
+                                        </FormLabel>
+                                        <FormControl>
+                                            <TextArea
+                                                rows={1}
+                                                disabled={isLoading}
+                                                className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                placeholder="Description of the challenge"
+                                                {...field}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                             <div className="flex justify-end">
-                            <DialogFooter className="bg-grey-100 px-6 py-4 mt-2">
-                                <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900">
-                                    Create
-                                </Button>
-                            </DialogFooter>
+                                <DialogFooter className="bg-grey-100 px-6 py-4 mt-2">
+                                    <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900">
+                                        Create
+                                    </Button>
+                                </DialogFooter>
                             </div>
-                        </div> 
+                        </div>
                     </form>
                 </Form>
             </DialogContent>

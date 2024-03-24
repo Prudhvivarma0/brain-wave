@@ -189,6 +189,7 @@ const ChannelPage = async ({
                             }}
                             paramKey="channelId"
                             paramValue={channel.id}
+                            userName={profile.name}
                         />
                     </div>
                     <ChatInput

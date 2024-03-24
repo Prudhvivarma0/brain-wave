@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 // Posting to prisma
 export async function POST(req: Request) {
     try {
-        const { name, prize, objective, duration, terms, serverId, imageUrl } = await req.json();
+        const { name, prize, objective, description,duration, terms, serverId, imageUrl } = await req.json();
         const { searchParams } = new URL(req.url);
         const profile = await currentProfile();
 

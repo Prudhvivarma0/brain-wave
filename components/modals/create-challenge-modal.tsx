@@ -79,11 +79,13 @@ export const CreateChallengeModal = () => {
             });
             
             const serverId = serverResponse.data.id; // Assuming the server's ID is returned in the response
+            const imageUrl = serverResponse.data.imageUrl;
     
             // Now, create the challenge entry with the serverId
             await axios.post("/api/challenges", {
                 ...values,
-                serverId: serverId // Use the obtained serverId here
+                serverId: serverId, // Use the obtained serverId here
+                imageUrl: imageUrl
             });
     
             form.reset();

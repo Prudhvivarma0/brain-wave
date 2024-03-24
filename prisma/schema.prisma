@@ -79,6 +79,7 @@ model Challenge {
   prize     String
   duration  String
   objective String
+  imgUrl    String
   terms     String
   startDate DateTime
   endDate   DateTime
@@ -131,6 +132,12 @@ model DirectMessage {
   @@index([conversationId])
 }
 
+model UserReport {
+  id String @id @default(uuid())
+  reportee String
+  reporter String
+  content String
+}
 model Post {
   id                 String @id @default(uuid())
   imageURL           String @db.Text

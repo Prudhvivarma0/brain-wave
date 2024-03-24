@@ -101,7 +101,7 @@ const SetupPage = async () => {
                     {servers?.length} {servers?.length === 1 ? 'Team' : 'Teams'}
                 </div>
 
-                <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
+                <div className="flex items-center flex-wrap gap-20 mt-8 ml-16">
                     {servers.map((server) => (
                         <div key={server.id} >
                             <NavigationItem

@@ -16,13 +16,16 @@ interface ChallengesProps {
 
 const Challenges = async ({ params }: ChallengesProps) => {
     const server = await db.server.findMany({
-        select: { id: true }
+        select: { id: true}
     });
     const currprofile = await currentProfile();
     if (!currprofile) {
         return redirect("/")
     }
-    const challenges = await db.challenge.findMany({});
+    const challenges = await db.challenge.findMany({
+    });
+
+    
 
     return (
         <div className="h-full">
@@ -62,7 +65,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
 
 
 
-                <div className="flex flex-wrap gap-3 p-9">
+                <div className="flex flex-wrap gap-2 p-9 justify-center">
                     {challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
                         .map((challenge) => (
                             <div key={challenge.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
@@ -72,7 +75,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
                                     prize={challenge.prize}
                                     duration={challenge.duration}
                                     by={challenge.objective}
-                                    img={challenge.id}
+                                    img={challenge.imgUrl}
                                 />
                             </div>
                         ))}

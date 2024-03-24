@@ -6,7 +6,7 @@ import { Member, MemberRole, Profile } from "@prisma/client";
 import axios from "axios";
 import { BadgeCheck, Crown, Edit, FileIcon, MessageSquareWarning, Music, Trash, Video, X } from "lucide-react";
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
+import { redirect, useParams, useRouter } from "next/navigation";
 import qs from "query-string";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -20,6 +20,7 @@ import {
 } from "../ui/form";
 import { Input } from "../ui/input";
 import { UserAvatar } from "../user-avatar";
+import { currentProfile } from "@/lib/current-profile";
 
 interface ChatItemProps {
     id: string;
@@ -34,6 +35,7 @@ interface ChatItemProps {
     isUpdated: boolean
     socketUrl: string;
     socketQuery: Record<string, string>;
+    userNamee: string;
 };
 
 const roleIconMap = {
@@ -56,7 +58,8 @@ export const ChatItem = ({
     currentMember,
     isUpdated,
     socketUrl,
-    socketQuery
+    socketQuery,
+    userNamee
 }: ChatItemProps) => {
     const [isEditing, setIsEditing] = useState(false);
     const fileType = fileUrl?.split(".").pop();
@@ -129,7 +132,8 @@ export const ChatItem = ({
             console.log(error)
         }
     }
-
+    const name = member.profile.name;
+    
     return (
         <div className="relative group flex items-center p-5 transition w-full">
             <div className={`group flex gap-x-3 items-start w-full ${isOwner ? "flex-row-reverse" : ""}`}>
@@ -279,18 +283,19 @@ export const ChatItem = ({
                             query: socketQuery
                         })} className="cursor-pointer w-4 h-4" />
                     )}
-                    {reporting && (
+                    {/* {reporting && (
                         <MessageSquareWarning className="cursor-pointer w-4 h-4"/>
-                    )}
+                    )} */}
                 </div>
             )}
-            {reporting && (
+            {/* {reporting && (
                 <div className={`hidden group-hover:flex items-center gap-x-2 absolute p-1 -top-2 ${isOwner ? "right-5" : "left-5"} border rounded-sm  ${!isOwner ? "flex-row-reverse" : ""}`}>
                     {reporting && (
-                        <MessageSquareWarning className="cursor-pointer w-4 h-4"/>
+                        <MessageSquareWarning onClick={() => (onOpen("userReport"),{userNamee,name,content})}
+                        className="cursor-pointer w-4 h-4"/>
                     )}
                 </div>
-            )}
+            )} */}
 
         </div>
     )

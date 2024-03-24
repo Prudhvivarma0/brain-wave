@@ -34,6 +34,11 @@ const formSchema = z.object({
     }).max(350, {
         message: "Challenge T&Cs max length is 350"
     }),
+    description: z.string().min(1, {
+        message: "Challenge description is required"
+    }).max(350, {
+        message: "Challenge description max length is 350"
+    })
 
 })
 
@@ -54,8 +59,9 @@ export const CreateChallengeModal = () => {
             objective: "",
             duration: "",
             terms: "",
-            description: ""
+            description: "" // Add description field here
         }
+        
     });
 
 

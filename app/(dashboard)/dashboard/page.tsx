@@ -39,6 +39,15 @@ const Dashboard = async () => {
         }
     });
 
+    const report = await db.userReport.findMany({
+        select:{
+            id:true,
+            reportee:true,
+            reporter:true,
+            content:true
+        }
+    })
+
     return (
         <div className="h-full">
             <div className="hidden md:flex h-full w-[155px] z-30 flex-col fixed inset-y-0">
@@ -52,14 +61,16 @@ const Dashboard = async () => {
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
-                <div className="ml-2 mt-2 flex flex-row gap-20">
+                <div className="ml-2 mt-2 flex flex-row gap-20 text-black">
                     <WidgetItem heading="Users" value={transformProfiles.length} percent={Math.round(((transformProfiles.length - 1) / transformProfiles.length) * 100 * 100) / 100} color="green" amount={true} />
                     <WidgetItem heading="Challenges" value={transformChallenges.length} percent={Math.round(((transformChallenges.length - 1) / transformChallenges.length) * 100 * 100) / 100} color="red" amount={true} />
                     <WidgetItem heading="Teams" value={transformServers.length} percent={Math.round((((transformServers.length - 1) / transformServers.length) * 100) * 100) / 100} color="blue" amount={true} />
                     <WidgetItem heading="Virtual Exhibits" value={transformPost.length} percent={Math.round((((transformPost.length - 1) / transformPost.length) * 100) * 100) / 100} color="purple" amount={true} />
                 </div>
                 <div className="ml-4 mt-7"><AdminFeatures servers={transformServers} users={transformProfiles} challenges={transformChallenges} name={profile.name} /></div>
+                
                 <div className="mb-4 ml-2 mt-7">
+                <div style={{fontSize:20, fontWeight:900}}>User(s) Information</div>
                     <table>
                         <thead>
                             <tr>
@@ -77,6 +88,33 @@ const Dashboard = async () => {
                                         <td>{value.servers.map((team, index) => (
                                 <div key={index}>{team.name}</div>
                             ))}</td>
+                                    </tr>
+                                );
+                            })}
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div className="mb-4 ml-2 mt-7">
+                <div style={{fontSize:20, fontWeight:900}}>User Reports</div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Reporter</th>
+                                <th>Reported</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {report.map((value, key) => {
+                                return (
+                                    <tr key={key}>
+                                        <td>{value.id}</td>
+                                        <td>{value.reportee}</td>
+                                        <td>{value.reporter}</td>
+                                        <td>{value.content}</td>
                                     </tr>
                                 );
                             })}

@@ -121,7 +121,7 @@ const profiless = await db.profile.findMany({
     const transformedProfiles = profiless.map(profiless => profiless.name);
 
     return (
-        <div className="text-md font-semibold px-3 flex items-center h-16 text-white md:rounded-xl" style={{ backgroundColor: 'rgb(81,40,94)', borderBlockColor:"black"}}>
+        <div className="text-md font-semibold px-3 w-full flex items-center h-20 text-white " style={{ backgroundColor: 'rgb(81,40,94)', borderBlockColor:"black"}}>
             <MobileToggle serverId={serverId}/>
             <p className="font-semibold" style={{ fontSize: '1.3rem' }}>
                 {server.name}

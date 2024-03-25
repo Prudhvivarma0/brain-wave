@@ -51,8 +51,16 @@ export const ServerSidebar = async ({
     const role = server.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className="flex flex-col h-full text-white w-full bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)]">
+        <div className="flex flex-col h-full text-white w-full bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)]" >
+            {/* bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)] */}
             <ScrollArea className="flex-1 px-3">
+                <div className="mt-4 mb-3" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                    <img src={server.imageUrl} style={{ width: '200px', height: '200px'}} />
+                    <div style={{ fontSize: 20, marginTop: '1rem' }}>
+                        {server.name}
+                    </div>
+                </div>
+
                 {!!textChannels?.length &&
                     <div className="mt-2">
                         <ServerSection
@@ -107,7 +115,7 @@ export const ServerSidebar = async ({
                         ))}
                     </div>
                 }
-                {!!members?.length && 
+                {!!members?.length &&
                     <div className="mt-2 mb-2">
                         <ServerSection
                             sectionType="members"
@@ -117,9 +125,9 @@ export const ServerSidebar = async ({
                         />
                         {members.map((member) => (
                             <ServerMember
-                            key={member.id}
-                            member={member}
-                            server={server}
+                                key={member.id}
+                                member={member}
+                                server={server}
                             />
                         ))}
                     </div>

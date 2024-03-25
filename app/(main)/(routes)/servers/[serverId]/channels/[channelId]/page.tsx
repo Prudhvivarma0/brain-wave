@@ -109,6 +109,7 @@
 import { ChatHeader } from "@/components/chat/chat-header";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessages } from "@/components/chat/chat-messages";
+import { ServerSidebar } from "@/components/server/server-sidebar";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
@@ -154,28 +155,31 @@ const ChannelPage = async ({
     );
 
     return (
-        <div className="flex flex-col h-full">
+        // <div className="flex flex-row">
+        //     <div className="w-50 z-20 relative inset-y-0  md:block hidden">
+        //         <ServerSidebar serverId={params.serverId}/>
+        //     </div>
+        <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
             <ChatHeader
                 name={channel.name}
                 serverId={channel.serverId}
                 type="channel"
             />
             <div
-                className="mt-6"
                 style={{
                     display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '80vh',
-                    width: '86vw',
+                    // justifyContent: 'center',
+                    // alignItems: 'center',
+                    // height: '80vh',
+                    // width: '86vw',
                     position: 'relative',
                 }}
             >
-                <div style={{ width: '90%', height: '90%', position: 'relative', paddingRight: '50px' }}>
+                <div style={{ width: '90%', height: '100%', position: 'relative'}}>
                     <Editor roomId ={channel.serverId} />
                 </div>
                 <div>
-                    <div className="bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ height: '500px', width: '450px', maxHeight: '500px', overflowY: 'auto' }}>
+                    <div className="h-full bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ width: '340px', maxHeight: '650px', overflowY: 'auto',minHeight: '80vh' }}>
                         <ChatMessages
                             member={member}
                             name={channel.name}
@@ -204,6 +208,7 @@ const ChannelPage = async ({
                 </div>
             </div>
         </div>
+        // </div>
     );
 }
 

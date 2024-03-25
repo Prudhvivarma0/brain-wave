@@ -118,16 +118,23 @@ const ChallengePage = async ({
 
                     </div>
                 </div>
-                <div>
-                    <div className="text-1xl mb-3" style={{ position: 'absolute', top: '120px', right: '400px', color: 'black' }}>
+                <div className="rounded-lg border border-black p-8 h-[550px] w-[200px] flex flex-col justify-between" style={{ position: 'fixed', top: '120px', right: '120px', width: '300px' }}>
+                    <div className="text-1xl mb-3" style={{ color: 'black', overflowWrap: 'break-word', marginBottom: 'auto' }}>
                         <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Terms & Conditions:</strong><br />
                         <span>{challenge.terms.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
                     </div>
-                    <div className="text-1xl mb-3" style={{ position: 'absolute', top: '220px', right: '480px', color: 'black' }}>
+                    <div className="text-1xl mb-3" style={{ color: 'black', overflowWrap: 'break-word', marginTop: 'auto' }}>
                         <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Description</strong><br />
                         <span>{challenge.description.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
                     </div>
                 </div>
+
+
+
+
+
+
+
 
                 <a href={link} className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-17 mt-1 mb-3">
                     <div className="flex h-[70px] w-[455px] rounded-[18px] transition-all overflow-hidden items-center justify-center bg-[rgb(102,26,138)] group-hover:bg-[rgb(102,26,138)]">

@@ -7,6 +7,8 @@ import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
+import Image from 'next/image';
+import React from 'react';
 
 interface ChallengesProps {
     params: {
@@ -15,17 +17,12 @@ interface ChallengesProps {
 }
 
 const Challenges = async ({ params }: ChallengesProps) => {
-    const server = await db.server.findMany({
-        select: { id: true}
-    });
+    const server = await db.server.findMany({ select: { id: true } });
     const currprofile = await currentProfile();
     if (!currprofile) {
         return redirect("/")
     }
-    const challenges = await db.challenge.findMany({
-    });
-
-    
+    const challenges = await db.challenge.findMany({});
 
     return (
         <div className="h-full">
@@ -44,25 +41,19 @@ const Challenges = async ({ params }: ChallengesProps) => {
                                 label: "Challenges",
                                 type: "challenge",
                                 data: challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
-                                    .map(challenge => ({
-                                        id: challenge.id,
-                                        name: challenge.name,
-                                    }))
+                                    .map(challenge => ({ id: challenge.id, name: challenge.name, }))
                             }
-                        ]} />
+                        ]}
+                    />
                 </div>
-
-
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
-
-                <div style={{ paddingTop: '20px', paddingLeft: '30px' }}>
-                    {/* Text to be added */}
-                    <p className="text-black" style={{ fontWeight: 'bold' }}>Grow your skills by competing in our exciting competitions.
-                        <br />Find help in the documentation or learn about Community Competitions.</p>
+                <div style={{ paddingTop: '20px', paddingLeft: '30px', display: 'flex', alignItems: 'center' }}>
+                    <p className="text-black" style={{ fontWeight: 'bold', marginRight: '20px' }}>
+                        Grow your skills by competing in our exciting competitions. <br />
+                        Find help in the documentation or learn about Community Competitions.
+                    </p>
+                    <div style={{ backgroundImage: 'url("/login.png")', width: '600px', height: '150px' }}></div>
                 </div>
-
-
-
 
 
                 <div className="flex flex-wrap gap-2 p-9 justify-center">

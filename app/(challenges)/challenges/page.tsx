@@ -52,7 +52,17 @@ const Challenges = async ({ params }: ChallengesProps) => {
                         Grow your skills by competing in our exciting competitions. <br />
                         Find help in the documentation or learn about Community Competitions.
                     </p>
-                    <div style={{ backgroundImage: 'url("/login.png")', width: '600px', height: '150px' }}></div>
+                    <div style={{
+                        backgroundImage: 'url("/collab.png")',
+                        backgroundSize: '80% 200%', // Stretch the image to cover the entire container
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'calc(100% + 20px) center', // Shift the image 100px to the right
+                        width: '600px',
+                        height: '150px'
+                    }}></div>
+
+
+
                 </div>
 
 

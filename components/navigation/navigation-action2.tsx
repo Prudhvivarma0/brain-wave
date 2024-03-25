@@ -6,15 +6,13 @@ export const NavigationAction = () => {
     const { onOpen } = useModal();
 
     return (
-        <div style={{ position: 'fixed', top: '170px', left: '200px' }}>
+        <div>
             <button
                 onClick={() => onOpen("createChallenge")}
                 className="group items-center"
-                style={{ position: 'fixed' }} // Set position to 'fixed'
+                style={{ display: 'block', width: '150px', height: '40px', borderRadius: '12px', backgroundColor: 'rgb(102,26,138)', color: 'white', textAlign: 'center', lineHeight: '40px', cursor: 'pointer', border: 'none', outline: 'none' }}
             >
-                <div className="h-[40px] w-[150px] rounded-[12px] items-center justify-center bg-[rgb(102,26,138)] group-hover:bg-[rgb(122,46,158)]">
-                    <div className="text-white">Host a Challenge</div>
-                </div>
+                <strong style={{ fontWeight: 'bold' }}>Host a Challenge</strong>
             </button>
         </div>
     );

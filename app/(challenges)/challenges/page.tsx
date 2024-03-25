@@ -48,10 +48,17 @@ const Challenges = async ({ params }: ChallengesProps) => {
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
                 <div style={{ paddingTop: '20px', paddingLeft: '30px', display: 'flex', alignItems: 'center' }}>
-                    <p className="text-black" style={{ fontWeight: 'bold', marginRight: '20px' }}>
-                        Grow your skills by competing in our exciting competitions. <br />
-                        Find help in the documentation or learn about Community Competitions.
-                    </p>
+                    <div><div style={{ marginRight: '20px' }}>
+                        <p className="text-black" style={{ fontWeight: 'bold' }}>
+                            Grow your skills by competing in our exciting competitions. <br />
+                            Find help in the documentation or learn about Community Competitions.
+                        </p>
+                        <div style={{ position: 'relative', padding: '20px 0', marginBottom: '-10px' }}>
+                            <NavigationAction />
+                        </div>
+                    </div>
+                    </div>
+
                     <div style={{
                         backgroundImage: 'url("/collab.png")',
                         backgroundSize: '80% 200%', // Stretch the image to cover the entire container
@@ -60,13 +67,11 @@ const Challenges = async ({ params }: ChallengesProps) => {
                         width: '600px',
                         height: '150px'
                     }}></div>
-
-
-
                 </div>
 
 
-                <div className="flex flex-wrap gap-2 p-9 justify-center">
+
+                <div className="flex flex-wrap gap-2 p-9 justify-center md-40">
                     {challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
                         .map((challenge) => (
                             <div key={challenge.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
@@ -81,9 +86,9 @@ const Challenges = async ({ params }: ChallengesProps) => {
                             </div>
                         ))}
                 </div>
-                <div className="flex items-center">
-                    <NavigationAction />
-                </div>
+
+
+
             </main>
         </div>
     );

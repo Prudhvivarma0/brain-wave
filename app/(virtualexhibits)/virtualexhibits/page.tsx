@@ -35,8 +35,8 @@ const VirtualExhibits = async ({
                     </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
-                <div className="pl-[140px]">
-                <div className="flex items-center flex-wrap gap-20 mt-8 ml-10">
+                <div className="pl-[1px] justify-center md:pl-[140px]">
+                <div className="flex items-center flex-wrap gap-10 mt-8 ml-5 md:flex items-center flex-wrap gap-20 mt-8 ml-10">
                     {posts.map((post) => (
                                 <div key={post.id}>
                                     <PostItems

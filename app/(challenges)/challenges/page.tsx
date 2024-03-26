@@ -47,7 +47,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
                     />
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
-                <div style={{ paddingTop: '20px', paddingLeft: '30px', display: 'flex', alignItems: 'center' }}>
+                <div className="flex items-center pt-[20px] pl-[30px]">
                     <div><div style={{ marginRight: '20px' }}>
                         <p className="text-black dark:text-white" style={{ fontWeight: 'bold' }}>
                             Grow your skills by competing in our exciting competitions. <br />

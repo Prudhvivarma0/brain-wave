@@ -7,6 +7,7 @@ import Challenges from "./challenges";
 import HomeButton from "./home";
 import VirtualExhibits from "./virtual-exhibits";
 import Dashboardd from "./dashboard";
+import Cale from "./calandar";
 
 export const NavigationSidebar = async () => {
     const profile = await currentProfile();
@@ -36,6 +37,7 @@ export const NavigationSidebar = async () => {
             <div style={{ height: '50px' }}></div> {/* This div creates the space after the separator */}
             <div className="flex flex-col items-center gap-y-4 h-full ">
                 <HomeButton />
+                <Cale/>
                 <VirtualExhibits />
                 <Challenges />
                 {/* <EditorButton/> */}

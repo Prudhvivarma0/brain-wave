@@ -16,6 +16,7 @@ import { DeleteMessageModal } from "../modals/delete-message-modal";
 import { UserSettingsModal } from "../modals/user-settings";
 import { CreateExhibitModal } from "../modals/create-exhibits-modal";
 import { DeletePostModal } from "../modals/delete-post-modal";
+import { ReportUserModal } from "../modals/userReport-modal";
 
 
 export const ModalProvider = () => {
@@ -45,6 +46,7 @@ export const ModalProvider = () => {
             <UserSettingsModal/>
             <CreateExhibitModal />
             <DeletePostModal/>
+            <ReportUserModal/>
         </>
     )
 }

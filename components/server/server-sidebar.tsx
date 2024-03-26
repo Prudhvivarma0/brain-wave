@@ -51,7 +51,7 @@ export const ServerSidebar = async ({
     const role = server.members.find((member) => member.profileId === profile.id)?.role;
 
     return (
-        <div className="flex flex-col h-full text-white w-full bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)]" >
+        <div className="flex flex-col h-full text-white w-full " style={{backgroundColor:"#420266"}} >
             {/* bg-gradient-to-t from-[rgb(53,37,91)] to-[rgb(93,42,96)] */}
             <ScrollArea className="flex-1 px-3">
                 <div className="mt-4 mb-3" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>

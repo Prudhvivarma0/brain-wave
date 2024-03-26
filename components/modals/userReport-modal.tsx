@@ -1,0 +1,72 @@
+"use client"
+
+import { useModal } from "@/hooks/use-modal-store";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../ui/dialog";
+
+
+
+export const ReportUserModal = () => {
+
+    const router = useRouter();
+
+    
+
+    const { onOpen, isOpen, onClose, type, data } = useModal();
+
+    const isModalOpen = isOpen && type === "userReport";
+
+    const { userNamee, name, content } = data;
+
+    const [copied, setCopied] = useState(false);
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const values = {
+        userNamee:userNamee,
+        name:name,
+        content:content
+    };
+
+    const onClick = async () => {
+        try{
+            setIsLoading(true)
+            await axios.post(`/api/reports/`, values);
+            onClose();
+            router.refresh();
+        } catch(error) {
+            console.log(error)
+        } finally {
+            setIsLoading(false)
+        }
+    }
+
+
+    return (
+        <Dialog open = {isModalOpen} onOpenChange={onClose}>
+            <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
+                <DialogHeader className="pt-8 px-6">
+                    <DialogTitle className="text-2xl text-center font-bold">
+                        Report User
+                    </DialogTitle>
+                    <DialogDescription className="text-center text-white">
+                        Are you sure you want to "<span className="text-rose-500 font-bold">Report </span>" ?
+                    </DialogDescription>
+                </DialogHeader>
+                <DialogFooter className="bg-[#310a4477] px-6 py-4">
+                    <div className="flex items-center justify-end w-full">
+                        <Button 
+                        disabled={isLoading}
+                        variant="destructive"
+                        onClick={onClick}>
+                            Report
+                        </Button>
+                    </div>
+                </DialogFooter>
+            </DialogContent>
+        </Dialog>
+    )
+}

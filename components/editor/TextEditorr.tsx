@@ -22,7 +22,7 @@ const toolbarOptions =  [
 export default function TextEditors() {
   
   const [socket, setSocket] = useState<Socket | undefined>();
-  const [quill, setQuill] = useState()
+  const [quill, setQuill] = useState<Quill | undefined>()
 
 const urlSegments = window.location.pathname.split('/');
 const documentId = urlSegments[urlSegments.length - 1];
@@ -64,7 +64,7 @@ console.log(documentId);
   useEffect(() => {
     if(socket==null || quill==null) return
     
-    const handler = (delta) => {
+    const handler = (delta:any) => {
       quill.updateContents(delta)
 
     }
@@ -79,7 +79,7 @@ console.log(documentId);
   useEffect(() => {
     if(socket==null || quill==null) return
 
-    const handler = (delta,oldDelta,source) => {
+    const handler = (delta:any,oldDelta:any,source:any) => {
       if (source !== 'user') return
       socket.emit("send-changes",delta)
 
@@ -93,7 +93,7 @@ console.log(documentId);
   },[socket,quill])
 
 
-  const wrapperRef= useCallback((wrapper) => {
+  const wrapperRef= useCallback((wrapper:any) => {
     if (wrapper == null) return
     wrapper.innerHTML = ''
     const editor = document.createElement('div')

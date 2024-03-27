@@ -1,4 +1,5 @@
-"use client"
+"use client";
+import React, { useEffect, useRef } from 'react';
 
 import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
 
@@ -33,11 +34,14 @@ function getUrlParams(url: string = window.location.href) {
 export default function App() {
 
       const roomID = getUrlParams().get('roomID') || randomID(5);
-      let myMeeting = async (element: any) => {
-     // generate Kit Token
-      const appID = 1583582714;
-      const serverSecret = "765167083b3481e63b215b3a06ddb7a6";
-      const kitToken =  ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID,  randomID(5),  randomID(5));
+      const containerRef = useRef<HTMLDivElement>(null);
+
+      useEffect(() => {
+        const myMeeting = async () => {
+          // generate Kit Token
+          const appID = 1583582714;
+          const serverSecret = "765167083b3481e63b215b3a06ddb7a6";
+          const kitToken = ZegoUIKitPrebuilt.generateKitTokenForTest(appID, serverSecret, roomID, randomID(5), randomID(5));
 
 
      // Create instance object from Kit Token.
@@ -45,28 +49,28 @@ export default function App() {
 
       // start the call
       zp.joinRoom({
-        container: element,
+        container: containerRef.current,
         sharedLinks: [
           {
             name: 'Copy link',
-            url:
-             window.location.protocol + '//' + 
-             window.location.host + window.location.pathname +
-              '?roomID=' +
-              roomID,
+            url: window.location.protocol + '//' + window.location.host + window.location.pathname + '?roomID=' + roomID,
           },
         ],
         scenario: {
           mode: ZegoUIKitPrebuilt.GroupCall, // To implement 1-on-1 calls, modify the parameter here to [ZegoUIKitPrebuilt.OneONoneCall].
         },
       });
+    };
 
-};
+    if (containerRef.current) {
+      myMeeting();
+    }
+ }, [roomID]);
 
   return (
     <div
       className="myCallContainer"
-      ref={myMeeting}
+      ref={containerRef}
       style={{ width: '100vw', height: '100vh' }}
     ></div>
   );

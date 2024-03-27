@@ -35,7 +35,7 @@ interface ChatItemProps {
     isUpdated: boolean
     socketUrl: string;
     socketQuery: Record<string, string>;
-    userNamee: string;
+    userNamee?: string;
 };
 
 const roleIconMap = {

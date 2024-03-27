@@ -64,7 +64,8 @@ const MemberIdPage = async ({
                 socketUrl="/api/socket/direct-messages"
                 socketQuery={{
                     conversationId: conversation.id
-                }}
+                } 
+            }
             />
             <ChatInput
                 name={otherMember.profile.name}

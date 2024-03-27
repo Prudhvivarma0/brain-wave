@@ -28,7 +28,7 @@ interface ChatMessagesProps {
     paramKey: "channelId" | "conversationId"
     paramValue: string;
     type: "channel" | "conversation"
-    userName: string
+    userName?: string
 }
 
 export const ChatMessages = ({

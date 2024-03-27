@@ -20,11 +20,6 @@ import car3 from "./imgs/car-3.jpg"
 import car4 from "./imgs/car-4.jpg"
 import car5 from "./imgs/car-5.jpg"
 import ImageSlider from "@/components/navigation/imageslider";
-import { driver } from "driver.js";
-import "driver.js/dist/driver.css";
-import Joyride, { STATUS } from "react-joyride";
-import { Button } from "@/components/ui/button";
-
 
 const IMAGES = [
     { url: car1, alt: "Car One" },

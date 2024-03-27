@@ -16,6 +16,9 @@ const InviteCodePage = async ({
     if (!profile) {
         return redirectToSignIn();
     }
+    if (profile.isBanned) {
+        return redirect("/banned"); // replace "/banned" with the path to your banned page
+    }
     if (!params.inviteCode) {
         return redirect("/");
     }

@@ -11,7 +11,24 @@ export const currentProfile = async() => {
     const profile = await db.profile.findUnique({
         where: {
             userId
+        },
+        select: {
+            isBanned: true,
+            id: true,
+            name:true,
+            userId: true,
+            imageUrl: true,
+            email: true,
+            isAdmin: true,
+            createdAt:true,
+            updatedAt: true,
+            servers: true,
+            members: true,
+            channels: true,
+            posts: true
+            // include other fields as needed
         }
+
     });
 
     return profile;

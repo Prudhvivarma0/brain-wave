@@ -15,7 +15,9 @@ const ServerIdLayout = async ({
     if (!profile){
         return redirectToSignIn();
     }
-
+    if (profile.isBanned) {
+        return redirect("/banned"); // replace "/banned" with the path to your banned page
+    }
     const server = await db.server.findUnique({
         where: {
             id: params.serverId,

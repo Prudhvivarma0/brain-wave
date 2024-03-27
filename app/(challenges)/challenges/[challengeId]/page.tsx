@@ -21,7 +21,9 @@ const ChallengePage = async ({
     if (!profile) {
         return redirectToSignIn()
     }
-
+    if (profile.isBanned) {
+        return redirect("/banned"); // replace "/banned" with the path to your banned page
+    }
     const challenge = await db.challenge.findUnique({
         where: {
             id: params.challengeId

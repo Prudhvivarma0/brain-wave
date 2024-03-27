@@ -21,7 +21,9 @@ const MemberIdPage = async ({
     if (!profile) {
         return redirectToSignIn();
     }
-
+    if (profile.isBanned) {
+        return redirect("/banned"); // replace "/banned" with the path to your banned page
+    }
     const currentMember = await db.member.findFirst({
         where: {
             serverId: params.serverId,

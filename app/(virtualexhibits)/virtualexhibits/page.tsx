@@ -7,9 +7,7 @@ import { PostButton } from "@/components/navigation/postButton";
 import { PostItems } from "@/components/navigation/postItems";
 import { db } from "@/lib/db";
 
-const VirtualExhibits = async ({
-    children
-}: {children: React.ReactNode}) => {
+const VirtualExhibits = async () => {
     const posts = await db.post.findMany({
         include: {
             profile: {

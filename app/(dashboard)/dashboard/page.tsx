@@ -7,6 +7,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import "@/app/(dashboard)/dashboard/styles.css"
+import BanButton from '@/components/banButton/banButton1';
 
 const Dashboard = async () => {
 
@@ -88,6 +89,9 @@ const Dashboard = async () => {
                                         <td>{value.servers.map((team, index) => (
                                 <div key={index}>{team.name}</div>
                             ))}</td>
+                                <td>
+                                <BanButton profileId={value.id}/>
+                                </td>
                                     </tr>
                                 );
                             })}

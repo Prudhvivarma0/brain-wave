@@ -53,6 +53,9 @@ const SetupPage = async () => {
     if (!currprofile) {
         return redirect("/")
     }
+    if (currprofile.isBanned) {
+        return redirect("/banned"); // replace "/banned" with the path to your banned page
+    }
     const servers = await db.server.findMany({
         where: {
             members: {

@@ -61,22 +61,12 @@ export const CreateChallengeModal = () => {
             terms: "",
             description: "" // Add description field here
         }
-        
+
     });
 
 
     const isLoading = form.formState.isSubmitting;
 
-    // const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    //     try {
-    //         await axios.post("/api/challenges", values);
-    //         form.reset();
-    //         router.refresh();
-    //         onClose();
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
             // First, create the server entry and get the server id
@@ -110,19 +100,19 @@ export const CreateChallengeModal = () => {
     }
 
     return (
-        <Dialog open={isModalOpen} onOpenChange={handleClose}>
-            <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
-                <DialogHeader className="pt-8 px-6 ">
-                    <DialogTitle className="text-2xl text-center font-bold">
+        <Dialog open={isModalOpen} onOpenChange={handleClose} className="max-w-sm">
+            <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-2">
+                <DialogHeader>
+                    <DialogTitle className="text-lg font-bold">
                         Create a Challenge!
                     </DialogTitle>
-                    <DialogDescription className="text-center text-white ">
+                    <DialogDescription className="text-xs">
                         Fill in the neccesary details and image
                     </DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        <div className="flex flex-col gap-8 px-6">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                        <div className="flex flex-col gap-3 px-2">
                             <div className="flex items-center justify-center text-center">
                                 <FormField
                                     control={form.control}
@@ -140,7 +130,7 @@ export const CreateChallengeModal = () => {
                                     )}
                                 />
                             </div>
-                            <div className="flex gap-8">
+                            <div className="flex gap-3">
                                 <FormField
                                     control={form.control}
                                     name="name"
@@ -152,7 +142,7 @@ export const CreateChallengeModal = () => {
                                             <FormControl>
                                                 <Input
                                                     disabled={isLoading}
-                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0 py-1 px-2 text-xs"
                                                     placeholder="Enter name"
                                                     {...field}
                                                     autoComplete="off"
@@ -173,7 +163,7 @@ export const CreateChallengeModal = () => {
                                             <FormControl>
                                                 <Input
                                                     disabled={isLoading}
-                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0 py-1 px-2 text-xs"
                                                     placeholder="Enter prize"
                                                     {...field}
                                                     autoComplete="off"
@@ -184,7 +174,7 @@ export const CreateChallengeModal = () => {
                                     )}
                                 />
                             </div>
-                            <div className="flex gap-8">
+                            <div className="flex gap-3">
                                 <FormField
                                     control={form.control}
                                     name="objective"
@@ -196,7 +186,7 @@ export const CreateChallengeModal = () => {
                                             <FormControl>
                                                 <Input
                                                     disabled={isLoading}
-                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0 py-1 px-2 text-xs"
                                                     placeholder="Describe the objective"
                                                     {...field}
                                                     autoComplete="off"
@@ -217,7 +207,7 @@ export const CreateChallengeModal = () => {
                                             <FormControl>
                                                 <Input
                                                     disabled={isLoading}
-                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                    className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0 py-1 px-2 text-xs"
                                                     placeholder="Enter the duration"
                                                     {...field}
                                                     autoComplete="off"
@@ -238,9 +228,9 @@ export const CreateChallengeModal = () => {
                                         </FormLabel>
                                         <FormControl>
                                             <TextArea
-                                                rows={1}
+                                                rows={2}
                                                 disabled={isLoading}
-                                                className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0 py-1 px-2 text-xs"
                                                 placeholder="Describe the Terms & Conditions"
                                                 {...field}
                                             />
@@ -259,9 +249,9 @@ export const CreateChallengeModal = () => {
                                         </FormLabel>
                                         <FormControl>
                                             <TextArea
-                                                rows={1}
+                                                rows={2}
                                                 disabled={isLoading}
-                                                className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0"
+                                                className="bg-white border-0 focus-visible:ring-0 text-zinc-500 focus-visible:ring-offset-0 py-1 px-2 text-xs"
                                                 placeholder="Description of the challenge"
                                                 {...field}
                                             />
@@ -271,8 +261,8 @@ export const CreateChallengeModal = () => {
                                 )}
                             />
                             <div className="flex justify-end">
-                                <DialogFooter className="bg-grey-100 px-6 py-4 mt-2">
-                                    <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900">
+                                <DialogFooter className="bg-grey-100 px-2 py-1">
+                                    <Button disabled={isLoading} variant="brain" className="bg-purple-600 dark:bg-purple-900 py-1 px-2 text-xs">
                                         Create
                                     </Button>
                                 </DialogFooter>

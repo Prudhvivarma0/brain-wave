@@ -22,6 +22,9 @@ const Challenges = async ({ params }: ChallengesProps) => {
     if (!currprofile) {
         return redirect("/")
     }
+    if (currprofile.isBanned) {
+        return redirect("/banned"); // replace "/banned" with the path to your banned page
+    }
     const challenges = await db.challenge.findMany({});
 
     return (

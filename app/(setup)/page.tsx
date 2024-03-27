@@ -11,7 +11,7 @@ import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { initailProfile } from "@/lib/initial-profile";
 import { UserButton } from "@clerk/nextjs";
-import { Bell } from "lucide-react";
+import { Bell, MessageCircleQuestion } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Toaster } from "sonner";
 import car1 from "./imgs/car-1.jpg"
@@ -20,6 +20,11 @@ import car3 from "./imgs/car-3.jpg"
 import car4 from "./imgs/car-4.jpg"
 import car5 from "./imgs/car-5.jpg"
 import ImageSlider from "@/components/navigation/imageslider";
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
+import Joyride, { STATUS } from "react-joyride";
+import { Button } from "@/components/ui/button";
+
 
 const IMAGES = [
     { url: car1, alt: "Car One" },
@@ -58,9 +63,13 @@ const SetupPage = async () => {
         }
     });
 
+
     // if server/s exist, return home page
     // if (server) {
     // return redirect(`/servers/${server.id}`);
+
+    
+
     return (
         <div className="h-full">
             <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0 ">
@@ -68,7 +77,7 @@ const SetupPage = async () => {
             </div>
             <main className="pl-[10px] md:pl-[170px] pr-[40px] h-full">
                 <HomeMobileToggle />
-                <div className="flex justify-between items-center mt-7">
+                <div id={"welcome"} className="flex justify-between items-center mt-7">
                     <div className="text-left">
                         <div className={`text-4xl ml-4`}>
                             Welcome <strong>{currprofile.name !== "null" ? currprofile.name.split(' ')[0].toUpperCase() : 'User'}</strong>!
@@ -143,7 +152,10 @@ const SetupPage = async () => {
                     <NavigationAction />
                 </div>
                 <div style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
-                    <Help />
+                    <Button
+                    >
+                    <MessageCircleQuestion />
+                    </Button>
                 </div>
 
             </main>

@@ -36,7 +36,7 @@ const TextEditor = async () => {
                         <HomeMobileToggle />
                         <div className="flex items-center justify-between mt-5">
                             <div className="text-4xl ml-9">
-                                <strong>Calander</strong>
+                                <strong>Calendar</strong>
                             </div>
                             <a href={`/`}>
                                 <ChevronLeft />

@@ -75,7 +75,7 @@ const SetupPage = async () => {
 
     return (
         <div className="h-full">
-            <div className="hidden md:flex h-full w-[120px] z-30 flex-col fixed inset-y-0 ">
+            <div id="nav" className="hidden md:flex h-full w-[145px] z-30 flex-col fixed inset-y-0 ">
                 <NavigationSidebar />
             </div>
             <main className="pl-[10px] md:pl-[170px] pr-[40px] h-full">
@@ -90,7 +90,7 @@ const SetupPage = async () => {
                         </div>
                     </div>
                     <div className="flex items-center">
-                        <div className="mt-4 pr-6">
+                        <div id="search" className="mt-4 pr-6">
                             <ServerSearch
                                 data={[
                                     {
@@ -112,6 +112,7 @@ const SetupPage = async () => {
                                 ]} />
                         </div>
                         <Bell className="mr-4 mt-4 w-6 h-6" />
+                        <div id="profile">
                         <UserButton
                             afterSignOutUrl="/sign-in"
                             appearance={{
@@ -120,6 +121,7 @@ const SetupPage = async () => {
                                 },
                             }}
                         />
+                        </div>
                     </div>
                 </div>
 
@@ -142,7 +144,7 @@ const SetupPage = async () => {
                 <ImageSlider/>
                 </div> */}
 
-                <div className="md:flex items-center flex-wrap gap-20 mt-8 ml-16">
+                <div id={"servers"} className="md:flex items-center flex-wrap gap-20 mt-8 ml-16">
                     {servers.map((server) => (
                         <div key={server.id} >
                             <NavigationItem
@@ -152,13 +154,12 @@ const SetupPage = async () => {
                             />
                         </div>
                     ))}
+                    <div id="create">
                     <NavigationAction />
+                    </div>
                 </div>
                 <div style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
-                    <Button
-                    >
-                    <MessageCircleQuestion />
-                    </Button>
+                    <Help/>
                 </div>
 
             </main>

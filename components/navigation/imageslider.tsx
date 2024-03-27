@@ -37,7 +37,7 @@ function ImageSlider() {
     setCurrentIndex(newIndex);
   };
 
-  const goToSlide = (slideIndex) => {
+  const goToSlide = (slideIndex:any) => {
     setCurrentIndex(slideIndex);
   };
 

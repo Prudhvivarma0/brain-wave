@@ -109,7 +109,6 @@
 import { ChatHeader } from "@/components/chat/chat-header";
 import { ChatInput } from "@/components/chat/chat-input";
 import { ChatMessages } from "@/components/chat/chat-messages";
-import { ServerSidebar } from "@/components/server/server-sidebar";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
 import { redirectToSignIn } from "@clerk/nextjs";
@@ -175,11 +174,11 @@ const ChannelPage = async ({
                     position: 'relative',
                 }}
             >
-                <div style={{ width: '90%', height: '100%', position: 'relative'}}>
+                <div style={{ width: '90%', height: '100%', position: 'relative'}} className="hidden md:flex">
                     <Editor roomId ={channel.serverId} />
                 </div>
                 <div>
-                    <div className="h-full bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ width: '340px', maxHeight: '650px', overflowY: 'auto',minHeight: '80vh' }}>
+                    <div className="h-full bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ width: '340px', maxHeight: '650px', overflowY: 'auto', minHeight: '80vh' }}>
                         <ChatMessages
                             member={member}
                             name={channel.name}

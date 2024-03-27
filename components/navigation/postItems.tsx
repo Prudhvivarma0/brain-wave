@@ -66,7 +66,7 @@ export const PostItems = ({
                             <div key={index} className="whitespace-normal">{chunk}</div>
                         ))}
                     </div>
-                    <LikeButton postId={id} state={liked}/>
+                    <LikeButton postId={id} initialLikedByCurrentUser={liked}/>
                 </div>
             </div>
         );

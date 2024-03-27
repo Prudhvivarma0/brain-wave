@@ -40,8 +40,9 @@ export const ServerChannel = ({
 // Split the channel name by space and create a new paragraph for each word
 const words = channel.name.split(' ').map((word, index) => {
     const chunks = word.match(/.{1,10}/g); // This splits the word into chunks of 10 letters
-    return chunks.map((chunk, i) => <p key={`${index}-${i}`} className="line-clamp-1 font-semibold">{chunk}</p>);
+    return chunks ? chunks.map((chunk, i) => <p key={`${index}-${i}`} className="line-clamp-1 font-semibold">{chunk}</p>) : [];
 }).flat();
+
 
 return (
     <button

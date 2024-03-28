@@ -11,7 +11,7 @@ export const MobileToggle = ({
     return(
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
+                <Button variant="ghost" size="icon" className="md:hidden">
                     <MenuIcon/>
                 </Button>
             </SheetTrigger>

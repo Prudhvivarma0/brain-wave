@@ -1,15 +1,20 @@
-import { Album, FileText, MessageCircle, Mic, PenLine, PhoneCall, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
-import { MobileToggle } from "../mobile-toggle";
-import { SocketIndicator } from "../socket-indicator";
-import { UserAvatar } from "../user-avatar";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { currentProfile } from "@/lib/current-profile";
-import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import { ServerHeader } from "../server/server-header";
-import { Black_Han_Sans } from "next/font/google";
-import { ScrollArea } from "../ui/scroll-area";
-import { ServerSearch } from "../server/server-search";
 import { ChannelType, MemberRole } from "@prisma/client";
+import { FileText, MessageCircle, Mic, PhoneCall, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
+import { redirect } from "next/navigation";
+import { MobileToggle } from "../mobile-toggle";
+import { ServerHeader } from "../server/server-header";
+import { ServerSearch } from "../server/server-search";
+import { ScrollArea } from "../ui/scroll-area";
+import { UserAvatar } from "../user-avatar";
+  
 
 interface ChatHeaderProps {
     serverId: string;
@@ -121,7 +126,7 @@ const profiless = await db.profile.findMany({
     const transformedProfiles = profiless.map(profiless => profiless.name);
 
     return (
-        <div className="text-md font-semibold px-3 w-full flex items-center h-20 text-white " style={{ backgroundColor: '#420266', borderBlockColor:"black"}}> 
+        <div className="text-md font-semibold px-3 w-full flex items-center h-20 text-white " style={{ backgroundColor: '#420266', borderBlockColor:"black"}} > 
         {/* rgb(81,40,94) */}
             <MobileToggle serverId={serverId}/>
             <p className="font-semibold" style={{ fontSize: '1.3rem' }}>
@@ -188,19 +193,49 @@ const profiless = await db.profile.findMany({
                         />
                     </div>
                 </ScrollArea>
-                <a href="/videocall" target="_blank" className="rounded hover:text-gray-400" title="Call">
-                    <PhoneCall className="mr-3" />
-                    
-                </a>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger>
+                        <a href="/videocall" target="_blank" className="rounded hover:text-gray-400" title="Call">
+                            <PhoneCall className="mr-3" />   
+                        </a>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Start a call</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+                
                 {/* <a href="/whiteboard" className="rounded hover:text-gray-400"  title="Whiteboard">
                     <PenLine className="mr-3" />
                 </a> */}
-                <a href={`/editor/${serverId}`} className="rounded hover:text-gray-400" title="Text Editor">
-                <FileText />
-                </a>
-                <div title="Settings">
-                <ServerHeader server={server} role={role} members={transformedMembers} channel={transformedChannels} profile={transformedProfiles}/>
-                </div>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger>
+                        <a href={`/editor/${serverId}`} className="rounded hover:text-gray-400" title="Text Editor">
+                            <FileText />
+                        </a>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>Text Editor</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+                
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger>
+                        <div title="Settings" suppressHydrationWarning={true}>
+                            <ServerHeader server={server} role={role} members={transformedMembers} channel={transformedChannels} profile={transformedProfiles}/>
+                        </div>
+                        </TooltipTrigger>
+                            <TooltipContent>
+                                <p>Settings</p>
+                            </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+
+                
                 {/* <SocketIndicator/>  */}
             </div>
         </div>

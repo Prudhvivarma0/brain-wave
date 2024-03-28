@@ -1,11 +1,44 @@
 'use client';
-import { Tldraw, track, useEditor } from '@tldraw/tldraw'
+import { Tldraw, track, useEditor ,DefaultMainMenu,
+	DefaultMainMenuContent,
+	TLComponents,
+	TldrawUiMenuGroup,
+	TldrawUiMenuItem, Editor,TLShapeId,TLSvgOptions, exportAs} from '@tldraw/tldraw'
 import '@tldraw/tldraw/tldraw.css'
 // import '@tldraw/tldraw/ui.css'
 import { useYjsStore } from './useYjsStore'
 import './index.css'
 
+export type TLExportType = 'svg' | 'png' | 'jpeg' | 'webp' | 'json'
+
 const HOST_URL ='ws://localhost:1234';
+
+function CustomMainMenu() {
+	const editor = useEditor()
+	return (
+		
+		<DefaultMainMenu>
+			<div style={{ backgroundColor: 'white' }}>
+				<TldrawUiMenuGroup id="example">
+					<TldrawUiMenuItem
+						id="export"
+						label="Export As"
+						icon="external-link"
+						readonlyOk
+						onSelect={() => {
+							editor.selectAll();
+							exportAs(editor,editor.getSelectedShapeIds(),'png','canvasimg');
+						}}
+					/>
+				</TldrawUiMenuGroup>
+			</div>
+			<DefaultMainMenuContent />
+		</DefaultMainMenu>
+	)
+}
+const components: TLComponents = {
+	MainMenu: CustomMainMenu,
+}
 
 export default function YjsExample({ roomId }: { roomId: string }) {
 	const store = useYjsStore({
@@ -21,7 +54,7 @@ export default function YjsExample({ roomId }: { roomId: string }) {
 				autoFocus
 				store={store}
 				components ={{
-					SharePanel: NameEditor,
+					SharePanel: NameEditor, ...components
 				}}
 			/>
 		</div>
@@ -29,6 +62,7 @@ export default function YjsExample({ roomId }: { roomId: string }) {
 }
 
 const NameEditor = track(() => {
+	
 	const editor = useEditor()
 
 	const { color, name } = editor.user.getUserPreferences()

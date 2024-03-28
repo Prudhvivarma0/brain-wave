@@ -177,7 +177,7 @@ const ChannelPage = async ({
                 }}
             >
                 <div style={{ width: '90%', height: '100%', position: 'relative'}} className="hidden md:flex">
-                    <Editor roomId ={channel.serverId} />
+                    <Editor roomId ={channel.id} />
                 </div>
                 <div>
                     <div className="h-full bg-[rgb(236,236,236)] dark:bg-[rgb(99,96,108)]" style={{ width: '340px', maxHeight: '650px', overflowY: 'auto', minHeight: '80vh' }}>

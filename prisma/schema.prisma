@@ -79,10 +79,10 @@ model Challenge {
   name      String
   prize     String
   duration  String
-  objective String
-  description String
+  objective String   @db.Text
+  description String @db.Text
   imgUrl    String
-  terms     String
+  terms     String   @db.Text
   startDate DateTime
   endDate   DateTime
   serverId  String

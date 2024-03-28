@@ -31,12 +31,12 @@ const formSchema = z.object({
     }),
     terms: z.string().min(1, {
         message: "Challenge T&Cs are required"
-    }).max(350, {
+    }).max(900, {
         message: "Challenge T&Cs max length is 350"
     }),
     description: z.string().min(1, {
         message: "Challenge description is required"
-    }).max(350, {
+    }).max(900, {
         message: "Challenge description max length is 350"
     })
 

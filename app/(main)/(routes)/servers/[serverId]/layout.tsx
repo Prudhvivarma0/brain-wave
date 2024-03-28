@@ -32,14 +32,15 @@ const ServerIdLayout = async ({
         return redirect("/");
     }
     return ( 
-        <div className="h-full">
-            <div className="w-50 z-20 flex-col fixed inset-y-0  md:block hidden">
-                <ServerSidebar serverId={params.serverId}/>
-            </div>
-            <main className="h-full ml-[220px]">
-                {children}
-            </main>     
+        <div className="flex h-full">
+        <div className="w-50 z-20 flex-col md:block hidden">
+            <ServerSidebar serverId={params.serverId}/>
         </div>
+        <main className="h-full flex-grow"> {/* Use flex-grow to make the main content fill the remaining space */}
+            {children}
+        </main>     
+    </div>
+
     );
     
 }

@@ -1,0 +1,283 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #d59bf6;  /* Set navbar background to transparent */
+}
+.navbar h1 {
+  margin-left: 38%; /* Adjust the pixel value to your preference */
+  font-family: Copperplate, Papyrus, fantasy;
+  font-size: 2rem;
+  align-items: center;
+}
+.navbar p{
+
+  font-family: Copperplate, Papyrus, fantasy;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  align-items: center;
+  
+  margin-left: 14%;
+  top: 50%;
+  
+}
+body {
+  background-image: url(''); /* Link to your image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: white;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   /* Keeps the background image fixed during scroll */
+}
+
+.container {
+  position: relative; /* The parent container must be positioned */
+  height: 100vh; /* Example height */
+}
+
+.welcome-container {
+  background-color: #c7a9f1; /* Adjust to the light purple color you prefer */
+  color: white;
+  padding: 20px; /* Add padding inside the box */
+  position: absolute; /* or 'fixed' if you want it to stay in view on scroll */
+
+  top: 50%; /* Adjust to move up or down as needed */
+  transform: translateY(-50%); /* Centers the box vertically */
+  width: 20rem;
+  left: 3%; /* Move to the right by 20px; adjust as needed */
+  top: 27%; /* Adjust to the width you want */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  
+  white-space: nowrap;  /* Optional: Adds a subtle shadow */
+}
+
+.welcome-container h2 {
+  margin: 0; 
+  font-family: 'Copperplate', 'Papyrus', fantasy;
+  animation: slideInFromLeft 2.5s ease-out forwards;
+}
+.buttons-container {
+  display: flex;
+  
+  gap: 20px; /* Space between buttons */
+  margin-top: 30px; 
+  margin-left: 3%;
+}
+.custom-button {
+  border: 3px solid #5b4b8a; /* Slightly thicker purple border */
+  background-color: transparent; /* Transparent background */
+  border-radius: 20px;
+  color: black; /* Black text */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Changes the cursor to a pointer */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
+}
+
+
+
+.custom-button:hover {
+  background-color: #5b4b8a; /* Full purple background on hover */
+  color: white; /* Black text on hover */
+}
+
+.content-body {
+  margin-top: 11.5%; 
+  margin-left: 3%;/* Adjust this value to move the element down as much as you need */
+  /* The rest of your styles */
+  color: black;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-30px);
+  }
+}
+
+.myImage {
+  animation: bounce 2s infinite;
+}
+.myImage {
+  position: fixed;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the image */
+  width: 53%; /* Your desired width */
+  height: auto; /* To maintain aspect ratio */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-menu {
+  display: flex;
+}
+
+.navbar-item {
+  text-decoration: none;
+  color: white;
+  margin: 0 1rem;
+  font-weight: 500; /* Adjust weight as needed */
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-item:hover {
+  color: #e0e0e0; /* Lighten the text on hover */
+}
+
+.navbar-end {
+  display: flex;
+  align-items: center;
+}
+
+.bottom-section {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-top: 0px;
+  width: 100%;
+  background-color: #5e63b6; /* Adjust the color to match the exact purple hue from the image */
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 250px;
+  
+ 
+  /* Other styling as needed */
+}
+
+
+
+.logo {
+  width: 9rem; /* Set the width to your preference */
+  height: auto; /* This will maintain the aspect ratio of the image */
+  
+}
+  
+  .button {
+    border: 2px solid #5b4b8a; /* Slightly thicker purple border */
+    background-color: transparent; /* Transparent background */
+    border-radius: 20px;
+    color: black; /* Black text */
+    padding: 0.5rem 2rem; /* Padding inside the button */
+    margin-right: 16px;
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Changes the cursor to a pointer */
+    transition: background-color 0.3s, color 0.3s;
+  
+  }
+  
+  .button:hover {
+    background-color: #5b4b8a; /* Purple background on hover */
+    color: white; /* White text on hover */
+  }
+
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .transition-image1 {
+    width: 9rem; /* Set the width to make the image smaller */
+    height: auto;
+     /* Maintain the aspect ratio */
+    margin-top: 10%;
+    
+    animation: slideInFromLeft 3s ease-out forwards;
+    
+  }
+
+  @keyframes simpleSlideUp {
+    from {
+      transform: translateY(200px); /* Start slightly lower */
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .transition-image2 {
+    animation: simpleSlideUp 3s ease-out forwards;
+    width: 9rem; /* Set the width to make the image smaller */
+    height: auto;
+    margin-top: 10%;
+    
+  }
+  @keyframes slideInFromRight {
+    from {
+      transform: translateX(100%); /* Start from just outside the right edge of the screen */
+      opacity: 0; /* Start from fully transparent */
+    }
+    to {
+      transform: translateX(0); /* End at its original position */
+      opacity: 1; /* Fully opaque */
+    }
+  }
+  .transition-image3 {
+    width: 9rem; /* Set the width to make the image smaller */
+    height: auto;
+    animation: slideInFromRight 3s ease-out forwards; 
+    margin-top: 20%;
+    margin-right: 3%;
+  }
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the items horizontally */
+    margin-left: 4%;
+  }
+  .image-caption3{
+   
+    font-family: Copperplate, Papyrus, fantasy;
+    font: bold;
+  }
+  .image-caption2{
+   font: bold;
+    font-family: Copperplate, Papyrus, fantasy;
+  }
+  
+  .image-caption1{
+    
+    font-family: Copperplate, Papyrus, fantasy;
+    font: bold;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-menu {
+      display: none; /* This will hide the menu on small screens */
+    }
+  
+    .navbar-end {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  
+    .button {
+      margin-bottom: 0.5rem;
+    }
+  }

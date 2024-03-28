@@ -217,7 +217,7 @@ const profiless = await db.profile.findMany({
                         </a>
                         </TooltipTrigger>
                         <TooltipContent>
-                            <p>Edit a document</p>
+                            <p>Text Editor</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>

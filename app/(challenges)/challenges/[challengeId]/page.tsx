@@ -62,9 +62,9 @@ const ChallengePage = async ({
 
     let link = '#';
     if (alreadyJoined) {
-        link = `/servers/${server?.id}`;
+        link = /servers/${server?.id};
     } else if (server?.inviteCode) {
-        link = `/invite/${server?.inviteCode}`;
+        link = /invite/${server?.inviteCode};
     }
 
     return (
@@ -81,7 +81,7 @@ const ChallengePage = async ({
                 </div>
                 <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-3 mb-10" />
                 <div className="flex items-center justify-center">
-                    <div className="challenge-box w-[450px] h-[500px] mb-3 flex flex-col items-center"
+                    <div className="challenge-box w-[450px] h-[500px] mb-3  flex flex-col items-center"
                         style={{
                             backgroundColor: 'rgb(69, 38, 93)',
                             borderRadius: '10px',
@@ -89,16 +89,16 @@ const ChallengePage = async ({
                             marginBottom: '20px',
                             marginRight: 'auto',
                             marginLeft: '0',
-                            marginTop: '-30px',
+                            marginTop: '-10px',
                             textAlign: 'center'
                         }}
                     >
                         <div className="challenge-box w-[500px] h-[700px] mb-3 flex flex-col items-center overflow-hidden">
                             <div className="image-box">
                                 <img src={ChallengeImage ? ChallengeImage.imageUrl : 'defaultImageUrl'} className="challenge-image" style={{ width: '400px', height: '250px' }} />
-                                <div className="challenge-name text-white text-lg font-bold pt-4">{challenge.name}</div>
+                                <div className="challenge-name text-white mt-2 text-lg font-bold pt-4">{challenge.name}</div>
                             </div>
-                            <div className="challenge-details mt-3 text-white">
+                            <div className="challenge-details mt-6 text-white">
                                 <div className="text-1xl mb-3"><strong>Objective:</strong> {challenge.objective}</div>
                                 <div className="flex justify-center">
                                     <div className="text-1xl mb-3 mr-6">
@@ -120,22 +120,18 @@ const ChallengePage = async ({
 
                     </div>
                 </div>
-                <div className="rounded-lg border border-black p-8 h-[550px] w-[200px] flex flex-col justify-between" style={{ position: 'fixed', top: '120px', right: '120px', width: '300px' }}>
-                    <div className="text-1xl mb-3" style={{ color: 'black', overflowWrap: 'break-word', marginBottom: 'auto' }}>
-                        <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Terms & Conditions:</strong><br />
-                        <span>{challenge.terms.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
+                <div className="rounded-lg border border-black p-8 h-[550px] w-[200px]" style={{ position: 'fixed', top: '120px', right: '170px', width: '400px' }}>
+                <div className="flex flex-col justify-start space-y-4">
+                    <div className="text-1xl" style={{ color: 'black', overflowWrap: 'break-word' }}>
+                    <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Terms & Conditions:</strong><br />
+                    <span>{challenge.terms.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
                     </div>
-                    <div className="text-1xl mb-3" style={{ color: 'black', overflowWrap: 'break-word', marginTop: 'auto' }}>
-                        <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Description</strong><br />
-                        <span>{challenge.description.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
+                    <div className="text-1xl" style={{ color: 'black', overflowWrap: 'break-word' }}>
+                    <strong style={{ fontSize: '20px', fontWeight: 'bold' }}>Description</strong><br />
+                    <span>{challenge.description.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</span>
                     </div>
                 </div>
-
-
-
-
-
-
+                </div>
 
 
                 <a href={link} className="group relative flex flex-col items-right gap-y-3 w-[220px] ml-17 mt-1 mb-3">
@@ -152,4 +148,4 @@ const ChallengePage = async ({
     );
 }
 
-export default ChallengePage;
+export default ChallengePage

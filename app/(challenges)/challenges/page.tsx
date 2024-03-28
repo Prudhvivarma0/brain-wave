@@ -63,7 +63,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
                     </div>
 
                     <div style={{
-                        backgroundImage: 'url("/collab.png")',
+                        backgroundImage: 'url("/marketing.svg")',
                         backgroundSize: '80% 200%', // Stretch the image to cover the entire container
                         backgroundRepeat: 'no-repeat',
                         backgroundPosition: 'calc(100% + 20px) center', // Shift the image 100px to the right
@@ -74,10 +74,11 @@ const Challenges = async ({ params }: ChallengesProps) => {
 
 
 
-                <div className="flex flex-wrap gap-2 p-9 justify-center md-40">
+                <div className="flex flex-wrap gap-12 p-9 justify-center md-40">
                     {challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
                         .map((challenge) => (
                             <div key={challenge.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                               
                                 <NavigationItem
                                     id={challenge.id}
                                     name={challenge.name}
@@ -87,6 +88,8 @@ const Challenges = async ({ params }: ChallengesProps) => {
                                     img={challenge.imgUrl}
                                 />
                             </div>
+                            
+                            
                         ))}
                 </div>
 
@@ -97,4 +100,4 @@ const Challenges = async ({ params }: ChallengesProps) => {
     );
 }
 
-export default Challenges;
+export default Challenges;

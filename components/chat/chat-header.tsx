@@ -193,47 +193,47 @@ const profiless = await db.profile.findMany({
                         />
                     </div>
                 </ScrollArea>
-                <TooltipProvider>
+                {/* <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger> */}
                         <a href="/videocall" target="_blank" className="rounded hover:text-gray-400" title="Call">
                             <PhoneCall className="mr-3" />   
                         </a>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Start a call</p>
+                        {/* </TooltipTrigger>
+                        <TooltipContent> */}
+                            {/* <p>Start a call</p>
                         </TooltipContent>
                     </Tooltip>
-                </TooltipProvider>
+                </TooltipProvider> */}
                 
                 {/* <a href="/whiteboard" className="rounded hover:text-gray-400"  title="Whiteboard">
                     <PenLine className="mr-3" />
                 </a> */}
-                <TooltipProvider>
+                {/* <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger> */}
                         <a href={`/editor/${serverId}`} className="rounded hover:text-gray-400" title="Text Editor">
                             <FileText />
                         </a>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                            <p>Text Editor</p>
+                        {/* </TooltipTrigger>
+                        <TooltipContent> */}
+                            {/* <p>Text Editor</p>
                         </TooltipContent>
                     </Tooltip>
-                </TooltipProvider>
+                </TooltipProvider> */}
                 
-                <TooltipProvider>
+                {/* <TooltipProvider>
                     <Tooltip>
-                        <TooltipTrigger>
+                        <TooltipTrigger> */}
                         <div title="Settings" suppressHydrationWarning={true}>
                             <ServerHeader server={server} role={role} members={transformedMembers} channel={transformedChannels} profile={transformedProfiles}/>
                         </div>
-                        </TooltipTrigger>
-                            <TooltipContent>
-                                <p>Settings</p>
+                        {/* </TooltipTrigger>
+                            <TooltipContent> */}
+                                {/* <p>Settings</p>
                             </TooltipContent>
                     </Tooltip>
-                </TooltipProvider>
+                </TooltipProvider> */}
 
                 
                 {/* <SocketIndicator/>  */}

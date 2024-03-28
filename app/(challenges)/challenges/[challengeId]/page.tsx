@@ -62,9 +62,9 @@ const ChallengePage = async ({
 
     let link = '#';
     if (alreadyJoined) {
-        link = /servers/${server?.id};
+        link = `/servers/${server?.id}`;
     } else if (server?.inviteCode) {
-        link = /invite/${server?.inviteCode};
+        link = `/invite/${server?.inviteCode}`;
     }
 
     return (

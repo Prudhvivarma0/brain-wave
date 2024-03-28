@@ -180,7 +180,7 @@ const ChannelPage = async ({
                     <Editor roomId ={channel.serverId} />
                 </div>
                 <div>
-                    <div className="h-full bg-[rgb(236,236,236)] dark:bg-gradient-to-t from-[rgba(53,37,91,0.5)] to-[rgba(93,42,96,0.5)]]" style={{ width: '340px', maxHeight: '650px', overflowY: 'auto', minHeight: '80vh' }}>
+                    <div className="h-full bg-[rgb(236,236,236)] dark:bg-[rgb(99,96,108)]" style={{ width: '340px', maxHeight: '650px', overflowY: 'auto', minHeight: '80vh' }}>
                         <ChatMessages
                             member={member}
                             name={channel.name}

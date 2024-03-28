@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { AppWindow, Footprints } from 'lucide-react';
+import { AppWindow, Footprints, MonitorStop, Presentation } from 'lucide-react';
 import { useState } from 'react';
 
 const VirtualExhibits = () => {
@@ -43,7 +43,9 @@ const VirtualExhibits = () => {
         className='text-white w-[155px]'
         style={buttonStyle}
       >
-        <AppWindow className='pr-2'/>
+        {/* <AppWindow className='pr-2'/> */}
+        {/* <Presentation className='pr-2'/> */}
+        <MonitorStop className='pr-2'/>
         {/* <Footprints className='pr-2'/> */}
         Exhibits
       </Button>

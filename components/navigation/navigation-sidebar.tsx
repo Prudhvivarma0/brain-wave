@@ -37,8 +37,8 @@ export const NavigationSidebar = async () => {
             <div style={{ height: '50px' }}></div> {/* This div creates the space after the separator */}
             <div className="flex flex-col items-center gap-y-4 h-full ">
                 <HomeButton />
-                <Cale/>
                 <VirtualExhibits />
+                <Cale/>
                 <Challenges />
                 {/* <EditorButton/> */}
                 {profile.isAdmin && (
@@ -47,7 +47,7 @@ export const NavigationSidebar = async () => {
                     </>
                 )}
 
-                <div className="mt-auto flex items-center flex-col gap-y-3">
+                <div className="mt-auto flex items-center flex-col gap-y-3 ">
                     <ModeToggle />
                 </div>
             </div>

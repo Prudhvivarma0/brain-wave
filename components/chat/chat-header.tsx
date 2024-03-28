@@ -1,4 +1,4 @@
-import { Album, MessageCircle, Mic, PenLine, PhoneCall, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
+import { Album, FileText, MessageCircle, Mic, PenLine, PhoneCall, ShieldAlert, ShieldCheck, Text, Video } from "lucide-react";
 import { MobileToggle } from "../mobile-toggle";
 import { SocketIndicator } from "../socket-indicator";
 import { UserAvatar } from "../user-avatar";
@@ -190,12 +190,13 @@ const profiless = await db.profile.findMany({
                 </ScrollArea>
                 <a href="/videocall" target="_blank" className="rounded hover:text-gray-400" title="Call">
                     <PhoneCall className="mr-3" />
+                    
                 </a>
                 {/* <a href="/whiteboard" className="rounded hover:text-gray-400"  title="Whiteboard">
                     <PenLine className="mr-3" />
                 </a> */}
-                <a href={`/editor/${serverId}`} className="rounded hover:text-gray-400" title="Editor">
-                <Album />
+                <a href={`/editor/${serverId}`} className="rounded hover:text-gray-400" title="Text Editor">
+                <FileText />
                 </a>
                 <div title="Settings">
                 <ServerHeader server={server} role={role} members={transformedMembers} channel={transformedChannels} profile={transformedProfiles}/>

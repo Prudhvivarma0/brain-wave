@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
-import { Bike, Calendar, Swords } from 'lucide-react';
+import { Bike, Calendar, CalendarCheck, CalendarDays, Swords } from 'lucide-react';
 import { useState } from 'react';
 import { currentProfile } from '@/lib/current-profile';
 
@@ -45,7 +45,9 @@ const Cale = () => {
         className='text-white w-[155px]'
         style={buttonStyle}
       >
-        <Calendar className='pr-2'/>
+        {/* <Calendar className='pr-2'/> */}
+        {/* <CalendarDays className='pr-2'/> */}
+        <CalendarCheck className='pr-2'/>
         Calendar
       </Button>
     </div>

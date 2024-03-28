@@ -106,7 +106,14 @@ const Help = () => {
         hideCloseButton
         scrollToFirstStep
         showSkipButton
-        showProgress
+        styles={{
+          buttonNext:{
+            background:"#6e13ab"
+          },
+          buttonBack:{
+            color:"GrayText"
+          }
+        }}
       />
     </div>
   );

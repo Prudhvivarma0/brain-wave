@@ -106,7 +106,7 @@ const SetupPage = async () => {
                                     // }
                                 ]} />
                         </div>
-                        <Bell className="mr-4 mt-4 w-6 h-6" />
+                        {/* <Bell className="mr-4 mt-4 w-6 h-6" /> */}
                         <div id="profile">
                         <UserButton
                             afterSignOutUrl="/sign-in"

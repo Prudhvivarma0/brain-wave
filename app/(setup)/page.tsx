@@ -14,36 +14,28 @@ import { UserButton } from "@clerk/nextjs";
 import { Bell, MessageCircleQuestion } from "lucide-react";
 import { redirect } from "next/navigation";
 import { Toaster } from "sonner";
-import car1 from "./imgs/car-1.jpg"
 import car2 from "./imgs/car-2.jpg"
 import car3 from "./imgs/car-3.jpg"
 import car4 from "./imgs/car-4.jpg"
 import car5 from "./imgs/car-5.jpg"
 import ImageSlider from "@/components/navigation/imageslider";
-
-const IMAGES = [
-    { url: car1, alt: "Car One" },
-    { url: car2, alt: "Car Two" },
-    { url: car5, alt: "Car Three" },
-    { url: car4, alt: "Car Four" },
-    { url: car3, alt: "Car Five" },
-];
+import { Ads } from "@/components/ads/ads";
 
 
 const SetupPage = async () => {
-     // Loads the profile of the user
-     const profile = await initailProfile();
+    //  // Loads the profile of the user
+    //  const profile = await initailProfile();
 
-     // Looking for collabs the user is in
-     const server = await db.server.findFirst({
-         where: {
-             members: {
-                some: {
-                     profileId: profile.id
-                 }
-             }
-         }
-    });
+    //  // Looking for collabs the user is in
+    //  const server = await db.server.findFirst({
+    //      where: {
+    //          members: {
+    //             some: {
+    //                  profileId: profile.id
+    //              }
+    //          }
+    //      }
+    // });
     const currprofile = await currentProfile();
     if (!currprofile) {
         return redirect("/")
@@ -66,7 +58,7 @@ const SetupPage = async () => {
     // if (server) {
     // return redirect(`/servers/${server.id}`);
 
-    
+
 
     return (
         <div className="h-full">
@@ -108,14 +100,14 @@ const SetupPage = async () => {
                         </div>
                         {/* <Bell className="mr-4 mt-4 w-6 h-6" /> */}
                         <div id="profile">
-                        <UserButton
-                            afterSignOutUrl="/sign-in"
-                            appearance={{
-                                elements: {
-                                    avatarBox: "h-[50px] w-[50px]",
-                                },
-                            }}
-                        />
+                            <UserButton
+                                afterSignOutUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "h-[60px] w-[60px] border-4 border-purple-700 rounded-full",
+                                    },
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
@@ -150,12 +142,15 @@ const SetupPage = async () => {
                         </div>
                     ))}
                     <div id="create">
-                    <NavigationAction />
+                        <NavigationAction />
                     </div>
                 </div>
-                <div style={{ position: 'fixed', bottom: '20px', right: '20px' }}>
-                    <Help/>
+                <div style={{ position: 'fixed', bottom: '20px', right: '20px', display: 'flex', flexDirection: 'row', justifyContent: "flex-start" }}>
+                    <div style={{ marginRight: '10px',marginTop: '130px'}}><Help /></div>
+                    <div><Ads /></div>
                 </div>
+
+
 
             </main>
         </div>

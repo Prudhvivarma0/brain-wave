@@ -2,7 +2,7 @@ import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import { redirectToSignIn } from "@clerk/nextjs";
+import { UserButton, redirectToSignIn } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { Trophy, Clock } from 'lucide-react';
 import React from "react";
@@ -78,6 +78,16 @@ const ChallengePage = async ({
                     <div className="text-4xl ml-9 mb-4">
                         Welcome to <strong>{challenge.name}</strong>!
                     </div>
+                    <div id="profile">
+                            <UserButton
+                                afterSignOutUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "h-[60px] w-[60px] border-4 border-purple-700 rounded-full",
+                                    },
+                                }}
+                            />
+                        </div>
                 </div>
                 <Separator className="h-[3px] bg-[rgb(56,37,91)] w-full mt-3 mb-10" />
                 <div className="flex items-center justify-center">

@@ -3,7 +3,6 @@
 // Navbar.tsx
 import React from 'react';
 import './comp.css';
-import { redirect } from 'next/navigation';
 
 
 const Navbar: React.FC = () => {
@@ -16,8 +15,12 @@ const Navbar: React.FC = () => {
     </div>
    
     <div className="navbar-end">
+      <a href="/sign-in">
       <button className="button login-btn">Log in</button>
+      </a>
+      <a href="/sign-up">
       <button className="button signup-btn">Sign up</button>
+      </a>
     </div>
   </nav>
   );

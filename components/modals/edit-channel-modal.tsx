@@ -90,7 +90,7 @@ export const EditChannelModal = () => {
             <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Edit Channel
+                        Edit Collab Space
                     </DialogTitle>
                     <DialogDescription className="text-center text-white">
                         Start Collaborating with other members
@@ -105,7 +105,7 @@ export const EditChannelModal = () => {
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel className="uppercase text-xs font-bold text-white dark:text-white ">
-                                            Channel Name
+                                            Collab Name
                                         </FormLabel>
                                         <FormControl>
                                             <Input
@@ -120,40 +120,7 @@ export const EditChannelModal = () => {
                                     </FormItem>
                                 )}
                                 />
-                                <FormField
-                                    control={form.control}
-                                    name="type"
-                                    render={({field}) => (
-                                        <FormItem>
-                                            <FormLabel>
-                                                Channel type
-                                            </FormLabel>
-                                            <Select
-                                            disabled={isLoading}
-                                            onValueChange={field.onChange}
-                                            defaultValue={field.value}
-                                            >
-                                                <FormControl>
-                                                    <SelectTrigger className="bg-white border-0 focus:ring-0 text-black ring-offset-0 focus:ring-offset-0 capitalize outline-none">
-                                                        <SelectValue placeholder = "Select a channel type"/>
-                                                    </SelectTrigger>
-                                                </FormControl>
-                                                <SelectContent>
-                                                    {Object.values(ChannelType).map((type) => (
-                                                        <SelectItem
-                                                        key={type}
-                                                        value={type}
-                                                        className="capitalize"
-                                                        >
-                                                            {type.toLowerCase()}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
-                                            <FormMessage/>
-                                        </FormItem>
-                                    )}
-                                />
+                                
 
                             </div>
                             <DialogFooter className="bg-grey-100 px-6 py-4">

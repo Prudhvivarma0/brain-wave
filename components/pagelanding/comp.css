@@ -54,7 +54,7 @@ body {
   transform: translateY(-50%); /* Centers the box vertically */
   width: 23rem;
   left: 3%; /* Move to the right by 20px; adjust as needed */
-  top: 27%; /* Adjust to the width you want */
+  top: 28.5%; /* Adjust to the width you want */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
   
   white-space: nowrap;  /* Optional: Adds a subtle shadow */
@@ -254,7 +254,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the items horizontally */
-    margin-left: 8%;
+    margin-left: 12%;
   }
   .image-caption3{
    

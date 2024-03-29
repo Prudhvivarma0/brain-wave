@@ -4,11 +4,9 @@ import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import { Separator } from "@/components/ui/separator";
 import { currentProfile } from "@/lib/current-profile";
 import { db } from "@/lib/db";
-import { ChevronLeft } from "lucide-react";
 import { redirect } from "next/navigation";
 // import Editor from "@/components/editor/editor";
 // import { Editor } from '@tinymce/tinymce-react';
-import TextEditors from "@/components/editor/TextEditorr";
 import Calender from "@/components/calender/calender";
 import { UserButton } from "@clerk/nextjs";
 

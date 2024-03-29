@@ -56,10 +56,13 @@ const Challenges = async ({ params }: ChallengesProps) => {
                                     }
                                 ]}
                             />
-                    <ChalRecom/>
+                    
                     </div>
                         </div>
-                        <div id="profile">
+                        <div id="profile" className="flex flex-row gap-4">
+                            <div className="mt-2">
+                                <ChalRecom/>
+                            </div>
                             <UserButton
                                 afterSignOutUrl="/sign-in"
                                 appearance={{

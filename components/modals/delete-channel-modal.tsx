@@ -52,7 +52,7 @@ export const DeleteChannelModal = () => {
             <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Delete Channel
+                        Delete Collab Space
                     </DialogTitle>
                     <DialogDescription className="text-center text-white">
                         Are you sure you want to "<span className="text-rose-500 font-bold">DELETE {channel?.name.toUpperCase()}</span>" ?

@@ -85,7 +85,7 @@ export const CreateChannelModal = () => {
             <DialogContent className="bg-[rgb(92,41,96)] dark:bg-[#301934] text-white p-0 overflow-hidden">
                 <DialogHeader className="pt-8 px-6">
                     <DialogTitle className="text-2xl text-center font-bold">
-                        Create Channel
+                        Create Collab Space
                     </DialogTitle>
                     <DialogDescription className="text-center text-white">
                         Start Collaborating with other members

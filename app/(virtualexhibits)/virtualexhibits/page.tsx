@@ -36,7 +36,10 @@ const VirtualExhibits = async () => {
                     <div className="text-4xl ml-9 mb-5 ">
                         <strong>VIRTUAL EXHIBITS</strong>
                     </div>
-                    <div id="profile">
+                        <div id="profile" className="flex flex-row gap-4">
+                            <div className="mt-2">
+                                <ExiRecom/>
+                            </div>
                             <UserButton
                                 afterSignOutUrl="/sign-in"
                                 appearance={{
@@ -45,8 +48,10 @@ const VirtualExhibits = async () => {
                                     },
                                 }}
                             />
-                        </div>
-                    <ExiRecom/>
+                            
+                    </div>
+                    
+                    
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
                 <div className="pl-[1px] justify-center md:pl-[140px]">

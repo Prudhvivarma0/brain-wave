@@ -12,7 +12,7 @@ const LandingPage: React.FC = () => {
     </div>
 
     <div className="content-body">
-  <h1>Teamwork -  <TypedText  />  </h1>
+  <h1 style={{ fontWeight: "bold"}}>Teamwork -  <TypedText  />  </h1>
   <p>Get more and better results by working together.</p>
   <p>Explore Video Calls, Instant Messaging, Collaboration Boards and much more. Teamwork was never easier!</p>
 </div>

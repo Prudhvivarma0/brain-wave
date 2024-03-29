@@ -254,7 +254,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centers the items horizontally */
-    margin-left: 4%;
+    margin-left: 8%;
   }
   .image-caption3{
    

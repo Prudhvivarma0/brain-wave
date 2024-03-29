@@ -9,6 +9,7 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import React from 'react';
+import { UserButton } from "@clerk/nextjs";
 
 interface ChallengesProps {
     params: {
@@ -38,17 +39,35 @@ const Challenges = async ({ params }: ChallengesProps) => {
                     <div className="text-4xl ml-9 mb-5">
                         <strong>CHALLENGES</strong>
                     </div>
-                    <ServerSearch
-                        data={[
-                            {
-                                label: "Challenges",
-                                type: "challenge",
-                                data: challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
-                                    .map(challenge => ({ id: challenge.id, name: challenge.name, }))
-                            }
-                        ]}
-                    />
+                    <div className="flex space-x-4">
+                        <div className="ml-180" style={{ marginTop: '10px' }} >
+                            <ServerSearch
+                                data={[
+                                    {
+                                        label: "Challenges",
+                                        type: "challenge",
+                                        data: challenges
+                                            .filter(challenge =>
+                                                server.some(server => server.id === challenge.serverId)
+                                            )
+                                            .map(challenge => ({ id: challenge.id, name: challenge.name }))
+                                    }
+                                ]}
+                            />
+                        </div>
+                        <div id="profile">
+                            <UserButton
+                                afterSignOutUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "h-[60px] w-[60px] border-4 border-purple-700 rounded-full",
+                                    },
+                                }}
+                            />
+                        </div>
+                    </div>
                 </div>
+
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
                 <div className="flex items-center pt-[20px] pl-[30px]">
                     <div><div style={{ marginRight: '20px' }}>
@@ -78,7 +97,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
                     {challenges.filter(challenge => server.some(server => server.id === challenge.serverId))
                         .map((challenge) => (
                             <div key={challenge.id} className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
-                               
+
                                 <NavigationItem
                                     id={challenge.id}
                                     name={challenge.name}
@@ -88,8 +107,8 @@ const Challenges = async ({ params }: ChallengesProps) => {
                                     img={challenge.imgUrl}
                                 />
                             </div>
-                            
-                            
+
+
                         ))}
                 </div>
 
@@ -100,4 +119,4 @@ const Challenges = async ({ params }: ChallengesProps) => {
     );
 }
 
-export default Challenges;
+export default Challenges;

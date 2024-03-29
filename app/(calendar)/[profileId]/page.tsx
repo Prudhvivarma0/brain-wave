@@ -10,6 +10,7 @@ import { redirect } from "next/navigation";
 // import { Editor } from '@tinymce/tinymce-react';
 import TextEditors from "@/components/editor/TextEditorr";
 import Calender from "@/components/calender/calender";
+import { UserButton } from "@clerk/nextjs";
 
 
 const TextEditor = async () => {
@@ -40,10 +41,18 @@ const TextEditor = async () => {
                         <div className="flex items-center justify-between mt-5">
                             <div className="text-4xl ml-9">
                                 <strong>Calendar</strong>
+                                
                             </div>
-                            <a href={`/`}>
-                                <ChevronLeft />
-                            </a>
+                            <div id="profile">
+                            <UserButton
+                                afterSignOutUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "h-[60px] w-[60px] border-4 border-purple-700 rounded-full",
+                                    },
+                                }}
+                            />
+                        </div> 
                         </div>
                         <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-4 mb-6" />
                     </div>

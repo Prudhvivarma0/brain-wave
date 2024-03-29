@@ -12,9 +12,9 @@ const LandingPage: React.FC = () => {
     </div>
 
     <div className="content-body">
-  <h1>Teamwork -  <TypedText  />  </h1>
+  <h1 style={{ fontWeight: "bold"}}>Teamwork -  <TypedText  />  </h1>
   <p>Get more and better results by working together.</p>
-  <p>Explore Video Calls, Instant Messaging, Screensharing and much more. Teamwork was never easier!</p>
+  <p>Explore Video Calls, Instant Messaging, Collaboration Boards and much more. Teamwork was never easier!</p>
 </div>
 
 
@@ -22,7 +22,6 @@ const LandingPage: React.FC = () => {
       <a href="https://www.instagram.com/realcodecraft_?igsh=aWVmNWo4Ymhrc3Mw" className="custom-button-link" target="_blank" rel="noopener noreferrer">
       <button className="custom-button">Visit Our Socials</button>
       </a>
-      {/* <Link to="/get-started" className="custom-button-link"> add link here to connect page */}
       <a href="/sign-in">
       <button className="custom-button">Get Started!</button>
       </a>

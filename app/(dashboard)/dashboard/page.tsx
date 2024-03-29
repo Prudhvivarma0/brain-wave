@@ -8,6 +8,7 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import "@/app/(dashboard)/dashboard/styles.css"
 import BanButton from '@/components/banButton/banButton1';
+import { UserButton } from "@clerk/nextjs";
 
 const Dashboard = async () => {
 
@@ -60,6 +61,16 @@ const Dashboard = async () => {
                     <div className="text-4xl ml-9 mb-5 ">
                         <strong>Dashboard</strong>
                     </div>
+                    <div id="profile">
+                            <UserButton
+                                afterSignOutUrl="/sign-in"
+                                appearance={{
+                                    elements: {
+                                        avatarBox: "h-[60px] w-[60px] border-4 border-purple-700 rounded-full",
+                                    },
+                                }}
+                            />
+                        </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2 mb-6" />
                 <div className="ml-2 mt-2 flex flex-row gap-20 text-black">

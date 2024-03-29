@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from "uuid";
 // Posting to prisma
 export async function POST(req: Request) {
     try {
-        const {userNamee,name,content} = await req.json();
+        const {reportee, reporter, content} = await req.json();
         const profile = await currentProfile();
 
         if (!profile) {
@@ -16,8 +16,8 @@ export async function POST(req: Request) {
         const report = await db.userReport.create({
             data: {
                 id:uuidv4(),
-                reportee:userNamee,
-                reporter:name,
+                reportee:reportee,
+                reporter:reporter,
                 content:content
             }
         });

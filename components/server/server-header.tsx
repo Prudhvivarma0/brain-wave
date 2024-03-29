@@ -3,7 +3,7 @@
 import { useModal } from "@/hooks/use-modal-store"
 import { ServerWithMembersWithProfiles } from "@/types"
 import { MemberRole } from "@prisma/client"
-import { FileBarChart2, LogOut, Settings, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
+import { FileBarChart2, LogOut, MessageSquareWarning, Settings, Settings2, Text, Trash2, UserPlus2, Users2 } from "lucide-react"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../ui/dropdown-menu"
 import { db } from "@/lib/db"
 import { jsPDF } from "jspdf";
@@ -178,6 +178,16 @@ export const ServerHeader = ({
 
                         </DropdownMenuItem>
                     )} */}
+                    {(!isAdmin || isAdmin) && (
+                        <DropdownMenuItem
+                            className="px-3 py-2 text-sm cursor-pointer "
+                            onClick={() => onOpen("userReport")}
+                        >
+                            <MessageSquareWarning className="h-4 w-4 mr-9" />
+                            Report 
+
+                        </DropdownMenuItem>
+                    )}
                     {isAdmin && (
                         <DropdownMenuItem
                             className="px-3 py-2 text-sm cursor-pointer text-rose-500"
@@ -198,6 +208,7 @@ export const ServerHeader = ({
 
                         </DropdownMenuItem>
                     )}
+
                 </DropdownMenuContent>
             </DropdownMenu>
         </div>

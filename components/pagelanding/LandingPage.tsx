@@ -23,8 +23,9 @@ const LandingPage: React.FC = () => {
       <button className="custom-button">Visit Our Socials</button>
       </a>
       {/* <Link to="/get-started" className="custom-button-link"> add link here to connect page */}
+      <a href="/sign-in">
       <button className="custom-button">Get Started!</button>
-      {/* </Link> */}
+      </a>
     </div>
     <img src="/collaborate.svg" alt="Description" className="myImage" />
     

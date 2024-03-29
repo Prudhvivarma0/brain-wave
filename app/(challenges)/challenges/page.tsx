@@ -9,6 +9,7 @@ import { db } from "@/lib/db";
 import { redirect } from "next/navigation";
 import Image from 'next/image';
 import React from 'react';
+import ChalRecom from "@/components/navigation/challengeRecommendations";
 
 interface ChallengesProps {
     params: {
@@ -38,6 +39,7 @@ const Challenges = async ({ params }: ChallengesProps) => {
                     <div className="text-4xl ml-9 mb-5">
                         <strong>CHALLENGES</strong>
                     </div>
+                    <div className="flex flex-row gap-3">
                     <ServerSearch
                         data={[
                             {
@@ -48,6 +50,8 @@ const Challenges = async ({ params }: ChallengesProps) => {
                             }
                         ]}
                     />
+                    <ChalRecom/>
+                    </div>
                 </div>
                 <Separator className="h-[3px] dark:bg-[rgb(92,41,96)] bg-[rgb(56,37,91)] w-full mt-2" />
                 <div className="flex items-center pt-[20px] pl-[30px]">

@@ -48,8 +48,7 @@ Video/Audio Calls: Zegocloud SDK
    ```bash
    npm install
 
-
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
@@ -81,7 +80,7 @@ Create Teams and Collaborate: Set up teams, initiate video calls, and collaborat
 
 Create Challenges and Exhibits: Host challenges or showcase work through virtual exhibits.
 
-📂 Project Structure
+# 📂Project Structure
 
 app/: Core app pages and components.
 
@@ -94,7 +93,7 @@ public/: Static assets.
 tailwind.config.ts: Tailwind CSS configuration for styling.
 
 
-👥 Contributors
+# 👥 Contributors
 
 Developed and maintained by Group 9, F29SO.-Heriot Watt University Dubai -2023
 # brain-wave

@@ -1,7 +1,45 @@
 # Brain-Wave Project 🌐
+Welcome to Brainwave, an innovative platform for real-time collaboration. Brainwave is designed to support users in communication, idea-sharing, and project management, providing essential tools such as messaging, video calls, a collaborative whiteboard, and text editing for seamless teamwork.
 
-This is the repository for the **Brain-Wave** project. This project leverages **Next.js** and **TypeScript** to build a high-performance web application, optimized for smooth functionality and an efficient user experience.
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+Project Overview
+Brainwave was developed to address the needs of users who require robust tools for remote and hybrid work environments. The platform combines essential features such as video conferencing, collaborative whiteboards, text editing, and challenges to foster teamwork and creativity.
+
+Features
+
+Messaging: Real-time messaging for team communication.
+
+Video and Voice Calls: High-quality audio and video calls.
+
+Collaborative Whiteboard: A shared whiteboard for team brainstorming and visual collaboration.
+
+Text Editor: A rich text editor for collaborative document editing.
+
+Challenges: Engage in friendly competition through challenges.
+
+Virtual Exhibits: Showcase work in virtual spaces to the Brainwave community.
+
+Calendar: Schedule and manage events efficiently.
+
+Admin Dashboard: Comprehensive dashboard for system administrators to monitor platform activity.
+
+
+
+Technology Stack
+
+Frontend: Next.js, Tailwind CSS, TypeScript
+
+Backend: Node.js, Prisma ORM
+
+Database: PlanetScale (MySQL), MongoDB 
+
+Media Storage: UploadThing
+
+Authentication: Clerk API
+
+Real-Time Collaboration: Tldraw (for Whiteboard), Quill (for Text Editor), Yjs and Socket.IO for synchronization
+Video/Audio Calls: Zegocloud SDK
 
 ## 🚀 Getting Started
 
@@ -25,8 +63,6 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -35,6 +71,15 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+
+Usage
+
+Sign Up/Login: Users can register using their email or social accounts.
+
+Create Teams and Collaborate: Set up teams, initiate video calls, and collaborate in real-time.
+
+Create Challenges and Exhibits: Host challenges or showcase work through virtual exhibits.
 
 📂 Project Structure
 
@@ -48,11 +93,6 @@ public/: Static assets.
 
 tailwind.config.ts: Tailwind CSS configuration for styling.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 👥 Contributors
 

@@ -96,4 +96,3 @@ tailwind.config.ts: Tailwind CSS configuration for styling.
 # 👥 Contributors
 
 Developed and maintained by Group 9, F29SO.-Heriot Watt University Dubai -2023
-# brain-wave

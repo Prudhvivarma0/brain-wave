@@ -3,10 +3,11 @@ Welcome to Brainwave, an innovative platform for real-time collaboration. Brainw
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Project Overview
+# Project Overview
+
 Brainwave was developed to address the needs of users who require robust tools for remote and hybrid work environments. The platform combines essential features such as video conferencing, collaborative whiteboards, text editing, and challenges to foster teamwork and creativity.
 
-Features
+# Features
 
 Messaging: Real-time messaging for team communication.
 
@@ -26,7 +27,7 @@ Admin Dashboard: Comprehensive dashboard for system administrators to monitor pl
 
 
 
-Technology Stack
+# Technology Stack
 
 Frontend: Next.js, Tailwind CSS, TypeScript
 
@@ -47,7 +48,6 @@ Video/Audio Calls: Zegocloud SDK
    ```bash
    npm install
 
-## Getting Started
 
 First, run the development server:
 
@@ -73,7 +73,7 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 
-Usage
+# Usage
 
 Sign Up/Login: Users can register using their email or social accounts.
 

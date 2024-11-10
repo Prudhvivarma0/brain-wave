@@ -37,10 +37,15 @@ To learn more about Next.js, take a look at the following resources:
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
 📂 Project Structure
+
 app/: Core app pages and components.
+
 components/: Reusable UI components.
+
 pages/api/: API routes powered by Next.js.
+
 public/: Static assets.
+
 tailwind.config.ts: Tailwind CSS configuration for styling.
 
 ## Deploy on Vercel
@@ -50,5 +55,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 👥 Contributors
+
 Developed and maintained by Group 9, F29SO.-Heriot Watt University Dubai -2023
 # brain-wave
